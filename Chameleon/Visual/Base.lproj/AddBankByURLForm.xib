@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6250" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AddBankByURLForm">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Введите URL сервера банка" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="K71-wc-HbB">
+                    <rect key="frame" x="27" y="29" width="546" height="30"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" keyboardType="URL"/>
+                </textField>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="URL" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r1i-bt-woq">
+                    <rect key="frame" x="35" y="33" width="42" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Необязательно" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UTL-Rc-2LT">
+                    <rect key="frame" x="27" y="73" width="546" height="30"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="ID банка" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PWF-vG-f8S">
+                    <rect key="frame" x="35" y="77" width="108" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" lineBreakMode="wordWrap" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CUY-DW-xPL">
+                    <rect key="frame" x="27" y="119" width="546" height="67"/>
+                    <string key="text">URL банка, а также логин и пароль для входа, выдает банк. Если ваш банк не поддерживает мобильный доступ через данное приложение, то вход в систему будет невозможен.</string>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="K71-wc-HbB" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="27" id="78F-GB-76M"/>
+                <constraint firstAttribute="trailing" secondItem="CUY-DW-xPL" secondAttribute="trailing" constant="27" id="D4w-w9-CSh"/>
+                <constraint firstItem="r1i-bt-woq" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="35" id="KLR-N2-9Gz"/>
+                <constraint firstItem="CUY-DW-xPL" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="27" id="Nng-eN-gId"/>
+                <constraint firstItem="r1i-bt-woq" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="33" id="SNX-J1-AnI"/>
+                <constraint firstAttribute="trailing" secondItem="K71-wc-HbB" secondAttribute="trailing" constant="27" id="U0Z-Nq-ECi"/>
+                <constraint firstItem="PWF-vG-f8S" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="35" id="ghd-k5-cLw"/>
+                <constraint firstItem="PWF-vG-f8S" firstAttribute="top" secondItem="K71-wc-HbB" secondAttribute="bottom" constant="18" id="mHO-tD-IuO"/>
+                <constraint firstAttribute="trailing" secondItem="UTL-Rc-2LT" secondAttribute="trailing" constant="27" id="sCN-1X-8BY"/>
+                <constraint firstItem="UTL-Rc-2LT" firstAttribute="top" secondItem="K71-wc-HbB" secondAttribute="bottom" constant="14" id="uwv-O4-XZF"/>
+                <constraint firstItem="K71-wc-HbB" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="29" id="v01-iC-CyD"/>
+                <constraint firstItem="CUY-DW-xPL" firstAttribute="top" secondItem="UTL-Rc-2LT" secondAttribute="bottom" constant="16" id="vga-C7-3nh"/>
+                <constraint firstItem="UTL-Rc-2LT" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="27" id="xzS-cl-rky"/>
+            </constraints>
+        </view>
+    </objects>
+</document>

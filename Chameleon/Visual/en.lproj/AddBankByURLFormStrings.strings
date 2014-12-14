@@ -1,0 +1,11 @@
+/* 
+  AddBankByURLFormStrings.strings
+  Chameleon
+
+  Created by Volchik on 13.12.14.
+  Copyright (c) 2014 Volchik. All rights reserved.
+*/
+
+"NavigationBarTitle" = "Add by URL";
+"NavigationBarTitle_iPhone" = "by URL";
+"AddButtonTitle" = "Add";

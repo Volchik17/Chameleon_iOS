@@ -1,0 +1,12 @@
+
+/* Class = "IBUILabel"; text = "МОБИЛЬНЫЙ БИЗНЕС КЛИЕНТ"; ObjectID = "HMP-D4-xAA"; */
+"HMP-D4-xAA.text" = "MOBILE BUISNESS CLIENT";
+
+/* Class = "IBUILabel"; text = "Управляйте документами компаниями, просматривайте информацию по счету. Подходит для большинства российских банков."; ObjectID = "MpI-cF-aDZ"; */
+"MpI-cF-aDZ.text" = "Manage company's documents, examine account information. Suitable for most russian banks.";
+
+/* Class = "IBUIButton"; normalTitle = "Подключить"; ObjectID = "WMy-DP-vsE"; */
+"WMy-DP-vsE.normalTitle" = "Connect";
+
+/* Class = "IBUIButton"; normalTitle = "Демо"; ObjectID = "gub-H2-L5m"; */
+"gub-H2-L5m.normalTitle" = "Demo";

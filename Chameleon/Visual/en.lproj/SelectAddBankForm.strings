@@ -1,0 +1,9 @@
+
+/* Class = "IBUINavigationItem"; title = "Выберите банк"; ObjectID = "N3T-xx-OgM"; */
+"N3T-xx-OgM.title" = "Select bank";
+
+/* Class = "IBUIBarButtonItem"; title = "Подключить по URL"; ObjectID = "cxT-hX-FuO"; */
+"cxT-hX-FuO.title" = "Add by URL";
+
+/* Class = "IBUIBarButtonItem"; title = "Отмена"; ObjectID = "hdA-JY-Ig2"; */
+"hdA-JY-Ig2.title" = "Cancel";

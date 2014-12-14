@@ -7,6 +7,9 @@
 //
 
 #import "AppDelegate.h"
+#import "Application.h"
+#import "BankList.h"
+#import "NoBanksLoginForm.h"
 
 @interface AppDelegate ()
 
@@ -17,6 +20,24 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+    
+    if (APP.banks.count==0)
+    {
+        self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+        NoBanksLoginForm *viewController = [[NoBanksLoginForm alloc] initWithNibName:@"NoBanksLoginForm" bundle:nil];
+        /*UINavigationController* navigationController=[[UINavigationController alloc] initWithRootViewController:viewController];
+        //navigationController.navigationBarHidden = NO;//YES;
+        navigationController.navigationBar.translucent = YES;
+        [navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
+        [navigationController.navigationBar setShadowImage:[UIImage new]];
+        self.window.rootViewController = navigationController;*/
+        self.window.rootViewController = viewController;
+        [self.window makeKeyAndVisible];
+    }
+    else
+    {
+    }
     return YES;
 }
 

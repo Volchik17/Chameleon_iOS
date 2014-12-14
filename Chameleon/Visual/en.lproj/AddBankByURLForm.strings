@@ -1,0 +1,15 @@
+
+/* Class = "IBUILabel"; text = "URL банка, а также логин и пароль для входа, выдает банк. Если ваш банк не поддерживает мобильный доступ через данное приложение, то вход в систему будет невозможен."; ObjectID = "CUY-DW-xPL"; */
+"CUY-DW-xPL.text" = " Bank URL as well as login and password are delivered to you by your bank. If your bank does not support access thruough this application then login will be unavailable.";
+
+/* Class = "IBUITextField"; placeholder = "Введите URL сервера банка"; ObjectID = "K71-wc-HbB"; */
+"K71-wc-HbB.placeholder" = "URL of bank server";
+
+/* Class = "IBUILabel"; text = "ID банка"; ObjectID = "PWF-vG-f8S"; */
+"PWF-vG-f8S.text" = "Bank ID";
+
+/* Class = "IBUITextField"; placeholder = "Необязательно"; ObjectID = "UTL-Rc-2LT"; */
+"UTL-Rc-2LT.placeholder" = "Optional";
+
+/* Class = "IBUILabel"; text = "URL"; ObjectID = "r1i-bt-woq"; */
+"r1i-bt-woq.text" = "URL";

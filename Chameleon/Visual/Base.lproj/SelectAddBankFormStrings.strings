@@ -1,0 +1,15 @@
+/* 
+  SelectAddBankFormStrings.strings
+  Chameleon
+
+  Created by Volchik on 11.12.14.
+  Copyright (c) 2014 Volchik. All rights reserved.
+*/
+
+"NavigationBarTitle" = "Выберите банк";
+"NavigationBarTitle_iPhone" = "Банк";
+"ConnectByURLButtonTitle" = "Подключить по URL";
+"ConnectByURLButtonTitle_iPhone" = "по URL";
+"CancelButtonTitle" = "Отмена";
+"BackButtonTitle" = "Список банков";
+"BackButtonTitle_iPhone" = "Список";
