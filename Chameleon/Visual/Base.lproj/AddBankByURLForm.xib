@@ -6,6 +6,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AddBankByURLForm">
             <connections>
+                <outlet property="activityIndicator" destination="NYn-yh-2V7" id="0Lr-z2-vpH"/>
+                <outlet property="bankIdEdit" destination="UTL-Rc-2LT" id="EoF-Qc-oM1"/>
+                <outlet property="urlEdit" destination="K71-wc-HbB" id="Zme-Cq-8I4"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -43,17 +46,22 @@
                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="NYn-yh-2V7">
+                    <rect key="frame" x="290" y="290" width="20" height="20"/>
+                </activityIndicatorView>
             </subviews>
             <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
             <constraints>
                 <constraint firstItem="K71-wc-HbB" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="27" id="78F-GB-76M"/>
                 <constraint firstAttribute="trailing" secondItem="CUY-DW-xPL" secondAttribute="trailing" constant="27" id="D4w-w9-CSh"/>
+                <constraint firstAttribute="centerY" secondItem="NYn-yh-2V7" secondAttribute="centerY" id="JJo-Ty-ce2"/>
                 <constraint firstItem="r1i-bt-woq" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="35" id="KLR-N2-9Gz"/>
                 <constraint firstItem="CUY-DW-xPL" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="27" id="Nng-eN-gId"/>
                 <constraint firstItem="r1i-bt-woq" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="33" id="SNX-J1-AnI"/>
                 <constraint firstAttribute="trailing" secondItem="K71-wc-HbB" secondAttribute="trailing" constant="27" id="U0Z-Nq-ECi"/>
                 <constraint firstItem="PWF-vG-f8S" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="35" id="ghd-k5-cLw"/>
                 <constraint firstItem="PWF-vG-f8S" firstAttribute="top" secondItem="K71-wc-HbB" secondAttribute="bottom" constant="18" id="mHO-tD-IuO"/>
+                <constraint firstAttribute="centerX" secondItem="NYn-yh-2V7" secondAttribute="centerX" id="p9W-16-SvY"/>
                 <constraint firstAttribute="trailing" secondItem="UTL-Rc-2LT" secondAttribute="trailing" constant="27" id="sCN-1X-8BY"/>
                 <constraint firstItem="UTL-Rc-2LT" firstAttribute="top" secondItem="K71-wc-HbB" secondAttribute="bottom" constant="14" id="uwv-O4-XZF"/>
                 <constraint firstItem="K71-wc-HbB" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="29" id="v01-iC-CyD"/>

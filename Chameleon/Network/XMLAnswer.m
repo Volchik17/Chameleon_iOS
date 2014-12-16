@@ -21,6 +21,7 @@
     HierarchicalXMLParser* parser=[[HierarchicalXMLParser alloc] init];
     __weak XMLAnswer* weakself=self;
     parser.errorHandler=weakself;
+    NSLog(@"%@",[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
     [parser parseWithData:data rootParser:weakself];
     return lastError;
 }

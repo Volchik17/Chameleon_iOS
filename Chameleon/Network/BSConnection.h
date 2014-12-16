@@ -18,6 +18,6 @@
 
 +(instancetype) plainConnectionToURL:(NSString*) url;
 
--(void) runRequest:(Request*) request completionHandler:(void (^)(Answer* answer, NSError *error))completionHandler;
+-(NSURLSessionTask*) runRequest:(Request*) request completionHandler:(void (^)(Answer* answer, NSError *error))completionHandler;
 
 @end

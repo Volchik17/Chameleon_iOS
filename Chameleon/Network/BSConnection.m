@@ -32,7 +32,7 @@
     return connection;
 }
 
--(void) runRequest:(Request*) request completionHandler:(void (^)(Answer* answer, NSError *error))completionHandler
+-(NSURLSessionTask*) runRequest:(Request*) request completionHandler:(void (^)(Answer* answer, NSError *error))completionHandler
 {
     NSURLRequest* urlRequest=[request urlRequestForConnection:self];
     NSURLSessionDataTask *dataTask = [self.urlSession dataTaskWithRequest:urlRequest completionHandler:^(NSData *data, NSURLResponse *response, NSError *error)
@@ -57,6 +57,7 @@
         }
     } ];
     [dataTask resume];
+    return dataTask;
 }
 
 @end

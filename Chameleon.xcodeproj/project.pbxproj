@@ -22,6 +22,8 @@
 		1BADCAF01A274A11007148B0 /* BankList.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BADCAEF1A274A11007148B0 /* BankList.m */; };
 		1BAF77511A348A39009CEEF9 /* BSConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BAF77501A348A39009CEEF9 /* BSConnection.m */; };
 		1BAF77711A34B2F9009CEEF9 /* BankListFromCatalogRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BAF77701A34B2F9009CEEF9 /* BankListFromCatalogRequest.m */; };
+		1BB22A7F1A3EBB8800F758D3 /* PingRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BB22A7E1A3EBB8800F758D3 /* PingRequest.m */; };
+		1BB22A821A3EBC8000F758D3 /* PingAnswer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BB22A811A3EBC8000F758D3 /* PingAnswer.m */; };
 		1BB6103C1A25AAE30096F7D4 /* ExtendedHitAreaViewContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BB6103B1A25AAE30096F7D4 /* ExtendedHitAreaViewContainer.m */; };
 		1BB610501A25C3DE0096F7D4 /* BankCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BB6104E1A25C3DE0096F7D4 /* BankCardViewController.m */; };
 		1BB610511A25C3DE0096F7D4 /* BankCardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1BB6104F1A25C3DE0096F7D4 /* BankCardViewController.xib */; };
@@ -97,6 +99,10 @@
 		1BAF77501A348A39009CEEF9 /* BSConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BSConnection.m; sourceTree = "<group>"; };
 		1BAF776F1A34B2F9009CEEF9 /* BankListFromCatalogRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BankListFromCatalogRequest.h; sourceTree = "<group>"; };
 		1BAF77701A34B2F9009CEEF9 /* BankListFromCatalogRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BankListFromCatalogRequest.m; sourceTree = "<group>"; };
+		1BB22A7D1A3EBB8800F758D3 /* PingRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PingRequest.h; sourceTree = "<group>"; };
+		1BB22A7E1A3EBB8800F758D3 /* PingRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PingRequest.m; sourceTree = "<group>"; };
+		1BB22A801A3EBC8000F758D3 /* PingAnswer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PingAnswer.h; sourceTree = "<group>"; };
+		1BB22A811A3EBC8000F758D3 /* PingAnswer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PingAnswer.m; sourceTree = "<group>"; };
 		1BB6103A1A25AAE30096F7D4 /* ExtendedHitAreaViewContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExtendedHitAreaViewContainer.h; sourceTree = "<group>"; };
 		1BB6103B1A25AAE30096F7D4 /* ExtendedHitAreaViewContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExtendedHitAreaViewContainer.m; sourceTree = "<group>"; };
 		1BB6104D1A25C3DE0096F7D4 /* BankCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BankCardViewController.h; sourceTree = "<group>"; };
@@ -319,6 +325,10 @@
 				1BF6DADB1A3836E100482F7A /* BankImageFromCatalogAnswer.m */,
 				1BF6DADD1A38370700482F7A /* BankImageFromCatalogRequest.h */,
 				1BF6DADE1A38370700482F7A /* BankImageFromCatalogRequest.m */,
+				1BB22A7D1A3EBB8800F758D3 /* PingRequest.h */,
+				1BB22A7E1A3EBB8800F758D3 /* PingRequest.m */,
+				1BB22A801A3EBC8000F758D3 /* PingAnswer.h */,
+				1BB22A811A3EBC8000F758D3 /* PingAnswer.m */,
 			);
 			path = Requests;
 			sourceTree = "<group>";
@@ -519,6 +529,7 @@
 				1B64A8301A208D8D00541A01 /* ViewController.m in Sources */,
 				1BB6109B1A25C5980096F7D4 /* DataType.m in Sources */,
 				1BAC18391A2AD94E00A45FAF /* NoBanksLoginForm.m in Sources */,
+				1BB22A7F1A3EBB8800F758D3 /* PingRequest.m in Sources */,
 				1BB70BFE1A36C291007711D3 /* HierarchicalXMLParser.m in Sources */,
 				1BB70C041A36E0DE007711D3 /* XMLAnswer.m in Sources */,
 				1BAF77511A348A39009CEEF9 /* BSConnection.m in Sources */,
@@ -532,6 +543,7 @@
 				1BB6103C1A25AAE30096F7D4 /* ExtendedHitAreaViewContainer.m in Sources */,
 				1BB6109A1A25C5980096F7D4 /* CustomRecord.m in Sources */,
 				1BADCAED1A2746E1007148B0 /* Bank.m in Sources */,
+				1BB22A821A3EBC8000F758D3 /* PingAnswer.m in Sources */,
 				1BB8BF111A2843C00063E1AB /* BankConnection.m in Sources */,
 				1BB70BFB1A36A875007711D3 /* CatalogBankInfo.m in Sources */,
 				1BBF6D371A3AD69C00CE6797 /* AddBankByURLForm.m in Sources */,

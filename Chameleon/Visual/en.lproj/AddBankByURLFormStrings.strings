@@ -9,3 +9,7 @@
 "NavigationBarTitle" = "Add by URL";
 "NavigationBarTitle_iPhone" = "by URL";
 "AddButtonTitle" = "Add";
+"BankNotFoundTitle" = "Bank not found";
+"BankWithIDNotFound" = "Bank with specified ID was not found at this URL. Try with empty url and select bank from list.";
+"NoBanksOnServer" = "No banks were found at this URL.";
+"UrlRequestError" = "There are no servers at this URL.";

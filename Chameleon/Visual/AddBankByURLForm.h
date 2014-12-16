@@ -9,6 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @interface AddBankByURLForm : UIViewController
-@property (weak, nonatomic) IBOutlet UINavigationItem *navItem;
-
+{
+    NSURLSessionTask* currentTask;
+}
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
+@property (weak, nonatomic) IBOutlet UITextField *urlEdit;
+@property (weak, nonatomic) IBOutlet UITextField *bankIdEdit;
 @end

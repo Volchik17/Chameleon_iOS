@@ -9,3 +9,7 @@
 "NavigationBarTitle" = "Подключение по URL";
 "NavigationBarTitle_iPhone" = "по URL";
 "AddButtonTitle" = "Подключить";
+"BankNotFoundTitle" = "Банк не найден.";
+"BankWithIDNotFound" = "Банк с указанным ID не найден по данному URL. Попробуйте указать пустой ID и выбрать банк из списка.";
+"NoBanksOnServer" = "По данному URL не найдено ни одного банка.";
+"UrlRequestError" = "По данному URL сервер системы не обнаружен.";
