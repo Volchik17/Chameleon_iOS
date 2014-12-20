@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "ITaskHandler.h"
 @class Request;
 @class Answer;
 
@@ -18,6 +19,6 @@
 
 +(instancetype) plainConnectionToURL:(NSString*) url;
 
--(NSURLSessionTask*) runRequest:(Request*) request completionHandler:(void (^)(Answer* answer, NSError *error))completionHandler;
+-(id<ITaskHandler>) runRequest:(Request*) request completionHandler:(void (^)(Answer* answer, NSError *error))completionHandler;
 
 @end

@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "ITaskHandler.h"
 
 #define APP [Application getApplication]
 
@@ -32,10 +33,7 @@
 -(BSConnection*) bankCatalogConnection;
 -(BankConnection*) getConnectionForBankId:(NSString*) bankId;
 
--(void) runRequest:request forBank:(NSString*)bankId onComplete:(void(*)(Answer*,NSError*))onComplete;
--(void) runRequest:request onComplete:(void(*)(Answer*,NSError*))onComplete;
--(Answer*) runImmediateRequest:(Request*)request error:(NSError**) error;
--(Answer*) runImmediateRequest:(Request*)request forBank:(NSString*)bankId error:(NSError**) error;
+-(id<ITaskHandler>) runRequest:(Request*) request forBank:(NSString*)bankId completionHandler:(void (^)(Answer* answer, NSError *error))completionHandler;
 
 +(instancetype) new __attribute__((unavailable("new not available, call getApplication instead")));
 +(instancetype) alloc __attribute__((unavailable("alloc not available, call getApplication instead")));

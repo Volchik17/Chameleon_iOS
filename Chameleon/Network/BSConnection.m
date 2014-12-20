@@ -10,6 +10,7 @@
 #import "Request.h"
 #import "Answer.h"
 #import <objc/message.h>
+#import "NSURLSessionTask+ITaskHandler.h"
 
 @implementation BSConnection
 
@@ -32,7 +33,7 @@
     return connection;
 }
 
--(NSURLSessionTask*) runRequest:(Request*) request completionHandler:(void (^)(Answer* answer, NSError *error))completionHandler
+-(id<ITaskHandler>) runRequest:(Request*) request completionHandler:(void (^)(Answer* answer, NSError *error))completionHandler
 {
     NSURLRequest* urlRequest=[request urlRequestForConnection:self];
     NSURLSessionDataTask *dataTask = [self.urlSession dataTaskWithRequest:urlRequest completionHandler:^(NSData *data, NSURLResponse *response, NSError *error)

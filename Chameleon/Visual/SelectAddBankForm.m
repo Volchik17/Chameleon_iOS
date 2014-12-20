@@ -180,7 +180,7 @@
     // Это чтобы компоненты не прятались под NavigationBar
     if ([self respondsToSelector:@selector(edgesForExtendedLayout)])
         self.edgesForExtendedLayout = UIRectEdgeNone;
-    // Конфинурим список банков
+    // Конфигурим список банков
     _banksDataSource=[[BanksDataSource alloc] initForTableView:_banksTableView];
     _banksTableView.dataSource=_banksDataSource;
     _banksTableView.delegate=self;

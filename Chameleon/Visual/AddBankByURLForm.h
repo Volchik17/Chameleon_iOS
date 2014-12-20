@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ITaskHandler.h"
 
 @interface AddBankByURLForm : UIViewController
 {
-    NSURLSessionTask* currentTask;
+    id<ITaskHandler> currentTask;
 }
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 @property (weak, nonatomic) IBOutlet UITextField *urlEdit;

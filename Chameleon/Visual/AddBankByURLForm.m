@@ -10,10 +10,7 @@
 #import "BSConnection.h"
 #import "PingAnswer.h"
 #import "PingRequest.h"
-
-@interface AddBankByURLForm ()
-
-@end
+#import "SelectBankFromURLForm.h"
 
 @implementation AddBankByURLForm
 
@@ -64,8 +61,10 @@
                      return;
                  } else
                  {
-                   // Несколько банков по одному url. Надо выбрать нужный
-                   //...
+                     SelectBankFromURLForm * selectForm=[[SelectBankFromURLForm alloc] initWithNibName:@"SelectBankFromURLForm" bundle:nil];
+                     selectForm.modalPresentationStyle=UIModalPresentationCurrentContext;
+                     selectForm.url=form.urlEdit.text;
+                     [self.navigationController pushViewController:selectForm animated:YES];
                  }
              }
          }
@@ -98,6 +97,9 @@
     NSString* addButtonTitle=NSLocalizedStringFromTable(@"AddButtonTitle", @"AddBankByURLFormStrings", @"");
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithTitle:addButtonTitle style:UIBarButtonItemStyleDone target:self action:@selector(onAddButtonClick)];
     self.navigationItem.rightBarButtonItem=addButton;
+    NSString* backButtonTitle=NSLocalizedStringFromTable(@"BackButtonTitle", @"AddBankByURLFormStrings", @"");
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:backButtonTitle style:UIBarButtonItemStyleDone target:nil action:nil];
+    self.navigationItem.backBarButtonItem=backButton;
     // Это чтобы компоненты не прятались под NavigationBar
     if ([self respondsToSelector:@selector(edgesForExtendedLayout)])
         self.edgesForExtendedLayout = UIRectEdgeNone;

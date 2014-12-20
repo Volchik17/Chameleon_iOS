@@ -20,6 +20,8 @@
 		1BAD2BD71A357BBC00AF7294 /* XSWINodeWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BAD2BD61A357BBC00AF7294 /* XSWINodeWriter.m */; };
 		1BADCAED1A2746E1007148B0 /* Bank.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BADCAEC1A2746E1007148B0 /* Bank.m */; };
 		1BADCAF01A274A11007148B0 /* BankList.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BADCAEF1A274A11007148B0 /* BankList.m */; };
+		1BAE59DA1A401D0600E4DEDD /* SelectBankFromURLForm.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BAE59D81A401D0600E4DEDD /* SelectBankFromURLForm.m */; };
+		1BAE59DC1A401E2500E4DEDD /* SelectBankFromURLForm.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1BAE59DE1A401E2500E4DEDD /* SelectBankFromURLForm.xib */; };
 		1BAF77511A348A39009CEEF9 /* BSConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BAF77501A348A39009CEEF9 /* BSConnection.m */; };
 		1BAF77711A34B2F9009CEEF9 /* BankListFromCatalogRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BAF77701A34B2F9009CEEF9 /* BankListFromCatalogRequest.m */; };
 		1BB22A7F1A3EBB8800F758D3 /* PingRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BB22A7E1A3EBB8800F758D3 /* PingRequest.m */; };
@@ -42,6 +44,7 @@
 		1BB70BFB1A36A875007711D3 /* CatalogBankInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BB70BFA1A36A875007711D3 /* CatalogBankInfo.m */; };
 		1BB70BFE1A36C291007711D3 /* HierarchicalXMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BB70BFD1A36C291007711D3 /* HierarchicalXMLParser.m */; };
 		1BB70C041A36E0DE007711D3 /* XMLAnswer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BB70C031A36E0DE007711D3 /* XMLAnswer.m */; };
+		1BB80C061A41A42A00578C33 /* NSURLSessionTask+ITaskHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BB80C051A41A42A00578C33 /* NSURLSessionTask+ITaskHandler.m */; };
 		1BB8BF0D1A283A710063E1AB /* Application.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BB8BF0C1A283A710063E1AB /* Application.m */; };
 		1BB8BF111A2843C00063E1AB /* BankConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BB8BF101A2843C00063E1AB /* BankConnection.m */; };
 		1BB8BF141A2843E80063E1AB /* Request.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BB8BF131A2843E80063E1AB /* Request.m */; };
@@ -51,6 +54,11 @@
 		1BBA5ECF1A3968F90072672B /* SelectAddBankFormStrings.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1BBA5ED11A3968F90072672B /* SelectAddBankFormStrings.strings */; };
 		1BBA5ED41A396EA50072672B /* config.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1BBA5ED31A396EA50072672B /* config.plist */; };
 		1BBF6D371A3AD69C00CE6797 /* AddBankByURLForm.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BBF6D351A3AD69C00CE6797 /* AddBankByURLForm.m */; };
+		1BC52AE81A41411E0058ECCB /* SelectBankFromURLFormStrings.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1BC52AEA1A41411E0058ECCB /* SelectBankFromURLFormStrings.strings */; };
+		1BC52AFD1A4162700058ECCB /* MetaStructure.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BC52AFC1A4162700058ECCB /* MetaStructure.m */; };
+		1BC52B001A4165950058ECCB /* MetadataRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BC52AFF1A4165950058ECCB /* MetadataRequest.m */; };
+		1BC52B031A4169600058ECCB /* MetadataAnswer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BC52B021A4169600058ECCB /* MetadataAnswer.m */; };
+		1BC52B061A4171210058ECCB /* MetadataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BC52B051A4171210058ECCB /* MetadataManager.m */; };
 		1BC543941A2EF09F002AE8A3 /* SelectAddBankForm.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BC543921A2EF09F002AE8A3 /* SelectAddBankForm.m */; };
 		1BF6DADC1A3836E100482F7A /* BankImageFromCatalogAnswer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BF6DADB1A3836E100482F7A /* BankImageFromCatalogAnswer.m */; };
 		1BF6DADF1A38370700482F7A /* BankImageFromCatalogRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BF6DADE1A38370700482F7A /* BankImageFromCatalogRequest.m */; };
@@ -95,6 +103,10 @@
 		1BADCAEC1A2746E1007148B0 /* Bank.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bank.m; sourceTree = "<group>"; };
 		1BADCAEE1A274A11007148B0 /* BankList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BankList.h; sourceTree = "<group>"; };
 		1BADCAEF1A274A11007148B0 /* BankList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BankList.m; sourceTree = "<group>"; };
+		1BAE59D71A401D0600E4DEDD /* SelectBankFromURLForm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectBankFromURLForm.h; sourceTree = "<group>"; };
+		1BAE59D81A401D0600E4DEDD /* SelectBankFromURLForm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectBankFromURLForm.m; sourceTree = "<group>"; };
+		1BAE59DD1A401E2500E4DEDD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SelectBankFromURLForm.xib; sourceTree = "<group>"; };
+		1BAE59E01A401E2700E4DEDD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/SelectBankFromURLForm.strings; sourceTree = "<group>"; };
 		1BAF774F1A348A39009CEEF9 /* BSConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSConnection.h; sourceTree = "<group>"; };
 		1BAF77501A348A39009CEEF9 /* BSConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BSConnection.m; sourceTree = "<group>"; };
 		1BAF776F1A34B2F9009CEEF9 /* BankListFromCatalogRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BankListFromCatalogRequest.h; sourceTree = "<group>"; };
@@ -137,6 +149,9 @@
 		1BB70BFD1A36C291007711D3 /* HierarchicalXMLParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HierarchicalXMLParser.m; sourceTree = "<group>"; };
 		1BB70C021A36E0DE007711D3 /* XMLAnswer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLAnswer.h; sourceTree = "<group>"; };
 		1BB70C031A36E0DE007711D3 /* XMLAnswer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLAnswer.m; sourceTree = "<group>"; };
+		1BB80C011A41A3C100578C33 /* ITaskHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ITaskHandler.h; sourceTree = "<group>"; };
+		1BB80C041A41A42A00578C33 /* NSURLSessionTask+ITaskHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURLSessionTask+ITaskHandler.h"; sourceTree = "<group>"; };
+		1BB80C051A41A42A00578C33 /* NSURLSessionTask+ITaskHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURLSessionTask+ITaskHandler.m"; sourceTree = "<group>"; };
 		1BB8BF0B1A283A710063E1AB /* Application.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Application.h; sourceTree = "<group>"; };
 		1BB8BF0C1A283A710063E1AB /* Application.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Application.m; sourceTree = "<group>"; };
 		1BB8BF0F1A2843C00063E1AB /* BankConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BankConnection.h; sourceTree = "<group>"; };
@@ -156,6 +171,16 @@
 		1BBA5ED31A396EA50072672B /* config.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = config.plist; sourceTree = "<group>"; };
 		1BBF6D341A3AD69C00CE6797 /* AddBankByURLForm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddBankByURLForm.h; sourceTree = "<group>"; };
 		1BBF6D351A3AD69C00CE6797 /* AddBankByURLForm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddBankByURLForm.m; sourceTree = "<group>"; };
+		1BC52AE91A41411E0058ECCB /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/SelectBankFromURLFormStrings.strings; sourceTree = "<group>"; };
+		1BC52AEB1A4141340058ECCB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/SelectBankFromURLFormStrings.strings; sourceTree = "<group>"; };
+		1BC52AFB1A4162700058ECCB /* MetaStructure.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MetaStructure.h; sourceTree = "<group>"; };
+		1BC52AFC1A4162700058ECCB /* MetaStructure.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MetaStructure.m; sourceTree = "<group>"; };
+		1BC52AFE1A4165950058ECCB /* MetadataRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MetadataRequest.h; sourceTree = "<group>"; };
+		1BC52AFF1A4165950058ECCB /* MetadataRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MetadataRequest.m; sourceTree = "<group>"; };
+		1BC52B011A4169600058ECCB /* MetadataAnswer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MetadataAnswer.h; sourceTree = "<group>"; };
+		1BC52B021A4169600058ECCB /* MetadataAnswer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MetadataAnswer.m; sourceTree = "<group>"; };
+		1BC52B041A4171210058ECCB /* MetadataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MetadataManager.h; sourceTree = "<group>"; };
+		1BC52B051A4171210058ECCB /* MetadataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MetadataManager.m; sourceTree = "<group>"; };
 		1BC543911A2EF09F002AE8A3 /* SelectAddBankForm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectAddBankForm.h; sourceTree = "<group>"; };
 		1BC543921A2EF09F002AE8A3 /* SelectAddBankForm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectAddBankForm.m; sourceTree = "<group>"; };
 		1BF6DADA1A3836E100482F7A /* BankImageFromCatalogAnswer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BankImageFromCatalogAnswer.h; sourceTree = "<group>"; };
@@ -203,6 +228,8 @@
 		1B64A8261A208D8D00541A01 /* Chameleon */ = {
 			isa = PBXGroup;
 			children = (
+				1BC52AF91A4162310058ECCB /* Services */,
+				1BC52AF81A41621A0058ECCB /* Metadata */,
 				1BAD2BD01A357B7700AF7294 /* External */,
 				1BAD2BCE1A35787700AF7294 /* XML */,
 				1BAC18331A2AD86D00A45FAF /* Visual */,
@@ -268,6 +295,10 @@
 				1BBF6D351A3AD69C00CE6797 /* AddBankByURLForm.m */,
 				1BB69AAA1A3C58F800629729 /* AddBankByURLForm.xib */,
 				1BB69AB91A3C5E8000629729 /* AddBankByURLFormStrings.strings */,
+				1BAE59D71A401D0600E4DEDD /* SelectBankFromURLForm.h */,
+				1BAE59D81A401D0600E4DEDD /* SelectBankFromURLForm.m */,
+				1BAE59DE1A401E2500E4DEDD /* SelectBankFromURLForm.xib */,
+				1BC52AEA1A41411E0058ECCB /* SelectBankFromURLFormStrings.strings */,
 			);
 			path = Visual;
 			sourceTree = "<group>";
@@ -329,6 +360,10 @@
 				1BB22A7E1A3EBB8800F758D3 /* PingRequest.m */,
 				1BB22A801A3EBC8000F758D3 /* PingAnswer.h */,
 				1BB22A811A3EBC8000F758D3 /* PingAnswer.m */,
+				1BC52AFE1A4165950058ECCB /* MetadataRequest.h */,
+				1BC52AFF1A4165950058ECCB /* MetadataRequest.m */,
+				1BC52B011A4169600058ECCB /* MetadataAnswer.h */,
+				1BC52B021A4169600058ECCB /* MetadataAnswer.m */,
 			);
 			path = Requests;
 			sourceTree = "<group>";
@@ -344,6 +379,7 @@
 		1BB610431A25C2E20096F7D4 /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				1BC52AF71A415E370058ECCB /* Metadata */,
 				1BB6104C1A25C3C50096F7D4 /* Visual */,
 				1BB610521A25C49D0096F7D4 /* BankCard.h */,
 				1BB610531A25C49D0096F7D4 /* BankCard.m */,
@@ -379,6 +415,7 @@
 				1BB610971A25C5980096F7D4 /* Value.m */,
 				1BB6109E1A25C6070096F7D4 /* FieldDescription.h */,
 				1BB6109F1A25C6070096F7D4 /* FieldDescription.m */,
+				1BB80C011A41A3C100578C33 /* ITaskHandler.h */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -408,10 +445,45 @@
 				1BAD2BCC1A3569E500AF7294 /* XMLRequest.m */,
 				1BB70C021A36E0DE007711D3 /* XMLAnswer.h */,
 				1BB70C031A36E0DE007711D3 /* XMLAnswer.m */,
+				1BB80C041A41A42A00578C33 /* NSURLSessionTask+ITaskHandler.h */,
+				1BB80C051A41A42A00578C33 /* NSURLSessionTask+ITaskHandler.m */,
 			);
 			name = Network;
 			path = Chameleon/Network;
 			sourceTree = SOURCE_ROOT;
+		};
+		1BC52AF71A415E370058ECCB /* Metadata */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Metadata;
+			sourceTree = "<group>";
+		};
+		1BC52AF81A41621A0058ECCB /* Metadata */ = {
+			isa = PBXGroup;
+			children = (
+				1BC52AFB1A4162700058ECCB /* MetaStructure.h */,
+				1BC52AFC1A4162700058ECCB /* MetaStructure.m */,
+			);
+			path = Metadata;
+			sourceTree = "<group>";
+		};
+		1BC52AF91A4162310058ECCB /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				1BC52AFA1A4162310058ECCB /* MetadataManager */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		1BC52AFA1A4162310058ECCB /* MetadataManager */ = {
+			isa = PBXGroup;
+			children = (
+				1BC52B041A4171210058ECCB /* MetadataManager.h */,
+				1BC52B051A4171210058ECCB /* MetadataManager.m */,
+			);
+			path = MetadataManager;
+			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
@@ -504,8 +576,10 @@
 				1BB610511A25C3DE0096F7D4 /* BankCardViewController.xib in Resources */,
 				1B64A8331A208D8D00541A01 /* Main.storyboard in Resources */,
 				1BBA5EC01A3944A70072672B /* NoBanksLoginForm.xib in Resources */,
+				1BC52AE81A41411E0058ECCB /* SelectBankFromURLFormStrings.strings in Resources */,
 				1BBA5ED41A396EA50072672B /* config.plist in Resources */,
 				1BBA5ECF1A3968F90072672B /* SelectAddBankFormStrings.strings in Resources */,
+				1BAE59DC1A401E2500E4DEDD /* SelectBankFromURLForm.xib in Resources */,
 				1B64A8351A208D8D00541A01 /* Images.xcassets in Resources */,
 				1BB69AA81A3C58F800629729 /* AddBankByURLForm.xib in Resources */,
 				1BBA5EB91A3943B10072672B /* SelectAddBankForm.xib in Resources */,
@@ -526,9 +600,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1BAE59DA1A401D0600E4DEDD /* SelectBankFromURLForm.m in Sources */,
 				1B64A8301A208D8D00541A01 /* ViewController.m in Sources */,
+				1BC52B001A4165950058ECCB /* MetadataRequest.m in Sources */,
 				1BB6109B1A25C5980096F7D4 /* DataType.m in Sources */,
 				1BAC18391A2AD94E00A45FAF /* NoBanksLoginForm.m in Sources */,
+				1BC52B061A4171210058ECCB /* MetadataManager.m in Sources */,
 				1BB22A7F1A3EBB8800F758D3 /* PingRequest.m in Sources */,
 				1BB70BFE1A36C291007711D3 /* HierarchicalXMLParser.m in Sources */,
 				1BB70C041A36E0DE007711D3 /* XMLAnswer.m in Sources */,
@@ -543,7 +620,9 @@
 				1BB6103C1A25AAE30096F7D4 /* ExtendedHitAreaViewContainer.m in Sources */,
 				1BB6109A1A25C5980096F7D4 /* CustomRecord.m in Sources */,
 				1BADCAED1A2746E1007148B0 /* Bank.m in Sources */,
+				1BB80C061A41A42A00578C33 /* NSURLSessionTask+ITaskHandler.m in Sources */,
 				1BB22A821A3EBC8000F758D3 /* PingAnswer.m in Sources */,
+				1BC52B031A4169600058ECCB /* MetadataAnswer.m in Sources */,
 				1BB8BF111A2843C00063E1AB /* BankConnection.m in Sources */,
 				1BB70BFB1A36A875007711D3 /* CatalogBankInfo.m in Sources */,
 				1BBF6D371A3AD69C00CE6797 /* AddBankByURLForm.m in Sources */,
@@ -551,6 +630,7 @@
 				1BAD2BD71A357BBC00AF7294 /* XSWINodeWriter.m in Sources */,
 				1BB8BF171A2843F80063E1AB /* Answer.m in Sources */,
 				1BB70BF81A36A45E007711D3 /* BankListFromCatalogAnswer.m in Sources */,
+				1BC52AFD1A4162700058ECCB /* MetaStructure.m in Sources */,
 				1BF6DADC1A3836E100482F7A /* BankImageFromCatalogAnswer.m in Sources */,
 				1B64A82A1A208D8D00541A01 /* main.m in Sources */,
 				1BB610981A25C5980096F7D4 /* CustomField.m in Sources */,
@@ -602,6 +682,15 @@
 			name = LaunchScreen.xib;
 			sourceTree = "<group>";
 		};
+		1BAE59DE1A401E2500E4DEDD /* SelectBankFromURLForm.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1BAE59DD1A401E2500E4DEDD /* Base */,
+				1BAE59E01A401E2700E4DEDD /* en */,
+			);
+			name = SelectBankFromURLForm.xib;
+			sourceTree = "<group>";
+		};
 		1BB69AAA1A3C58F800629729 /* AddBankByURLForm.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -645,6 +734,15 @@
 				1BBA5ED21A3968FB0072672B /* en */,
 			);
 			name = SelectAddBankFormStrings.strings;
+			sourceTree = "<group>";
+		};
+		1BC52AEA1A41411E0058ECCB /* SelectBankFromURLFormStrings.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1BC52AE91A41411E0058ECCB /* Base */,
+				1BC52AEB1A4141340058ECCB /* en */,
+			);
+			name = SelectBankFromURLFormStrings.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
