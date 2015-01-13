@@ -16,8 +16,10 @@
 #import "BankImageFromCatalogAnswer.h"
 #import "Application.h"
 #import "AddBankByURLForm.h"
+#import "BankList.h"
+#import "MainLoginForm.h"
 
-@interface BankInfo:NSObject
+@interface SelectBankInfo:NSObject
 
 @property (nonatomic,strong) CatalogBankInfo* bank;
 @property (nonatomic,strong) UIImage* image;
@@ -25,7 +27,7 @@
 
 @end
 
-@implementation BankInfo
+@implementation SelectBankInfo
 
 @end
 
@@ -37,20 +39,20 @@
     if (self)
     {
         _tableView=tableView;
-        filteredBanks=[[NSMutableArray alloc] init];
+        _filteredBanks=[[NSMutableArray alloc] init];
     }
     return self;
 }
 
 -(void) recalcFilter
 {
-    [filteredBanks removeAllObjects];
+    [_filteredBanks removeAllObjects];
     if (!_banks)
         return;
-    for(BankInfo* bank in _banks)
+    for(SelectBankInfo* bank in _banks)
     {
-        if ([_filterString isEqualToString:@""] || [[bank.bank.name uppercaseString] containsString:[_filterString uppercaseString]])
-            [filteredBanks addObject:bank];
+        if (_filterString==nil || [_filterString isEqualToString:@""] || [[bank.bank.name uppercaseString] containsString:[_filterString uppercaseString]])
+            [_filteredBanks addObject:bank];
     }
 }
 
@@ -62,23 +64,23 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return filteredBanks.count;
+    return _filteredBanks.count;
 }
 
--(int) numberOfSectionsInTableView:(UITableView *)tableView
+-(NSInteger) numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 1;
 }
 
--(BankInfo*) findBank:(NSString*)bankId
+-(SelectBankInfo*) findBank:(NSString*)bankId
 {
-    for(BankInfo* bank in _banks)
+    for(SelectBankInfo* bank in _banks)
         if ([bank.bank.catalogBankId isEqualToString:bankId])
             return bank;
     return nil;
 }
 
--(void)loadBankImage:(BankInfo*) bank
+-(void)loadBankImage:(SelectBankInfo*) bank
 {
     bank.isImageLoading=true;
     BankImageFromCatalogRequest* request=[[BankImageFromCatalogRequest alloc] initWithId:bank.bank.catalogBankId];
@@ -89,12 +91,12 @@
          if (answer)
          {
              BankImageFromCatalogAnswer* ans=(BankImageFromCatalogAnswer*)answer;
-             BankInfo* bank=[weakSelf findBank:bankId];
+             SelectBankInfo* bank=[weakSelf findBank:bankId];
              if (!bank)
                  return;
              bank.image=[[UIImage alloc] initWithData:ans.imageData];
-             int index=[filteredBanks indexOfObject:bank];
-             if (index>=0)
+             NSUInteger index=[_filteredBanks indexOfObject:bank];
+             if (index!=NSNotFound)
                  [weakSelf.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForRow:index inSection:0]] withRowAnimation:UITableViewRowAnimationNone];
          }
      }];
@@ -102,9 +104,9 @@
 
 -(UITableViewCell*) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.row<0 || indexPath.row>=filteredBanks.count)
+    if (indexPath.row<0 || indexPath.row>=_filteredBanks.count)
         return nil;
-    BankInfo* bank=[filteredBanks objectAtIndex:indexPath.row];
+    SelectBankInfo* bank=[_filteredBanks objectAtIndex:indexPath.row];
     
     static NSString *CellIdentifier = @"Cell";
     
@@ -198,7 +200,7 @@
             NSMutableArray* banks=[[NSMutableArray alloc] initWithCapacity:ans.banks.count];
             for (CatalogBankInfo* bank in ans.banks)
             {
-                BankInfo* bankInfo=[[BankInfo alloc] init];
+                SelectBankInfo* bankInfo=[[SelectBankInfo alloc] init];
                 bankInfo.bank=bank;
                 bankInfo.isImageLoading=false;
                 [banks addObject:bankInfo];
@@ -230,6 +232,14 @@
     _banksDataSource.filterString=searchBar.text;
     [_banksTableView reloadData];
 }
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    SelectBankInfo* bank=[_banksDataSource.filteredBanks objectAtIndex:indexPath.row];
+    Bank* newBank=[APP.banks addBankWithUrl:bank.bank.url bankId:bank.bank.bankId];
+    [self dismissViewControllerAnimated:YES completion:nil];
+    [APP.rootController showLoginFormForBank:newBank];
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

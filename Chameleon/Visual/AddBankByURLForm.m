@@ -11,6 +11,9 @@
 #import "PingAnswer.h"
 #import "PingRequest.h"
 #import "SelectBankFromURLForm.h"
+#import "Application.h"
+#import "BankList.h"
+#import "Bank.h"
 
 @implementation AddBankByURLForm
 
@@ -64,6 +67,7 @@
                      SelectBankFromURLForm * selectForm=[[SelectBankFromURLForm alloc] initWithNibName:@"SelectBankFromURLForm" bundle:nil];
                      selectForm.modalPresentationStyle=UIModalPresentationCurrentContext;
                      selectForm.url=form.urlEdit.text;
+                     selectForm.bankIds=ans.banks;
                      [self.navigationController pushViewController:selectForm animated:YES];
                  }
              }
@@ -113,8 +117,11 @@
 
 -(void) addBank:(NSString*) bankId url:(NSString*) url
 {
-    
+    Bank* bank=[APP.banks addBankWithUrl:url bankId:bankId];
+    [self dismissViewControllerAnimated:YES completion:nil];
+    [APP.rootController showLoginFormForBank:bank];
 }
+
 /*
 #pragma mark - Navigation
 

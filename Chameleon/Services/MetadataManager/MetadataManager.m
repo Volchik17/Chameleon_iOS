@@ -21,6 +21,10 @@
     @property (nonatomic,assign) long long size;
 @end
 
+@implementation MetadataItem
+
+@end
+
 @implementation MetadataManager
 
 #pragma mark - Application's Documents directory
@@ -85,9 +89,9 @@
     }
     MetadataRequest* request;
     if (structure)
-        request=[[MetadataRequest alloc] initWithBankId:bankId structureClass:structureClass moduleType:moduleType moduleName:moduleName structureName:structureName savedHash:structure.savedHash];
+        request=[[MetadataRequest alloc] initWithBankId:bankId moduleType:moduleType moduleName:moduleName structureName:structureName savedHash:structure.savedHash];
     else
-        request=[[MetadataRequest alloc] initWithBankId:bankId structureClass:structureClass moduleType:moduleType moduleName:moduleName structureName:structureName savedHash:@""];
+        request=[[MetadataRequest alloc] initWithBankId:bankId moduleType:moduleType moduleName:moduleName structureName:structureName savedHash:@""];
     __weak MetadataManager* weakSelf=self;
     return [APP runRequest:request forBank:bankId completionHandler:^(Answer* answer, NSError *error)
         {

@@ -8,33 +8,50 @@
 
 #import "SelectBankFromURLForm.h"
 #import "BankCard.h"
+#import "BankSelectCellDescription.h"
+#import "ResourceRequest.h"
+#import "ResourceAnswer.h"
+#import "MetadataRequest.h"
+#import "MetadataAnswer.h"
+#import "Application.h"
+#import "DynamicGroupView.h"
+#import "WidgetController.h"
+#import "CustomRecord.h"
+#import "SimpleRequest.h"
+#import "FullRecordAnswer.h"
+#import "BankList.h"
 
-@interface BankInfo:NSObject
-
-@property (nonatomic,strong) BankCard* bank;
-@property (nonatomic,strong) UIImage* image;
+@interface SubBankItem:NSObject
+@property (nonatomic,strong) NSString* bankId;
+@property (nonatomic,assign) BOOL isStructureLoading;
+@property (nonatomic,strong) CustomRecord* bankCard;
+@property (nonatomic,assign) BOOL isBankCardLoading;
+@property (nonatomic,strong) BankSelectCellDescription* cellDescription;
 @property (nonatomic,assign) BOOL isImageLoading;
+@property (nonatomic,strong) UIImage* image;
+@end
+
+@implementation SubBankItem
 
 @end
 
-@implementation BankInfo
-
-@end
-
-@interface BanksDataSource : NSObject<UITableViewDataSource>
--(instancetype) initForTableView:(UITableView*) tableView;
+@interface SubBanksDataSource : NSObject<UITableViewDataSource>
+-(instancetype) initForTableView:(UITableView*) tableView banks:(NSMutableArray*) banks url:(NSString*)url;
 @property (nonatomic,weak) UITableView* tableView;
 @property (nonatomic,strong) NSMutableArray* banks;
+@property (nonatomic,strong) NSString* url;
 @end
 
-@implementation BanksDataSource
+@implementation SubBanksDataSource
 
--(instancetype)initForTableView:(UITableView *)tableView
+-(instancetype)initForTableView:(UITableView *)tableView banks:(NSMutableArray*) banks url:(NSString*)url;
 {
     self=[super init];
     if (self)
     {
-        _tableView=tableView;
+        _tableView = tableView;
+        _banks = banks;
+        _url=url;
     }
     return self;
 }
@@ -44,28 +61,88 @@
     return _banks.count;
 }
 
--(int) numberOfSectionsInTableView:(UITableView *)tableView
+-(NSInteger) numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 1;
 }
 
--(void)loadBankImage:(BankInfo*) bank
+-(SubBankItem*) findBank:(NSString*) bankId
+{
+    for(SubBankItem* bank in _banks)
+        if ([bank.bankId isEqualToString:bankId])
+            return bank;
+    return nil;
+}
+
+-(void)loadBankImage:(SubBankItem*) bank
 {
     bank.isImageLoading=true;
-    BankImageFromCatalogRequest* request=[[BankImageFromCatalogRequest alloc] initWithId:bank.bank.catalogBankId];
-    __weak BanksDataSource* weakSelf=self;
-    __weak NSString* bankId=bank.bank.catalogBankId;
-    [APP.bankCatalogConnection runRequest:request completionHandler:^(Answer* answer, NSError *error)
+    ResourceRequest* request=[[ResourceRequest alloc] initWithBankId:bank.bankId moduleType:@"bankCard" moduleName:@"" resourceName:bank.cellDescription.image savedHash:@""];
+    __weak SubBanksDataSource* weakSelf=self;
+    __weak NSString* bankId=bank.bankId;
+    BSConnection* connection=[BSConnection plainConnectionToURL:_url];
+    [connection runRequest:request completionHandler:^(Answer* answer, NSError *error)
+    {
+        if (answer)
+        {
+            ResourceAnswer* ans=(ResourceAnswer*)answer;
+            SubBankItem* bank=[weakSelf findBank:bankId];
+            if (!bank)
+                return;
+            bank.image=[[UIImage alloc] initWithData:ans.data];
+            NSUInteger index=[weakSelf.banks indexOfObject:bank];
+            if (index!=NSNotFound)
+                [weakSelf.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForRow:index inSection:0]] withRowAnimation:UITableViewRowAnimationNone];
+        }
+    }];
+}
+
+-(void) loadCellDescription:(SubBankItem*)bank
+{
+    // Запрашиваем метаданные напрямую, а не через MetadataManager, так как банк еще не находится в списке банков
+    bank.isStructureLoading=true;
+    MetadataRequest* request=[[MetadataRequest alloc] initWithBankId:bank.bankId moduleType:@"BankCard" moduleName:@"" structureName:@"selectCell" savedHash:@"" localeName:APP.currentLocaleId];
+    __weak SubBanksDataSource* weakSelf=self;
+    __weak NSString* bankId=bank.bankId;
+    BSConnection* connection=[BSConnection plainConnectionToURL:_url];
+    [connection runRequest:request completionHandler:^(Answer* answer, NSError *error)
      {
          if (answer)
          {
-             BankImageFromCatalogAnswer* ans=(BankImageFromCatalogAnswer*)answer;
-             BankInfo* bank=[weakSelf findBank:bankId];
+             MetadataAnswer* ans=(MetadataAnswer*)answer;
+             SubBankItem* bank=[weakSelf findBank:bankId];
              if (!bank)
                  return;
-             bank.image=[[UIImage alloc] initWithData:ans.imageData];
-             int index=[filteredBanks indexOfObject:bank];
-             if (index>=0)
+             bank.cellDescription=[[BankSelectCellDescription alloc] init];
+             NSError* error=[bank.cellDescription parseFromData:ans.data];
+             if (error==nil)
+             {
+                 NSUInteger index=[weakSelf.banks indexOfObject:bank];
+                 if (index!=NSNotFound)
+                     [weakSelf.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForRow:index inSection:0]] withRowAnimation:UITableViewRowAnimationNone];
+             }
+         }
+     }];
+}
+
+-(void) loadBankCard:(SubBankItem*)bank
+{
+    bank.isBankCardLoading=true;
+    SimpleRequest* request=[[SimpleRequest alloc] initWithWithBankId:bank.bankId answerClass:FullRecordAnswer.class moduleType:@"BankCard" moduleName:@"" requestName:@"BankCard"];
+    __weak SubBanksDataSource* weakSelf=self;
+    __weak NSString* bankId=bank.bankId;
+    BSConnection* connection=[BSConnection plainConnectionToURL:_url];
+    [connection runRequest:request completionHandler:^(Answer* answer, NSError *error)
+     {
+         if (answer)
+         {
+             FullRecordAnswer* ans=(FullRecordAnswer*)answer;
+             SubBankItem* bank=[weakSelf findBank:bankId];
+             if (!bank)
+                 return;
+             bank.bankCard=ans.record;
+             NSUInteger index=[weakSelf.banks indexOfObject:bank];
+             if (index!=NSNotFound)
                  [weakSelf.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForRow:index inSection:0]] withRowAnimation:UITableViewRowAnimationNone];
          }
      }];
@@ -75,9 +152,9 @@
 {
     if (indexPath.row<0 || indexPath.row>=_banks.count)
         return nil;
-    BankInfo* bank=[_banks objectAtIndex:indexPath.row];
+    SubBankItem* bank=[_banks objectAtIndex:indexPath.row];
     
-    static NSString *CellIdentifier = @"Cell";
+    NSString* CellIdentifier = bank.bankId;
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
@@ -87,23 +164,39 @@
     for (UIView* subview in cell.contentView.subviews)
         [subview removeFromSuperview];
     
-    UILabel* label=[[UILabel alloc] init];
-    [cell.contentView addSubview:label];
-    label.text=bank.bank.name;
-    label.frame=CGRectMake(110,5,500,45);
-    label.bounds=CGRectMake(110,5,500,45);
-    label.font=[label.font fontWithSize:14];
+    if (bank.cellDescription==nil && !bank.isStructureLoading)
+    {
+        [self loadCellDescription:bank];
+    }
+    if (bank.bankCard==nil && !bank.isBankCardLoading)
+    {
+        [self loadBankCard:bank];
+    }
+    if (bank.image==nil && bank.cellDescription!=nil &&
+        bank.cellDescription.image!=nil && bank.cellDescription.image.length>0 &&
+        !bank.isImageLoading)
+    {
+        [self loadBankImage:bank];
+    }
+    UIImageView* imageView;
     if (bank.image)
     {
-        UIImageView* imageView=[[UIImageView alloc] initWithImage:bank.image];
+        imageView=[[UIImageView alloc] initWithImage:bank.image];
         [cell.contentView addSubview:imageView];
         imageView.frame=CGRectMake(5,5,90,40);
         imageView.bounds=CGRectMake(5,5,90,40);
         imageView.contentMode=UIViewContentModeScaleAspectFit;
     }
-    else if (!bank.isImageLoading)
+    if (bank.cellDescription!=nil && bank.bankCard!=nil)
     {
-        [self loadBankImage:bank];
+        WidgetController* controller=[[WidgetController alloc] initWithBankId:bank.bankId record:bank.bankCard extraFields:nil viewStructure:bank.cellDescription.view];
+        DynamicGroupView* panel=[[DynamicGroupView alloc] initWithViewController:controller];
+        [cell.contentView addSubview:panel];
+        [panel startView];
+        if (imageView!=nil)
+        {
+            [cell.contentView addConstraint:[NSLayoutConstraint constraintWithItem:panel attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:imageView attribute:NSLayoutAttributeRight multiplier:1.0 constant:10]];
+        }
     }
     return cell;
 }
@@ -112,12 +205,7 @@
 
 @implementation SelectBankFromURLForm
 
-BanksDataSource* _banksDataSource;
-
-- (void)onAddButtonClick
-{
-    
-}
+SubBanksDataSource* _banksDataSource;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -125,7 +213,7 @@ BanksDataSource* _banksDataSource;
     //currentTask=nil;
     //self.activityIndicator.hidesWhenStopped=YES;
     //[self.activityIndicator stopAnimating];
-    // Настраиваем кнопки в панели навигации
+    /*// Настраиваем кнопки в панели навигации
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
     {
         self.navigationItem.title=NSLocalizedStringFromTable(@"NavigationBarTitle_iPhone", @"SelectBankFromURLFormStrings", @"");
@@ -133,51 +221,28 @@ BanksDataSource* _banksDataSource;
     else
     {
         self.navigationItem.title=NSLocalizedStringFromTable(@"NavigationBarTitle", @"SelectBankFromURLFormStrings", @"");
-    }
-    NSString* addButtonTitle=NSLocalizedStringFromTable(@"AddButtonTitle", @"SelectBankFromURLFormStrings", @"");
-    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithTitle:addButtonTitle style:UIBarButtonItemStyleDone target:self action:@selector(onAddButtonClick)];
-    self.navigationItem.rightBarButtonItem=addButton;
+    }*/
     // Это чтобы компоненты не прятались под NavigationBar
     if ([self respondsToSelector:@selector(edgesForExtendedLayout)])
         self.edgesForExtendedLayout = UIRectEdgeNone;
     // Конфигурим список банков
-    _banksDataSource=[[BanksDataSource alloc] initForTableView:_banksTableView];
+    NSMutableArray* banks=[[NSMutableArray alloc] initWithCapacity:_bankIds.count];
+    for (NSString* bankId in _bankIds)
+    {
+        SubBankItem* item=[[SubBankItem alloc] init];
+        item.bankId=bankId;
+        item.isStructureLoading=NO;
+        item.bankCard=nil;
+        item.isBankCardLoading=NO;
+        item.cellDescription=nil;
+        item.image=nil;
+        item.isImageLoading=NO;
+        [banks addObject:item];
+    }
+    _banksDataSource=[[SubBanksDataSource alloc] initForTableView:_banksTableView banks:banks url:_url];
     _banksTableView.dataSource=_banksDataSource;
     _banksTableView.delegate=self;
     _banksTableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
-    // Запускаем запрос списка банков
-    _errorLabel.hidden=true;
-    [_activityIndicator startAnimating];
-    Request* request=[[BankListFromCatalogRequest alloc] init];
-    __weak SelectAddBankForm* weakself=self;
-    [APP.bankCatalogConnection runRequest:request completionHandler:^(Answer* answer, NSError *error)
-     {
-         if (answer)
-         {
-             BankListFromCatalogAnswer* ans=(BankListFromCatalogAnswer*)answer;
-             NSMutableArray* banks=[[NSMutableArray alloc] initWithCapacity:ans.banks.count];
-             for (CatalogBankInfo* bank in ans.banks)
-             {
-                 BankInfo* bankInfo=[[BankInfo alloc] init];
-                 bankInfo.bank=bank;
-                 bankInfo.isImageLoading=false;
-                 [banks addObject:bankInfo];
-             }
-             weakself.banksDataSource.banks=banks;
-             weakself.banksDataSource.filterString=_searchBar.text;
-             _searchBar.delegate=weakself;
-             [weakself.banksTableView reloadData];
-             [weakself.activityIndicator stopAnimating];
-         }
-         else
-         {
-             _errorLabel.frame=_banksTableView.frame;
-             _errorLabel.bounds=_banksTableView.bounds;
-             _errorLabel.hidden=false;
-             _banksTableView.hidden=true;
-             [weakself.activityIndicator stopAnimating];
-         }
-     }];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -190,14 +255,12 @@ BanksDataSource* _banksDataSource;
     return 50;
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    SubBankItem* bank=[_banksDataSource.banks objectAtIndex:indexPath.row];
+    Bank* newBank=[APP.banks addBankWithUrl:_url bankId:bank.bankId];
+    [self dismissViewControllerAnimated:YES completion:nil];
+    [APP.rootController showLoginFormForBank:newBank];
 }
-*/
 
 @end

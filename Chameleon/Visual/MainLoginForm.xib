@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6250" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MainLoginForm">
+            <connections>
+                <outlet property="gradientBackground" destination="jlW-H7-l6B" id="j4z-6t-2lp"/>
+                <outlet property="mainView" destination="zqA-dr-OmS" id="0sb-dg-3jD"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="R1Q-X9-ZWM"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jlW-H7-l6B" customClass="GradientBackground">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bTy-99-tv2">
+                            <rect key="frame" x="373" y="525" width="48" height="48"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="48" id="Zj5-2w-BTH"/>
+                                <constraint firstAttribute="width" constant="48" id="fw4-C8-gjp"/>
+                            </constraints>
+                            <state key="normal" image="AddUrl">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="onAddUrlClick:" destination="-1" eventType="touchUpInside" id="5GZ-Xz-pO2"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UlB-va-OOz">
+                            <rect key="frame" x="276" y="525" width="48" height="48"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="48" id="L8W-Iu-YOn"/>
+                                <constraint firstAttribute="width" constant="48" id="bh1-xc-Teb"/>
+                            </constraints>
+                            <state key="normal" image="ConfigUrl">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PUM-OQ-S7a">
+                            <rect key="frame" x="179" y="525" width="48" height="48"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="48" id="sK4-W2-OA2"/>
+                                <constraint firstAttribute="width" constant="48" id="ufr-I4-ZCA"/>
+                            </constraints>
+                            <state key="normal" image="DeleteUrl">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="onDeleteUrlClick:" destination="-1" eventType="touchUpInside" id="BRL-1u-6Ba"/>
+                            </connections>
+                        </button>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zqA-dr-OmS" customClass="ResizeAwareView">
+                            <rect key="frame" x="0.0" y="0.0" width="600" height="517"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="PUM-OQ-S7a" secondAttribute="bottom" constant="27" id="21C-rU-lJt"/>
+                        <constraint firstItem="bTy-99-tv2" firstAttribute="leading" secondItem="UlB-va-OOz" secondAttribute="trailing" constant="8" id="2EY-qX-UQY"/>
+                        <constraint firstAttribute="centerX" secondItem="UlB-va-OOz" secondAttribute="centerX" id="3Dn-za-zU3"/>
+                        <constraint firstItem="UlB-va-OOz" firstAttribute="leading" secondItem="PUM-OQ-S7a" secondAttribute="trailing" constant="49" id="82T-W1-Obf"/>
+                        <constraint firstItem="UlB-va-OOz" firstAttribute="leading" secondItem="PUM-OQ-S7a" secondAttribute="trailing" constant="8" id="9MF-Pk-vq6"/>
+                        <constraint firstAttribute="bottom" secondItem="bTy-99-tv2" secondAttribute="bottom" constant="16" id="DBj-9F-xUb"/>
+                        <constraint firstItem="bTy-99-tv2" firstAttribute="leading" secondItem="UlB-va-OOz" secondAttribute="trailing" constant="78" id="Ify-Kn-fzD"/>
+                        <constraint firstAttribute="bottom" secondItem="PUM-OQ-S7a" secondAttribute="bottom" constant="27" id="Jz0-iV-w0g"/>
+                        <constraint firstItem="UlB-va-OOz" firstAttribute="leading" secondItem="PUM-OQ-S7a" secondAttribute="trailing" constant="78" id="KxV-Xq-XDb"/>
+                        <constraint firstAttribute="bottom" secondItem="UlB-va-OOz" secondAttribute="bottom" constant="27" id="Kxi-5F-Tib"/>
+                        <constraint firstItem="bTy-99-tv2" firstAttribute="leading" secondItem="UlB-va-OOz" secondAttribute="trailing" constant="8" id="MOq-eQ-EzF"/>
+                        <constraint firstItem="PUM-OQ-S7a" firstAttribute="top" secondItem="zqA-dr-OmS" secondAttribute="bottom" id="Omu-07-LbR"/>
+                        <constraint firstAttribute="bottom" secondItem="PUM-OQ-S7a" secondAttribute="bottom" constant="8" id="YGV-u4-v2Y"/>
+                        <constraint firstAttribute="trailing" secondItem="zqA-dr-OmS" secondAttribute="trailing" id="YMP-Ok-rDT"/>
+                        <constraint firstItem="bTy-99-tv2" firstAttribute="leading" secondItem="UlB-va-OOz" secondAttribute="trailing" constant="49" id="hsv-aa-dPY"/>
+                        <constraint firstAttribute="bottom" secondItem="UlB-va-OOz" secondAttribute="bottom" constant="8" id="iUp-io-4dm"/>
+                        <constraint firstItem="zqA-dr-OmS" firstAttribute="top" secondItem="jlW-H7-l6B" secondAttribute="top" id="jfN-eZ-RnR"/>
+                        <constraint firstItem="PUM-OQ-S7a" firstAttribute="top" secondItem="zqA-dr-OmS" secondAttribute="bottom" constant="31" id="mrN-H5-P8A"/>
+                        <constraint firstAttribute="bottom" secondItem="bTy-99-tv2" secondAttribute="bottom" constant="27" id="oTt-rX-p6o"/>
+                        <constraint firstItem="zqA-dr-OmS" firstAttribute="leading" secondItem="jlW-H7-l6B" secondAttribute="leading" id="van-Ko-myC"/>
+                        <constraint firstAttribute="bottom" secondItem="bTy-99-tv2" secondAttribute="bottom" constant="27" id="yTP-c1-1DA"/>
+                        <constraint firstItem="PUM-OQ-S7a" firstAttribute="top" secondItem="zqA-dr-OmS" secondAttribute="bottom" constant="8" id="zZr-ef-n2N"/>
+                    </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="21C-rU-lJt"/>
+                            <exclude reference="Omu-07-LbR"/>
+                            <exclude reference="YGV-u4-v2Y"/>
+                            <exclude reference="mrN-H5-P8A"/>
+                            <exclude reference="9MF-Pk-vq6"/>
+                            <exclude reference="KxV-Xq-XDb"/>
+                            <exclude reference="iUp-io-4dm"/>
+                            <exclude reference="2EY-qX-UQY"/>
+                            <exclude reference="DBj-9F-xUb"/>
+                            <exclude reference="Ify-Kn-fzD"/>
+                            <exclude reference="MOq-eQ-EzF"/>
+                            <exclude reference="yTP-c1-1DA"/>
+                        </mask>
+                    </variation>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="jlW-H7-l6B" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="CgW-vV-8iR"/>
+                <constraint firstAttribute="bottom" secondItem="jlW-H7-l6B" secondAttribute="bottom" id="J9X-jM-hQV"/>
+                <constraint firstItem="jlW-H7-l6B" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="j4N-bm-LcP"/>
+                <constraint firstAttribute="trailing" secondItem="jlW-H7-l6B" secondAttribute="trailing" id="wSg-6V-RRY"/>
+            </constraints>
+        </view>
+    </objects>
+    <resources>
+        <image name="AddUrl" width="48" height="48"/>
+        <image name="ConfigUrl" width="48" height="48"/>
+        <image name="DeleteUrl" width="48" height="48"/>
+    </resources>
+</document>

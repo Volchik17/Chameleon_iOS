@@ -15,21 +15,86 @@
 		1B64A8441A208D8D00541A01 /* ChameleonTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B64A8431A208D8D00541A01 /* ChameleonTests.m */; };
 		1BAC18391A2AD94E00A45FAF /* NoBanksLoginForm.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BAC18371A2AD94E00A45FAF /* NoBanksLoginForm.m */; };
 		1BAC183D1A2B460000A45FAF /* GradientBackground.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BAC183C1A2B460000A45FAF /* GradientBackground.m */; };
+		1BACDEE81A5CF5CD00EDE6F2 /* FullRecordAnswer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BACDEE71A5CF5CD00EDE6F2 /* FullRecordAnswer.m */; };
 		1BAD2BCD1A3569E500AF7294 /* XMLRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BAD2BCC1A3569E500AF7294 /* XMLRequest.m */; };
 		1BAD2BD41A357B7700AF7294 /* XMLWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BAD2BD31A357B7700AF7294 /* XMLWriter.m */; };
 		1BAD2BD71A357BBC00AF7294 /* XSWINodeWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BAD2BD61A357BBC00AF7294 /* XSWINodeWriter.m */; };
+		1BAD7F6C1A60E50500D42865 /* MainLoginForm.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BAD7F6A1A60E50500D42865 /* MainLoginForm.m */; };
+		1BAD7F6D1A60E50500D42865 /* MainLoginForm.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1BAD7F6B1A60E50500D42865 /* MainLoginForm.xib */; };
 		1BADCAED1A2746E1007148B0 /* Bank.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BADCAEC1A2746E1007148B0 /* Bank.m */; };
 		1BADCAF01A274A11007148B0 /* BankList.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BADCAEF1A274A11007148B0 /* BankList.m */; };
+		1BAE57161A5BBA7F0009A2F5 /* ResourceRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BAE57151A5BBA7F0009A2F5 /* ResourceRequest.m */; };
+		1BAE57191A5BBBFE0009A2F5 /* ResourceAnswer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BAE57181A5BBBFE0009A2F5 /* ResourceAnswer.m */; };
+		1BAE571F1A5BDDB10009A2F5 /* SimpleRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BAE571E1A5BDDB10009A2F5 /* SimpleRequest.m */; };
 		1BAE59DA1A401D0600E4DEDD /* SelectBankFromURLForm.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BAE59D81A401D0600E4DEDD /* SelectBankFromURLForm.m */; };
 		1BAE59DC1A401E2500E4DEDD /* SelectBankFromURLForm.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1BAE59DE1A401E2500E4DEDD /* SelectBankFromURLForm.xib */; };
+		1BAE806C1A58FDD2008A8117 /* AccountWidgetTextFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BAE80041A58FDD2008A8117 /* AccountWidgetTextFormatter.m */; };
+		1BAE806D1A58FDD2008A8117 /* AmountWidgetTextFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BAE80061A58FDD2008A8117 /* AmountWidgetTextFormatter.m */; };
+		1BAE806E1A58FDD2008A8117 /* CurrCodeISOWidgetTextFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BAE80081A58FDD2008A8117 /* CurrCodeISOWidgetTextFormatter.m */; };
+		1BAE806F1A58FDD2008A8117 /* DateWidgetTextFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BAE800A1A58FDD2008A8117 /* DateWidgetTextFormatter.m */; };
+		1BAE80701A58FDD2008A8117 /* DefaultWidgetTextFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BAE800C1A58FDD2008A8117 /* DefaultWidgetTextFormatter.m */; };
+		1BAE80711A58FDD2008A8117 /* FormatterUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BAE800E1A58FDD2008A8117 /* FormatterUtils.m */; };
+		1BAE80721A58FDD2008A8117 /* StatusWidgetTextFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BAE80101A58FDD2008A8117 /* StatusWidgetTextFormatter.m */; };
+		1BAE80731A58FDD2008A8117 /* WidgetTextFormatterFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BAE80131A58FDD2008A8117 /* WidgetTextFormatterFactory.m */; };
+		1BAE80741A58FDD2008A8117 /* DynamicGroupView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BAE80161A58FDD2008A8117 /* DynamicGroupView.m */; };
+		1BAE80751A58FDD2008A8117 /* RecordListTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BAE80181A58FDD2008A8117 /* RecordListTableViewDataSource.m */; };
+		1BAE80761A58FDD2008A8117 /* WidgetsTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BAE801A1A58FDD2008A8117 /* WidgetsTableViewDataSource.m */; };
+		1BAE80771A58FDD2008A8117 /* ViewStructure.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BAE801C1A58FDD2008A8117 /* ViewStructure.m */; };
+		1BAE80781A58FDD2008A8117 /* WidgetController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BAE801E1A58FDD2008A8117 /* WidgetController.m */; };
+		1BAE80791A58FDD2008A8117 /* WidgetDescriptionList.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BAE80201A58FDD2008A8117 /* WidgetDescriptionList.m */; };
+		1BAE807A1A58FDD2008A8117 /* BaseFieldWidgetDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BAE80231A58FDD2008A8117 /* BaseFieldWidgetDescription.m */; };
+		1BAE807B1A58FDD2008A8117 /* BaseGroupWidgetDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BAE80251A58FDD2008A8117 /* BaseGroupWidgetDescription.m */; };
+		1BAE807C1A58FDD2008A8117 /* BaseSelectWidgetDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BAE80271A58FDD2008A8117 /* BaseSelectWidgetDescription.m */; };
+		1BAE807D1A58FDD2008A8117 /* BaseWidgetDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BAE80291A58FDD2008A8117 /* BaseWidgetDescription.m */; };
+		1BAE807E1A58FDD2008A8117 /* ButtonWidgetDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BAE802B1A58FDD2008A8117 /* ButtonWidgetDescription.m */; };
+		1BAE807F1A58FDD2008A8117 /* DateSelectWidgetDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BAE802D1A58FDD2008A8117 /* DateSelectWidgetDescription.m */; };
+		1BAE80801A58FDD2008A8117 /* DictionarySelectWidgetDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BAE802F1A58FDD2008A8117 /* DictionarySelectWidgetDescription.m */; };
+		1BAE80811A58FDD2008A8117 /* EditFieldWidgetDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BAE80311A58FDD2008A8117 /* EditFieldWidgetDescription.m */; };
+		1BAE80821A58FDD2008A8117 /* GroupWidgetDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BAE80331A58FDD2008A8117 /* GroupWidgetDescription.m */; };
+		1BAE80831A58FDD2008A8117 /* LabelWidgetDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BAE80351A58FDD2008A8117 /* LabelWidgetDescription.m */; };
+		1BAE80841A58FDD2008A8117 /* ListSelectWidgetDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BAE80371A58FDD2008A8117 /* ListSelectWidgetDescription.m */; };
+		1BAE80851A58FDD2008A8117 /* SimpleFieldWidgetDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BAE80391A58FDD2008A8117 /* SimpleFieldWidgetDescription.m */; };
+		1BAE80861A58FDD2008A8117 /* VGroupWidgetDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BAE803B1A58FDD2008A8117 /* VGroupWidgetDescription.m */; };
+		1BAE80871A58FDD2008A8117 /* WidgetDescriptionFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BAE803D1A58FDD2008A8117 /* WidgetDescriptionFactory.m */; };
+		1BAE80881A58FDD2008A8117 /* WidgetBooleanProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BAE80401A58FDD2008A8117 /* WidgetBooleanProperty.m */; };
+		1BAE80891A58FDD2008A8117 /* WidgetDateProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BAE80421A58FDD2008A8117 /* WidgetDateProperty.m */; };
+		1BAE808A1A58FDD2008A8117 /* WidgetDoubleProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BAE80441A58FDD2008A8117 /* WidgetDoubleProperty.m */; };
+		1BAE808B1A58FDD2008A8117 /* WidgetIntProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BAE80461A58FDD2008A8117 /* WidgetIntProperty.m */; };
+		1BAE808C1A58FDD2008A8117 /* WidgetLongProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BAE80481A58FDD2008A8117 /* WidgetLongProperty.m */; };
+		1BAE808D1A58FDD2008A8117 /* WidgetProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BAE804A1A58FDD2008A8117 /* WidgetProperty.m */; };
+		1BAE808E1A58FDD2008A8117 /* WidgetStringProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BAE804C1A58FDD2008A8117 /* WidgetStringProperty.m */; };
+		1BAE808F1A58FDD2008A8117 /* BaseFieldWidgetView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BAE804F1A58FDD2008A8117 /* BaseFieldWidgetView.m */; };
+		1BAE80901A58FDD2008A8117 /* BaseGroupWidgetView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BAE80511A58FDD2008A8117 /* BaseGroupWidgetView.m */; };
+		1BAE80911A58FDD2008A8117 /* BaseSelectWidgetView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BAE80531A58FDD2008A8117 /* BaseSelectWidgetView.m */; };
+		1BAE80921A58FDD2008A8117 /* BaseWidgetView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BAE80551A58FDD2008A8117 /* BaseWidgetView.m */; };
+		1BAE80931A58FDD2008A8117 /* ButtonWidgetView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BAE80571A58FDD2008A8117 /* ButtonWidgetView.m */; };
+		1BAE80941A58FDD2008A8117 /* DateSelectWidgetView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BAE80591A58FDD2008A8117 /* DateSelectWidgetView.m */; };
+		1BAE80951A58FDD2008A8117 /* DictionarySelectWidgetView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BAE805B1A58FDD2008A8117 /* DictionarySelectWidgetView.m */; };
+		1BAE80961A58FDD2008A8117 /* EditableTextWidgetView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BAE805D1A58FDD2008A8117 /* EditableTextWidgetView.m */; };
+		1BAE80971A58FDD2008A8117 /* EditTextWidgetView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BAE805F1A58FDD2008A8117 /* EditTextWidgetView.m */; };
+		1BAE80981A58FDD2008A8117 /* GroupWidgetView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BAE80611A58FDD2008A8117 /* GroupWidgetView.m */; };
+		1BAE80991A58FDD2008A8117 /* LabelWidgetView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BAE80631A58FDD2008A8117 /* LabelWidgetView.m */; };
+		1BAE809A1A58FDD2008A8117 /* ListSelectWidgetView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BAE80651A58FDD2008A8117 /* ListSelectWidgetView.m */; };
+		1BAE809B1A58FDD2008A8117 /* SimpleFieldWidgetVerticalView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BAE80671A58FDD2008A8117 /* SimpleFieldWidgetVerticalView.m */; };
+		1BAE809C1A58FDD2008A8117 /* SimpleFieldWidgetView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BAE80691A58FDD2008A8117 /* SimpleFieldWidgetView.m */; };
+		1BAE809D1A58FDD2008A8117 /* VGroupWidgetView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BAE806B1A58FDD2008A8117 /* VGroupWidgetView.m */; };
+		1BAE80A11A590136008A8117 /* RunTimeUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BAE80A01A590136008A8117 /* RunTimeUtil.m */; };
+		1BAE80B51A593DBD008A8117 /* CommonFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BAE80A41A593DBD008A8117 /* CommonFunctions.m */; };
+		1BAE80B61A593DBD008A8117 /* Expression.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BAE80A61A593DBD008A8117 /* Expression.m */; };
+		1BAE80B71A593DBD008A8117 /* ExpressionEvaluator.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BAE80A81A593DBD008A8117 /* ExpressionEvaluator.m */; };
+		1BAE80B81A593DBD008A8117 /* ExpressionParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BAE80AA1A593DBD008A8117 /* ExpressionParser.m */; };
+		1BAE80B91A593DBD008A8117 /* ExpressionParserError.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BAE80AC1A593DBD008A8117 /* ExpressionParserError.m */; };
+		1BAE80BA1A593DBD008A8117 /* FunctionPool.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BAE80AE1A593DBD008A8117 /* FunctionPool.m */; };
+		1BAE80BB1A593DBD008A8117 /* LongRunningFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BAE80B01A593DBD008A8117 /* LongRunningFunction.m */; };
+		1BAE80BC1A593DBD008A8117 /* Token.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BAE80B21A593DBD008A8117 /* Token.m */; };
+		1BAE80BD1A593DBD008A8117 /* Tokenizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BAE80B41A593DBD008A8117 /* Tokenizer.m */; };
 		1BAF77511A348A39009CEEF9 /* BSConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BAF77501A348A39009CEEF9 /* BSConnection.m */; };
 		1BAF77711A34B2F9009CEEF9 /* BankListFromCatalogRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BAF77701A34B2F9009CEEF9 /* BankListFromCatalogRequest.m */; };
 		1BB22A7F1A3EBB8800F758D3 /* PingRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BB22A7E1A3EBB8800F758D3 /* PingRequest.m */; };
 		1BB22A821A3EBC8000F758D3 /* PingAnswer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BB22A811A3EBC8000F758D3 /* PingAnswer.m */; };
+		1BB406B31A64EC04005EB4B6 /* MainLoginFormStrings.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1BB406B51A64EC04005EB4B6 /* MainLoginFormStrings.strings */; };
+		1BB4A8891A624D330075841E /* ResizeAwareView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BB4A8881A624D330075841E /* ResizeAwareView.m */; };
 		1BB6103C1A25AAE30096F7D4 /* ExtendedHitAreaViewContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BB6103B1A25AAE30096F7D4 /* ExtendedHitAreaViewContainer.m */; };
-		1BB610501A25C3DE0096F7D4 /* BankCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BB6104E1A25C3DE0096F7D4 /* BankCardViewController.m */; };
-		1BB610511A25C3DE0096F7D4 /* BankCardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1BB6104F1A25C3DE0096F7D4 /* BankCardViewController.xib */; };
-		1BB610541A25C49D0096F7D4 /* BankCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BB610531A25C49D0096F7D4 /* BankCard.m */; };
 		1BB610981A25C5980096F7D4 /* CustomField.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BB6108C1A25C5980096F7D4 /* CustomField.m */; };
 		1BB610991A25C5980096F7D4 /* CustomizableEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BB6108E1A25C5980096F7D4 /* CustomizableEntity.m */; };
 		1BB6109A1A25C5980096F7D4 /* CustomRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BB610901A25C5980096F7D4 /* CustomRecord.m */; };
@@ -53,8 +118,12 @@
 		1BBA5EC01A3944A70072672B /* NoBanksLoginForm.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1BBA5EC21A3944A70072672B /* NoBanksLoginForm.xib */; };
 		1BBA5ECF1A3968F90072672B /* SelectAddBankFormStrings.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1BBA5ED11A3968F90072672B /* SelectAddBankFormStrings.strings */; };
 		1BBA5ED41A396EA50072672B /* config.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1BBA5ED31A396EA50072672B /* config.plist */; };
+		1BBD4A6A1A638999005D12CE /* RootChameleonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BBD4A691A638999005D12CE /* RootChameleonViewController.m */; };
 		1BBF6D371A3AD69C00CE6797 /* AddBankByURLForm.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BBF6D351A3AD69C00CE6797 /* AddBankByURLForm.m */; };
-		1BC52AE81A41411E0058ECCB /* SelectBankFromURLFormStrings.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1BC52AEA1A41411E0058ECCB /* SelectBankFromURLFormStrings.strings */; };
+		1BC227991A5A526B005AF813 /* BankCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BC227931A5A526B005AF813 /* BankCard.m */; };
+		1BC2279A1A5A526B005AF813 /* BankCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BC227971A5A526B005AF813 /* BankCardViewController.m */; };
+		1BC2279B1A5A526B005AF813 /* BankCardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1BC227981A5A526B005AF813 /* BankCardViewController.xib */; };
+		1BC2279E1A5A52A9005AF813 /* BankSelectCellDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BC2279D1A5A52A9005AF813 /* BankSelectCellDescription.m */; };
 		1BC52AFD1A4162700058ECCB /* MetaStructure.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BC52AFC1A4162700058ECCB /* MetaStructure.m */; };
 		1BC52B001A4165950058ECCB /* MetadataRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BC52AFF1A4165950058ECCB /* MetadataRequest.m */; };
 		1BC52B031A4169600058ECCB /* MetadataAnswer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BC52B021A4169600058ECCB /* MetadataAnswer.m */; };
@@ -92,6 +161,8 @@
 		1BAC18371A2AD94E00A45FAF /* NoBanksLoginForm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoBanksLoginForm.m; sourceTree = "<group>"; };
 		1BAC183B1A2B460000A45FAF /* GradientBackground.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GradientBackground.h; sourceTree = "<group>"; };
 		1BAC183C1A2B460000A45FAF /* GradientBackground.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GradientBackground.m; sourceTree = "<group>"; };
+		1BACDEE61A5CF5CD00EDE6F2 /* FullRecordAnswer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FullRecordAnswer.h; sourceTree = "<group>"; };
+		1BACDEE71A5CF5CD00EDE6F2 /* FullRecordAnswer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FullRecordAnswer.m; sourceTree = "<group>"; };
 		1BAD2BCB1A3569E500AF7294 /* XMLRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLRequest.h; sourceTree = "<group>"; };
 		1BAD2BCC1A3569E500AF7294 /* XMLRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLRequest.m; sourceTree = "<group>"; };
 		1BAD2BCF1A3578EF00AF7294 /* XMLNodeWriter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XMLNodeWriter.h; sourceTree = "<group>"; };
@@ -99,14 +170,144 @@
 		1BAD2BD31A357B7700AF7294 /* XMLWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLWriter.m; sourceTree = "<group>"; };
 		1BAD2BD51A357BBC00AF7294 /* XSWINodeWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSWINodeWriter.h; sourceTree = "<group>"; };
 		1BAD2BD61A357BBC00AF7294 /* XSWINodeWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSWINodeWriter.m; sourceTree = "<group>"; };
+		1BAD7F691A60E50500D42865 /* MainLoginForm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainLoginForm.h; sourceTree = "<group>"; };
+		1BAD7F6A1A60E50500D42865 /* MainLoginForm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainLoginForm.m; sourceTree = "<group>"; };
+		1BAD7F6B1A60E50500D42865 /* MainLoginForm.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainLoginForm.xib; sourceTree = "<group>"; };
 		1BADCAEB1A2746E1007148B0 /* Bank.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bank.h; sourceTree = "<group>"; };
 		1BADCAEC1A2746E1007148B0 /* Bank.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bank.m; sourceTree = "<group>"; };
 		1BADCAEE1A274A11007148B0 /* BankList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BankList.h; sourceTree = "<group>"; };
 		1BADCAEF1A274A11007148B0 /* BankList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BankList.m; sourceTree = "<group>"; };
+		1BAE57141A5BBA7F0009A2F5 /* ResourceRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResourceRequest.h; sourceTree = "<group>"; };
+		1BAE57151A5BBA7F0009A2F5 /* ResourceRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResourceRequest.m; sourceTree = "<group>"; };
+		1BAE57171A5BBBFE0009A2F5 /* ResourceAnswer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResourceAnswer.h; sourceTree = "<group>"; };
+		1BAE57181A5BBBFE0009A2F5 /* ResourceAnswer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResourceAnswer.m; sourceTree = "<group>"; };
+		1BAE571D1A5BDDB10009A2F5 /* SimpleRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleRequest.h; sourceTree = "<group>"; };
+		1BAE571E1A5BDDB10009A2F5 /* SimpleRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleRequest.m; sourceTree = "<group>"; };
 		1BAE59D71A401D0600E4DEDD /* SelectBankFromURLForm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectBankFromURLForm.h; sourceTree = "<group>"; };
 		1BAE59D81A401D0600E4DEDD /* SelectBankFromURLForm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectBankFromURLForm.m; sourceTree = "<group>"; };
 		1BAE59DD1A401E2500E4DEDD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SelectBankFromURLForm.xib; sourceTree = "<group>"; };
 		1BAE59E01A401E2700E4DEDD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/SelectBankFromURLForm.strings; sourceTree = "<group>"; };
+		1BAE80031A58FDD2008A8117 /* AccountWidgetTextFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountWidgetTextFormatter.h; sourceTree = "<group>"; };
+		1BAE80041A58FDD2008A8117 /* AccountWidgetTextFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountWidgetTextFormatter.m; sourceTree = "<group>"; };
+		1BAE80051A58FDD2008A8117 /* AmountWidgetTextFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AmountWidgetTextFormatter.h; sourceTree = "<group>"; };
+		1BAE80061A58FDD2008A8117 /* AmountWidgetTextFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AmountWidgetTextFormatter.m; sourceTree = "<group>"; };
+		1BAE80071A58FDD2008A8117 /* CurrCodeISOWidgetTextFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CurrCodeISOWidgetTextFormatter.h; sourceTree = "<group>"; };
+		1BAE80081A58FDD2008A8117 /* CurrCodeISOWidgetTextFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurrCodeISOWidgetTextFormatter.m; sourceTree = "<group>"; };
+		1BAE80091A58FDD2008A8117 /* DateWidgetTextFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DateWidgetTextFormatter.h; sourceTree = "<group>"; };
+		1BAE800A1A58FDD2008A8117 /* DateWidgetTextFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DateWidgetTextFormatter.m; sourceTree = "<group>"; };
+		1BAE800B1A58FDD2008A8117 /* DefaultWidgetTextFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DefaultWidgetTextFormatter.h; sourceTree = "<group>"; };
+		1BAE800C1A58FDD2008A8117 /* DefaultWidgetTextFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DefaultWidgetTextFormatter.m; sourceTree = "<group>"; };
+		1BAE800D1A58FDD2008A8117 /* FormatterUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FormatterUtils.h; sourceTree = "<group>"; };
+		1BAE800E1A58FDD2008A8117 /* FormatterUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FormatterUtils.m; sourceTree = "<group>"; };
+		1BAE800F1A58FDD2008A8117 /* StatusWidgetTextFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatusWidgetTextFormatter.h; sourceTree = "<group>"; };
+		1BAE80101A58FDD2008A8117 /* StatusWidgetTextFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatusWidgetTextFormatter.m; sourceTree = "<group>"; };
+		1BAE80111A58FDD2008A8117 /* WidgetTextFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WidgetTextFormatter.h; sourceTree = "<group>"; };
+		1BAE80121A58FDD2008A8117 /* WidgetTextFormatterFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WidgetTextFormatterFactory.h; sourceTree = "<group>"; };
+		1BAE80131A58FDD2008A8117 /* WidgetTextFormatterFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WidgetTextFormatterFactory.m; sourceTree = "<group>"; };
+		1BAE80151A58FDD2008A8117 /* DynamicGroupView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DynamicGroupView.h; sourceTree = "<group>"; };
+		1BAE80161A58FDD2008A8117 /* DynamicGroupView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DynamicGroupView.m; sourceTree = "<group>"; };
+		1BAE80171A58FDD2008A8117 /* RecordListTableViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordListTableViewDataSource.h; sourceTree = "<group>"; };
+		1BAE80181A58FDD2008A8117 /* RecordListTableViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordListTableViewDataSource.m; sourceTree = "<group>"; };
+		1BAE80191A58FDD2008A8117 /* WidgetsTableViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WidgetsTableViewDataSource.h; sourceTree = "<group>"; };
+		1BAE801A1A58FDD2008A8117 /* WidgetsTableViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WidgetsTableViewDataSource.m; sourceTree = "<group>"; };
+		1BAE801B1A58FDD2008A8117 /* ViewStructure.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewStructure.h; sourceTree = "<group>"; };
+		1BAE801C1A58FDD2008A8117 /* ViewStructure.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewStructure.m; sourceTree = "<group>"; };
+		1BAE801D1A58FDD2008A8117 /* WidgetController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WidgetController.h; sourceTree = "<group>"; };
+		1BAE801E1A58FDD2008A8117 /* WidgetController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WidgetController.m; sourceTree = "<group>"; };
+		1BAE801F1A58FDD2008A8117 /* WidgetDescriptionList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WidgetDescriptionList.h; sourceTree = "<group>"; };
+		1BAE80201A58FDD2008A8117 /* WidgetDescriptionList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WidgetDescriptionList.m; sourceTree = "<group>"; };
+		1BAE80221A58FDD2008A8117 /* BaseFieldWidgetDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseFieldWidgetDescription.h; sourceTree = "<group>"; };
+		1BAE80231A58FDD2008A8117 /* BaseFieldWidgetDescription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseFieldWidgetDescription.m; sourceTree = "<group>"; };
+		1BAE80241A58FDD2008A8117 /* BaseGroupWidgetDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseGroupWidgetDescription.h; sourceTree = "<group>"; };
+		1BAE80251A58FDD2008A8117 /* BaseGroupWidgetDescription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseGroupWidgetDescription.m; sourceTree = "<group>"; };
+		1BAE80261A58FDD2008A8117 /* BaseSelectWidgetDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseSelectWidgetDescription.h; sourceTree = "<group>"; };
+		1BAE80271A58FDD2008A8117 /* BaseSelectWidgetDescription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseSelectWidgetDescription.m; sourceTree = "<group>"; };
+		1BAE80281A58FDD2008A8117 /* BaseWidgetDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseWidgetDescription.h; sourceTree = "<group>"; };
+		1BAE80291A58FDD2008A8117 /* BaseWidgetDescription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseWidgetDescription.m; sourceTree = "<group>"; };
+		1BAE802A1A58FDD2008A8117 /* ButtonWidgetDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ButtonWidgetDescription.h; sourceTree = "<group>"; };
+		1BAE802B1A58FDD2008A8117 /* ButtonWidgetDescription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ButtonWidgetDescription.m; sourceTree = "<group>"; };
+		1BAE802C1A58FDD2008A8117 /* DateSelectWidgetDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DateSelectWidgetDescription.h; sourceTree = "<group>"; };
+		1BAE802D1A58FDD2008A8117 /* DateSelectWidgetDescription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DateSelectWidgetDescription.m; sourceTree = "<group>"; };
+		1BAE802E1A58FDD2008A8117 /* DictionarySelectWidgetDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DictionarySelectWidgetDescription.h; sourceTree = "<group>"; };
+		1BAE802F1A58FDD2008A8117 /* DictionarySelectWidgetDescription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DictionarySelectWidgetDescription.m; sourceTree = "<group>"; };
+		1BAE80301A58FDD2008A8117 /* EditFieldWidgetDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditFieldWidgetDescription.h; sourceTree = "<group>"; };
+		1BAE80311A58FDD2008A8117 /* EditFieldWidgetDescription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditFieldWidgetDescription.m; sourceTree = "<group>"; };
+		1BAE80321A58FDD2008A8117 /* GroupWidgetDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupWidgetDescription.h; sourceTree = "<group>"; };
+		1BAE80331A58FDD2008A8117 /* GroupWidgetDescription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupWidgetDescription.m; sourceTree = "<group>"; };
+		1BAE80341A58FDD2008A8117 /* LabelWidgetDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LabelWidgetDescription.h; sourceTree = "<group>"; };
+		1BAE80351A58FDD2008A8117 /* LabelWidgetDescription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LabelWidgetDescription.m; sourceTree = "<group>"; };
+		1BAE80361A58FDD2008A8117 /* ListSelectWidgetDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListSelectWidgetDescription.h; sourceTree = "<group>"; };
+		1BAE80371A58FDD2008A8117 /* ListSelectWidgetDescription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListSelectWidgetDescription.m; sourceTree = "<group>"; };
+		1BAE80381A58FDD2008A8117 /* SimpleFieldWidgetDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleFieldWidgetDescription.h; sourceTree = "<group>"; };
+		1BAE80391A58FDD2008A8117 /* SimpleFieldWidgetDescription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleFieldWidgetDescription.m; sourceTree = "<group>"; };
+		1BAE803A1A58FDD2008A8117 /* VGroupWidgetDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VGroupWidgetDescription.h; sourceTree = "<group>"; };
+		1BAE803B1A58FDD2008A8117 /* VGroupWidgetDescription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VGroupWidgetDescription.m; sourceTree = "<group>"; };
+		1BAE803C1A58FDD2008A8117 /* WidgetDescriptionFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WidgetDescriptionFactory.h; sourceTree = "<group>"; };
+		1BAE803D1A58FDD2008A8117 /* WidgetDescriptionFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WidgetDescriptionFactory.m; sourceTree = "<group>"; };
+		1BAE803F1A58FDD2008A8117 /* WidgetBooleanProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WidgetBooleanProperty.h; sourceTree = "<group>"; };
+		1BAE80401A58FDD2008A8117 /* WidgetBooleanProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WidgetBooleanProperty.m; sourceTree = "<group>"; };
+		1BAE80411A58FDD2008A8117 /* WidgetDateProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WidgetDateProperty.h; sourceTree = "<group>"; };
+		1BAE80421A58FDD2008A8117 /* WidgetDateProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WidgetDateProperty.m; sourceTree = "<group>"; };
+		1BAE80431A58FDD2008A8117 /* WidgetDoubleProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WidgetDoubleProperty.h; sourceTree = "<group>"; };
+		1BAE80441A58FDD2008A8117 /* WidgetDoubleProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WidgetDoubleProperty.m; sourceTree = "<group>"; };
+		1BAE80451A58FDD2008A8117 /* WidgetIntProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WidgetIntProperty.h; sourceTree = "<group>"; };
+		1BAE80461A58FDD2008A8117 /* WidgetIntProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WidgetIntProperty.m; sourceTree = "<group>"; };
+		1BAE80471A58FDD2008A8117 /* WidgetLongProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WidgetLongProperty.h; sourceTree = "<group>"; };
+		1BAE80481A58FDD2008A8117 /* WidgetLongProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WidgetLongProperty.m; sourceTree = "<group>"; };
+		1BAE80491A58FDD2008A8117 /* WidgetProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WidgetProperty.h; sourceTree = "<group>"; };
+		1BAE804A1A58FDD2008A8117 /* WidgetProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WidgetProperty.m; sourceTree = "<group>"; };
+		1BAE804B1A58FDD2008A8117 /* WidgetStringProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WidgetStringProperty.h; sourceTree = "<group>"; };
+		1BAE804C1A58FDD2008A8117 /* WidgetStringProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WidgetStringProperty.m; sourceTree = "<group>"; };
+		1BAE804E1A58FDD2008A8117 /* BaseFieldWidgetView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseFieldWidgetView.h; sourceTree = "<group>"; };
+		1BAE804F1A58FDD2008A8117 /* BaseFieldWidgetView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseFieldWidgetView.m; sourceTree = "<group>"; };
+		1BAE80501A58FDD2008A8117 /* BaseGroupWidgetView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseGroupWidgetView.h; sourceTree = "<group>"; };
+		1BAE80511A58FDD2008A8117 /* BaseGroupWidgetView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseGroupWidgetView.m; sourceTree = "<group>"; };
+		1BAE80521A58FDD2008A8117 /* BaseSelectWidgetView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseSelectWidgetView.h; sourceTree = "<group>"; };
+		1BAE80531A58FDD2008A8117 /* BaseSelectWidgetView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseSelectWidgetView.m; sourceTree = "<group>"; };
+		1BAE80541A58FDD2008A8117 /* BaseWidgetView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseWidgetView.h; sourceTree = "<group>"; };
+		1BAE80551A58FDD2008A8117 /* BaseWidgetView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseWidgetView.m; sourceTree = "<group>"; };
+		1BAE80561A58FDD2008A8117 /* ButtonWidgetView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ButtonWidgetView.h; sourceTree = "<group>"; };
+		1BAE80571A58FDD2008A8117 /* ButtonWidgetView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ButtonWidgetView.m; sourceTree = "<group>"; };
+		1BAE80581A58FDD2008A8117 /* DateSelectWidgetView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DateSelectWidgetView.h; sourceTree = "<group>"; };
+		1BAE80591A58FDD2008A8117 /* DateSelectWidgetView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DateSelectWidgetView.m; sourceTree = "<group>"; };
+		1BAE805A1A58FDD2008A8117 /* DictionarySelectWidgetView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DictionarySelectWidgetView.h; sourceTree = "<group>"; };
+		1BAE805B1A58FDD2008A8117 /* DictionarySelectWidgetView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DictionarySelectWidgetView.m; sourceTree = "<group>"; };
+		1BAE805C1A58FDD2008A8117 /* EditableTextWidgetView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditableTextWidgetView.h; sourceTree = "<group>"; };
+		1BAE805D1A58FDD2008A8117 /* EditableTextWidgetView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditableTextWidgetView.m; sourceTree = "<group>"; };
+		1BAE805E1A58FDD2008A8117 /* EditTextWidgetView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditTextWidgetView.h; sourceTree = "<group>"; };
+		1BAE805F1A58FDD2008A8117 /* EditTextWidgetView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditTextWidgetView.m; sourceTree = "<group>"; };
+		1BAE80601A58FDD2008A8117 /* GroupWidgetView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupWidgetView.h; sourceTree = "<group>"; };
+		1BAE80611A58FDD2008A8117 /* GroupWidgetView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupWidgetView.m; sourceTree = "<group>"; };
+		1BAE80621A58FDD2008A8117 /* LabelWidgetView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LabelWidgetView.h; sourceTree = "<group>"; };
+		1BAE80631A58FDD2008A8117 /* LabelWidgetView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LabelWidgetView.m; sourceTree = "<group>"; };
+		1BAE80641A58FDD2008A8117 /* ListSelectWidgetView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListSelectWidgetView.h; sourceTree = "<group>"; };
+		1BAE80651A58FDD2008A8117 /* ListSelectWidgetView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListSelectWidgetView.m; sourceTree = "<group>"; };
+		1BAE80661A58FDD2008A8117 /* SimpleFieldWidgetVerticalView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleFieldWidgetVerticalView.h; sourceTree = "<group>"; };
+		1BAE80671A58FDD2008A8117 /* SimpleFieldWidgetVerticalView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleFieldWidgetVerticalView.m; sourceTree = "<group>"; };
+		1BAE80681A58FDD2008A8117 /* SimpleFieldWidgetView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleFieldWidgetView.h; sourceTree = "<group>"; };
+		1BAE80691A58FDD2008A8117 /* SimpleFieldWidgetView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleFieldWidgetView.m; sourceTree = "<group>"; };
+		1BAE806A1A58FDD2008A8117 /* VGroupWidgetView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VGroupWidgetView.h; sourceTree = "<group>"; };
+		1BAE806B1A58FDD2008A8117 /* VGroupWidgetView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VGroupWidgetView.m; sourceTree = "<group>"; };
+		1BAE809F1A590136008A8117 /* RunTimeUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RunTimeUtil.h; sourceTree = "<group>"; };
+		1BAE80A01A590136008A8117 /* RunTimeUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RunTimeUtil.m; sourceTree = "<group>"; };
+		1BAE80A31A593DBD008A8117 /* CommonFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonFunctions.h; sourceTree = "<group>"; };
+		1BAE80A41A593DBD008A8117 /* CommonFunctions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonFunctions.m; sourceTree = "<group>"; };
+		1BAE80A51A593DBD008A8117 /* Expression.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Expression.h; sourceTree = "<group>"; };
+		1BAE80A61A593DBD008A8117 /* Expression.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Expression.m; sourceTree = "<group>"; };
+		1BAE80A71A593DBD008A8117 /* ExpressionEvaluator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExpressionEvaluator.h; sourceTree = "<group>"; };
+		1BAE80A81A593DBD008A8117 /* ExpressionEvaluator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExpressionEvaluator.m; sourceTree = "<group>"; };
+		1BAE80A91A593DBD008A8117 /* ExpressionParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExpressionParser.h; sourceTree = "<group>"; };
+		1BAE80AA1A593DBD008A8117 /* ExpressionParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExpressionParser.m; sourceTree = "<group>"; };
+		1BAE80AB1A593DBD008A8117 /* ExpressionParserError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExpressionParserError.h; sourceTree = "<group>"; };
+		1BAE80AC1A593DBD008A8117 /* ExpressionParserError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExpressionParserError.m; sourceTree = "<group>"; };
+		1BAE80AD1A593DBD008A8117 /* FunctionPool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FunctionPool.h; sourceTree = "<group>"; };
+		1BAE80AE1A593DBD008A8117 /* FunctionPool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FunctionPool.m; sourceTree = "<group>"; };
+		1BAE80AF1A593DBD008A8117 /* LongRunningFunction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LongRunningFunction.h; sourceTree = "<group>"; };
+		1BAE80B01A593DBD008A8117 /* LongRunningFunction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LongRunningFunction.m; sourceTree = "<group>"; };
+		1BAE80B11A593DBD008A8117 /* Token.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Token.h; sourceTree = "<group>"; };
+		1BAE80B21A593DBD008A8117 /* Token.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Token.m; sourceTree = "<group>"; };
+		1BAE80B31A593DBD008A8117 /* Tokenizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tokenizer.h; sourceTree = "<group>"; };
+		1BAE80B41A593DBD008A8117 /* Tokenizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tokenizer.m; sourceTree = "<group>"; };
 		1BAF774F1A348A39009CEEF9 /* BSConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSConnection.h; sourceTree = "<group>"; };
 		1BAF77501A348A39009CEEF9 /* BSConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BSConnection.m; sourceTree = "<group>"; };
 		1BAF776F1A34B2F9009CEEF9 /* BankListFromCatalogRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BankListFromCatalogRequest.h; sourceTree = "<group>"; };
@@ -115,13 +316,12 @@
 		1BB22A7E1A3EBB8800F758D3 /* PingRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PingRequest.m; sourceTree = "<group>"; };
 		1BB22A801A3EBC8000F758D3 /* PingAnswer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PingAnswer.h; sourceTree = "<group>"; };
 		1BB22A811A3EBC8000F758D3 /* PingAnswer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PingAnswer.m; sourceTree = "<group>"; };
+		1BB406B41A64EC04005EB4B6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/MainLoginFormStrings.strings; sourceTree = "<group>"; };
+		1BB406B61A64EC1B005EB4B6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/MainLoginFormStrings.strings; sourceTree = "<group>"; };
+		1BB4A8871A624D330075841E /* ResizeAwareView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResizeAwareView.h; sourceTree = "<group>"; };
+		1BB4A8881A624D330075841E /* ResizeAwareView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResizeAwareView.m; sourceTree = "<group>"; };
 		1BB6103A1A25AAE30096F7D4 /* ExtendedHitAreaViewContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExtendedHitAreaViewContainer.h; sourceTree = "<group>"; };
 		1BB6103B1A25AAE30096F7D4 /* ExtendedHitAreaViewContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExtendedHitAreaViewContainer.m; sourceTree = "<group>"; };
-		1BB6104D1A25C3DE0096F7D4 /* BankCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BankCardViewController.h; sourceTree = "<group>"; };
-		1BB6104E1A25C3DE0096F7D4 /* BankCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BankCardViewController.m; sourceTree = "<group>"; };
-		1BB6104F1A25C3DE0096F7D4 /* BankCardViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BankCardViewController.xib; sourceTree = "<group>"; };
-		1BB610521A25C49D0096F7D4 /* BankCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BankCard.h; sourceTree = "<group>"; };
-		1BB610531A25C49D0096F7D4 /* BankCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BankCard.m; sourceTree = "<group>"; };
 		1BB6108B1A25C5980096F7D4 /* CustomField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomField.h; sourceTree = "<group>"; };
 		1BB6108C1A25C5980096F7D4 /* CustomField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomField.m; sourceTree = "<group>"; };
 		1BB6108D1A25C5980096F7D4 /* CustomizableEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomizableEntity.h; sourceTree = "<group>"; };
@@ -163,16 +363,22 @@
 		1BBA5EB61A3940F30072672B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		1BBA5EB71A39433C0072672B /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
 		1BBA5EBA1A3943B10072672B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SelectAddBankForm.xib; sourceTree = "<group>"; };
-		1BBA5EBD1A3943BE0072672B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/SelectAddBankForm.strings; sourceTree = "<group>"; };
 		1BBA5EC11A3944A70072672B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/NoBanksLoginForm.xib; sourceTree = "<group>"; };
 		1BBA5EC41A3944AB0072672B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/NoBanksLoginForm.strings; sourceTree = "<group>"; };
 		1BBA5ED01A3968F90072672B /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/SelectAddBankFormStrings.strings; sourceTree = "<group>"; };
 		1BBA5ED21A3968FB0072672B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/SelectAddBankFormStrings.strings; sourceTree = "<group>"; };
 		1BBA5ED31A396EA50072672B /* config.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = config.plist; sourceTree = "<group>"; };
+		1BBD4A681A638999005D12CE /* RootChameleonViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootChameleonViewController.h; sourceTree = "<group>"; };
+		1BBD4A691A638999005D12CE /* RootChameleonViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootChameleonViewController.m; sourceTree = "<group>"; };
 		1BBF6D341A3AD69C00CE6797 /* AddBankByURLForm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddBankByURLForm.h; sourceTree = "<group>"; };
 		1BBF6D351A3AD69C00CE6797 /* AddBankByURLForm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddBankByURLForm.m; sourceTree = "<group>"; };
-		1BC52AE91A41411E0058ECCB /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/SelectBankFromURLFormStrings.strings; sourceTree = "<group>"; };
-		1BC52AEB1A4141340058ECCB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/SelectBankFromURLFormStrings.strings; sourceTree = "<group>"; };
+		1BC227921A5A526B005AF813 /* BankCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BankCard.h; sourceTree = "<group>"; };
+		1BC227931A5A526B005AF813 /* BankCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BankCard.m; sourceTree = "<group>"; };
+		1BC227961A5A526B005AF813 /* BankCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BankCardViewController.h; sourceTree = "<group>"; };
+		1BC227971A5A526B005AF813 /* BankCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BankCardViewController.m; sourceTree = "<group>"; };
+		1BC227981A5A526B005AF813 /* BankCardViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BankCardViewController.xib; sourceTree = "<group>"; };
+		1BC2279C1A5A52A9005AF813 /* BankSelectCellDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BankSelectCellDescription.h; sourceTree = "<group>"; };
+		1BC2279D1A5A52A9005AF813 /* BankSelectCellDescription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BankSelectCellDescription.m; sourceTree = "<group>"; };
 		1BC52AFB1A4162700058ECCB /* MetaStructure.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MetaStructure.h; sourceTree = "<group>"; };
 		1BC52AFC1A4162700058ECCB /* MetaStructure.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MetaStructure.m; sourceTree = "<group>"; };
 		1BC52AFE1A4165950058ECCB /* MetadataRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MetadataRequest.h; sourceTree = "<group>"; };
@@ -228,6 +434,9 @@
 		1B64A8261A208D8D00541A01 /* Chameleon */ = {
 			isa = PBXGroup;
 			children = (
+				1BAE80A21A593DBD008A8117 /* Calculations */,
+				1BAE809E1A590136008A8117 /* Utils */,
+				1BAE80011A58FDD2008A8117 /* DynamicViews */,
 				1BC52AF91A4162310058ECCB /* Services */,
 				1BC52AF81A41621A0058ECCB /* Metadata */,
 				1BAD2BD01A357B7700AF7294 /* External */,
@@ -249,6 +458,8 @@
 				1BB6103A1A25AAE30096F7D4 /* ExtendedHitAreaViewContainer.h */,
 				1BB6103B1A25AAE30096F7D4 /* ExtendedHitAreaViewContainer.m */,
 				1BBA5ED31A396EA50072672B /* config.plist */,
+				1BB4A8871A624D330075841E /* ResizeAwareView.h */,
+				1BB4A8881A624D330075841E /* ResizeAwareView.m */,
 			);
 			path = Chameleon;
 			sourceTree = "<group>";
@@ -298,7 +509,12 @@
 				1BAE59D71A401D0600E4DEDD /* SelectBankFromURLForm.h */,
 				1BAE59D81A401D0600E4DEDD /* SelectBankFromURLForm.m */,
 				1BAE59DE1A401E2500E4DEDD /* SelectBankFromURLForm.xib */,
-				1BC52AEA1A41411E0058ECCB /* SelectBankFromURLFormStrings.strings */,
+				1BAD7F691A60E50500D42865 /* MainLoginForm.h */,
+				1BAD7F6A1A60E50500D42865 /* MainLoginForm.m */,
+				1BAD7F6B1A60E50500D42865 /* MainLoginForm.xib */,
+				1BBD4A681A638999005D12CE /* RootChameleonViewController.h */,
+				1BBD4A691A638999005D12CE /* RootChameleonViewController.m */,
+				1BB406B51A64EC04005EB4B6 /* MainLoginFormStrings.strings */,
 			);
 			path = Visual;
 			sourceTree = "<group>";
@@ -345,6 +561,188 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		1BAE80011A58FDD2008A8117 /* DynamicViews */ = {
+			isa = PBXGroup;
+			children = (
+				1BAE80021A58FDD2008A8117 /* Formatters */,
+				1BAE80141A58FDD2008A8117 /* Renderers */,
+				1BAE801B1A58FDD2008A8117 /* ViewStructure.h */,
+				1BAE801C1A58FDD2008A8117 /* ViewStructure.m */,
+				1BAE801D1A58FDD2008A8117 /* WidgetController.h */,
+				1BAE801E1A58FDD2008A8117 /* WidgetController.m */,
+				1BAE801F1A58FDD2008A8117 /* WidgetDescriptionList.h */,
+				1BAE80201A58FDD2008A8117 /* WidgetDescriptionList.m */,
+				1BAE80211A58FDD2008A8117 /* WidgetDescriptions */,
+				1BAE803E1A58FDD2008A8117 /* WidgetProperties */,
+				1BAE804D1A58FDD2008A8117 /* Widgets */,
+			);
+			path = DynamicViews;
+			sourceTree = "<group>";
+		};
+		1BAE80021A58FDD2008A8117 /* Formatters */ = {
+			isa = PBXGroup;
+			children = (
+				1BAE80031A58FDD2008A8117 /* AccountWidgetTextFormatter.h */,
+				1BAE80041A58FDD2008A8117 /* AccountWidgetTextFormatter.m */,
+				1BAE80051A58FDD2008A8117 /* AmountWidgetTextFormatter.h */,
+				1BAE80061A58FDD2008A8117 /* AmountWidgetTextFormatter.m */,
+				1BAE80071A58FDD2008A8117 /* CurrCodeISOWidgetTextFormatter.h */,
+				1BAE80081A58FDD2008A8117 /* CurrCodeISOWidgetTextFormatter.m */,
+				1BAE80091A58FDD2008A8117 /* DateWidgetTextFormatter.h */,
+				1BAE800A1A58FDD2008A8117 /* DateWidgetTextFormatter.m */,
+				1BAE800B1A58FDD2008A8117 /* DefaultWidgetTextFormatter.h */,
+				1BAE800C1A58FDD2008A8117 /* DefaultWidgetTextFormatter.m */,
+				1BAE800D1A58FDD2008A8117 /* FormatterUtils.h */,
+				1BAE800E1A58FDD2008A8117 /* FormatterUtils.m */,
+				1BAE800F1A58FDD2008A8117 /* StatusWidgetTextFormatter.h */,
+				1BAE80101A58FDD2008A8117 /* StatusWidgetTextFormatter.m */,
+				1BAE80111A58FDD2008A8117 /* WidgetTextFormatter.h */,
+				1BAE80121A58FDD2008A8117 /* WidgetTextFormatterFactory.h */,
+				1BAE80131A58FDD2008A8117 /* WidgetTextFormatterFactory.m */,
+			);
+			path = Formatters;
+			sourceTree = "<group>";
+		};
+		1BAE80141A58FDD2008A8117 /* Renderers */ = {
+			isa = PBXGroup;
+			children = (
+				1BAE80151A58FDD2008A8117 /* DynamicGroupView.h */,
+				1BAE80161A58FDD2008A8117 /* DynamicGroupView.m */,
+				1BAE80171A58FDD2008A8117 /* RecordListTableViewDataSource.h */,
+				1BAE80181A58FDD2008A8117 /* RecordListTableViewDataSource.m */,
+				1BAE80191A58FDD2008A8117 /* WidgetsTableViewDataSource.h */,
+				1BAE801A1A58FDD2008A8117 /* WidgetsTableViewDataSource.m */,
+			);
+			path = Renderers;
+			sourceTree = "<group>";
+		};
+		1BAE80211A58FDD2008A8117 /* WidgetDescriptions */ = {
+			isa = PBXGroup;
+			children = (
+				1BAE80221A58FDD2008A8117 /* BaseFieldWidgetDescription.h */,
+				1BAE80231A58FDD2008A8117 /* BaseFieldWidgetDescription.m */,
+				1BAE80241A58FDD2008A8117 /* BaseGroupWidgetDescription.h */,
+				1BAE80251A58FDD2008A8117 /* BaseGroupWidgetDescription.m */,
+				1BAE80261A58FDD2008A8117 /* BaseSelectWidgetDescription.h */,
+				1BAE80271A58FDD2008A8117 /* BaseSelectWidgetDescription.m */,
+				1BAE80281A58FDD2008A8117 /* BaseWidgetDescription.h */,
+				1BAE80291A58FDD2008A8117 /* BaseWidgetDescription.m */,
+				1BAE802A1A58FDD2008A8117 /* ButtonWidgetDescription.h */,
+				1BAE802B1A58FDD2008A8117 /* ButtonWidgetDescription.m */,
+				1BAE802C1A58FDD2008A8117 /* DateSelectWidgetDescription.h */,
+				1BAE802D1A58FDD2008A8117 /* DateSelectWidgetDescription.m */,
+				1BAE802E1A58FDD2008A8117 /* DictionarySelectWidgetDescription.h */,
+				1BAE802F1A58FDD2008A8117 /* DictionarySelectWidgetDescription.m */,
+				1BAE80301A58FDD2008A8117 /* EditFieldWidgetDescription.h */,
+				1BAE80311A58FDD2008A8117 /* EditFieldWidgetDescription.m */,
+				1BAE80321A58FDD2008A8117 /* GroupWidgetDescription.h */,
+				1BAE80331A58FDD2008A8117 /* GroupWidgetDescription.m */,
+				1BAE80341A58FDD2008A8117 /* LabelWidgetDescription.h */,
+				1BAE80351A58FDD2008A8117 /* LabelWidgetDescription.m */,
+				1BAE80361A58FDD2008A8117 /* ListSelectWidgetDescription.h */,
+				1BAE80371A58FDD2008A8117 /* ListSelectWidgetDescription.m */,
+				1BAE80381A58FDD2008A8117 /* SimpleFieldWidgetDescription.h */,
+				1BAE80391A58FDD2008A8117 /* SimpleFieldWidgetDescription.m */,
+				1BAE803A1A58FDD2008A8117 /* VGroupWidgetDescription.h */,
+				1BAE803B1A58FDD2008A8117 /* VGroupWidgetDescription.m */,
+				1BAE803C1A58FDD2008A8117 /* WidgetDescriptionFactory.h */,
+				1BAE803D1A58FDD2008A8117 /* WidgetDescriptionFactory.m */,
+			);
+			path = WidgetDescriptions;
+			sourceTree = "<group>";
+		};
+		1BAE803E1A58FDD2008A8117 /* WidgetProperties */ = {
+			isa = PBXGroup;
+			children = (
+				1BAE803F1A58FDD2008A8117 /* WidgetBooleanProperty.h */,
+				1BAE80401A58FDD2008A8117 /* WidgetBooleanProperty.m */,
+				1BAE80411A58FDD2008A8117 /* WidgetDateProperty.h */,
+				1BAE80421A58FDD2008A8117 /* WidgetDateProperty.m */,
+				1BAE80431A58FDD2008A8117 /* WidgetDoubleProperty.h */,
+				1BAE80441A58FDD2008A8117 /* WidgetDoubleProperty.m */,
+				1BAE80451A58FDD2008A8117 /* WidgetIntProperty.h */,
+				1BAE80461A58FDD2008A8117 /* WidgetIntProperty.m */,
+				1BAE80471A58FDD2008A8117 /* WidgetLongProperty.h */,
+				1BAE80481A58FDD2008A8117 /* WidgetLongProperty.m */,
+				1BAE80491A58FDD2008A8117 /* WidgetProperty.h */,
+				1BAE804A1A58FDD2008A8117 /* WidgetProperty.m */,
+				1BAE804B1A58FDD2008A8117 /* WidgetStringProperty.h */,
+				1BAE804C1A58FDD2008A8117 /* WidgetStringProperty.m */,
+			);
+			path = WidgetProperties;
+			sourceTree = "<group>";
+		};
+		1BAE804D1A58FDD2008A8117 /* Widgets */ = {
+			isa = PBXGroup;
+			children = (
+				1BAE804E1A58FDD2008A8117 /* BaseFieldWidgetView.h */,
+				1BAE804F1A58FDD2008A8117 /* BaseFieldWidgetView.m */,
+				1BAE80501A58FDD2008A8117 /* BaseGroupWidgetView.h */,
+				1BAE80511A58FDD2008A8117 /* BaseGroupWidgetView.m */,
+				1BAE80521A58FDD2008A8117 /* BaseSelectWidgetView.h */,
+				1BAE80531A58FDD2008A8117 /* BaseSelectWidgetView.m */,
+				1BAE80541A58FDD2008A8117 /* BaseWidgetView.h */,
+				1BAE80551A58FDD2008A8117 /* BaseWidgetView.m */,
+				1BAE80561A58FDD2008A8117 /* ButtonWidgetView.h */,
+				1BAE80571A58FDD2008A8117 /* ButtonWidgetView.m */,
+				1BAE80581A58FDD2008A8117 /* DateSelectWidgetView.h */,
+				1BAE80591A58FDD2008A8117 /* DateSelectWidgetView.m */,
+				1BAE805A1A58FDD2008A8117 /* DictionarySelectWidgetView.h */,
+				1BAE805B1A58FDD2008A8117 /* DictionarySelectWidgetView.m */,
+				1BAE805C1A58FDD2008A8117 /* EditableTextWidgetView.h */,
+				1BAE805D1A58FDD2008A8117 /* EditableTextWidgetView.m */,
+				1BAE805E1A58FDD2008A8117 /* EditTextWidgetView.h */,
+				1BAE805F1A58FDD2008A8117 /* EditTextWidgetView.m */,
+				1BAE80601A58FDD2008A8117 /* GroupWidgetView.h */,
+				1BAE80611A58FDD2008A8117 /* GroupWidgetView.m */,
+				1BAE80621A58FDD2008A8117 /* LabelWidgetView.h */,
+				1BAE80631A58FDD2008A8117 /* LabelWidgetView.m */,
+				1BAE80641A58FDD2008A8117 /* ListSelectWidgetView.h */,
+				1BAE80651A58FDD2008A8117 /* ListSelectWidgetView.m */,
+				1BAE80661A58FDD2008A8117 /* SimpleFieldWidgetVerticalView.h */,
+				1BAE80671A58FDD2008A8117 /* SimpleFieldWidgetVerticalView.m */,
+				1BAE80681A58FDD2008A8117 /* SimpleFieldWidgetView.h */,
+				1BAE80691A58FDD2008A8117 /* SimpleFieldWidgetView.m */,
+				1BAE806A1A58FDD2008A8117 /* VGroupWidgetView.h */,
+				1BAE806B1A58FDD2008A8117 /* VGroupWidgetView.m */,
+			);
+			path = Widgets;
+			sourceTree = "<group>";
+		};
+		1BAE809E1A590136008A8117 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				1BAE809F1A590136008A8117 /* RunTimeUtil.h */,
+				1BAE80A01A590136008A8117 /* RunTimeUtil.m */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		1BAE80A21A593DBD008A8117 /* Calculations */ = {
+			isa = PBXGroup;
+			children = (
+				1BAE80A31A593DBD008A8117 /* CommonFunctions.h */,
+				1BAE80A41A593DBD008A8117 /* CommonFunctions.m */,
+				1BAE80A51A593DBD008A8117 /* Expression.h */,
+				1BAE80A61A593DBD008A8117 /* Expression.m */,
+				1BAE80A71A593DBD008A8117 /* ExpressionEvaluator.h */,
+				1BAE80A81A593DBD008A8117 /* ExpressionEvaluator.m */,
+				1BAE80A91A593DBD008A8117 /* ExpressionParser.h */,
+				1BAE80AA1A593DBD008A8117 /* ExpressionParser.m */,
+				1BAE80AB1A593DBD008A8117 /* ExpressionParserError.h */,
+				1BAE80AC1A593DBD008A8117 /* ExpressionParserError.m */,
+				1BAE80AD1A593DBD008A8117 /* FunctionPool.h */,
+				1BAE80AE1A593DBD008A8117 /* FunctionPool.m */,
+				1BAE80AF1A593DBD008A8117 /* LongRunningFunction.h */,
+				1BAE80B01A593DBD008A8117 /* LongRunningFunction.m */,
+				1BAE80B11A593DBD008A8117 /* Token.h */,
+				1BAE80B21A593DBD008A8117 /* Token.m */,
+				1BAE80B31A593DBD008A8117 /* Tokenizer.h */,
+				1BAE80B41A593DBD008A8117 /* Tokenizer.m */,
+			);
+			path = Calculations;
+			sourceTree = "<group>";
+		};
 		1BAF776E1A34B2BC009CEEF9 /* Requests */ = {
 			isa = PBXGroup;
 			children = (
@@ -364,6 +762,14 @@
 				1BC52AFF1A4165950058ECCB /* MetadataRequest.m */,
 				1BC52B011A4169600058ECCB /* MetadataAnswer.h */,
 				1BC52B021A4169600058ECCB /* MetadataAnswer.m */,
+				1BAE57141A5BBA7F0009A2F5 /* ResourceRequest.h */,
+				1BAE57151A5BBA7F0009A2F5 /* ResourceRequest.m */,
+				1BAE57171A5BBBFE0009A2F5 /* ResourceAnswer.h */,
+				1BAE57181A5BBBFE0009A2F5 /* ResourceAnswer.m */,
+				1BAE571D1A5BDDB10009A2F5 /* SimpleRequest.h */,
+				1BAE571E1A5BDDB10009A2F5 /* SimpleRequest.m */,
+				1BACDEE61A5CF5CD00EDE6F2 /* FullRecordAnswer.h */,
+				1BACDEE71A5CF5CD00EDE6F2 /* FullRecordAnswer.m */,
 			);
 			path = Requests;
 			sourceTree = "<group>";
@@ -371,30 +777,9 @@
 		1BB610421A25C2E20096F7D4 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				1BB610431A25C2E20096F7D4 /* Login */,
+				1BC227911A5A526B005AF813 /* BankCard */,
 			);
 			path = Modules;
-			sourceTree = "<group>";
-		};
-		1BB610431A25C2E20096F7D4 /* Login */ = {
-			isa = PBXGroup;
-			children = (
-				1BC52AF71A415E370058ECCB /* Metadata */,
-				1BB6104C1A25C3C50096F7D4 /* Visual */,
-				1BB610521A25C49D0096F7D4 /* BankCard.h */,
-				1BB610531A25C49D0096F7D4 /* BankCard.m */,
-			);
-			path = Login;
-			sourceTree = "<group>";
-		};
-		1BB6104C1A25C3C50096F7D4 /* Visual */ = {
-			isa = PBXGroup;
-			children = (
-				1BB6104D1A25C3DE0096F7D4 /* BankCardViewController.h */,
-				1BB6104E1A25C3DE0096F7D4 /* BankCardViewController.m */,
-				1BB6104F1A25C3DE0096F7D4 /* BankCardViewController.xib */,
-			);
-			path = Visual;
 			sourceTree = "<group>";
 		};
 		1BB6108A1A25C5980096F7D4 /* Core */ = {
@@ -452,11 +837,34 @@
 			path = Chameleon/Network;
 			sourceTree = SOURCE_ROOT;
 		};
-		1BC52AF71A415E370058ECCB /* Metadata */ = {
+		1BC227911A5A526B005AF813 /* BankCard */ = {
 			isa = PBXGroup;
 			children = (
+				1BC227921A5A526B005AF813 /* BankCard.h */,
+				1BC227931A5A526B005AF813 /* BankCard.m */,
+				1BC227941A5A526B005AF813 /* Metadata */,
+				1BC227951A5A526B005AF813 /* Visual */,
+			);
+			path = BankCard;
+			sourceTree = "<group>";
+		};
+		1BC227941A5A526B005AF813 /* Metadata */ = {
+			isa = PBXGroup;
+			children = (
+				1BC2279C1A5A52A9005AF813 /* BankSelectCellDescription.h */,
+				1BC2279D1A5A52A9005AF813 /* BankSelectCellDescription.m */,
 			);
 			path = Metadata;
+			sourceTree = "<group>";
+		};
+		1BC227951A5A526B005AF813 /* Visual */ = {
+			isa = PBXGroup;
+			children = (
+				1BC227961A5A526B005AF813 /* BankCardViewController.h */,
+				1BC227971A5A526B005AF813 /* BankCardViewController.m */,
+				1BC227981A5A526B005AF813 /* BankCardViewController.xib */,
+			);
+			path = Visual;
 			sourceTree = "<group>";
 		};
 		1BC52AF81A41621A0058ECCB /* Metadata */ = {
@@ -573,13 +981,14 @@
 			files = (
 				1BB622961A35E514008BFC65 /* LaunchScreen.xib in Resources */,
 				1BB69AB71A3C5E8000629729 /* AddBankByURLFormStrings.strings in Resources */,
-				1BB610511A25C3DE0096F7D4 /* BankCardViewController.xib in Resources */,
 				1B64A8331A208D8D00541A01 /* Main.storyboard in Resources */,
+				1BAD7F6D1A60E50500D42865 /* MainLoginForm.xib in Resources */,
 				1BBA5EC01A3944A70072672B /* NoBanksLoginForm.xib in Resources */,
-				1BC52AE81A41411E0058ECCB /* SelectBankFromURLFormStrings.strings in Resources */,
 				1BBA5ED41A396EA50072672B /* config.plist in Resources */,
 				1BBA5ECF1A3968F90072672B /* SelectAddBankFormStrings.strings in Resources */,
+				1BB406B31A64EC04005EB4B6 /* MainLoginFormStrings.strings in Resources */,
 				1BAE59DC1A401E2500E4DEDD /* SelectBankFromURLForm.xib in Resources */,
+				1BC2279B1A5A526B005AF813 /* BankCardViewController.xib in Resources */,
 				1B64A8351A208D8D00541A01 /* Images.xcassets in Resources */,
 				1BB69AA81A3C58F800629729 /* AddBankByURLForm.xib in Resources */,
 				1BBA5EB91A3943B10072672B /* SelectAddBankForm.xib in Resources */,
@@ -600,48 +1009,116 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1BAE80801A58FDD2008A8117 /* DictionarySelectWidgetDescription.m in Sources */,
+				1BAE80B81A593DBD008A8117 /* ExpressionParser.m in Sources */,
+				1BAE80711A58FDD2008A8117 /* FormatterUtils.m in Sources */,
+				1BAE809C1A58FDD2008A8117 /* SimpleFieldWidgetView.m in Sources */,
+				1BAE80761A58FDD2008A8117 /* WidgetsTableViewDataSource.m in Sources */,
 				1BAE59DA1A401D0600E4DEDD /* SelectBankFromURLForm.m in Sources */,
+				1BAE80821A58FDD2008A8117 /* GroupWidgetDescription.m in Sources */,
+				1BAE80861A58FDD2008A8117 /* VGroupWidgetDescription.m in Sources */,
 				1B64A8301A208D8D00541A01 /* ViewController.m in Sources */,
+				1BAE80BD1A593DBD008A8117 /* Tokenizer.m in Sources */,
 				1BC52B001A4165950058ECCB /* MetadataRequest.m in Sources */,
+				1BAE807B1A58FDD2008A8117 /* BaseGroupWidgetDescription.m in Sources */,
+				1BAE808E1A58FDD2008A8117 /* WidgetStringProperty.m in Sources */,
 				1BB6109B1A25C5980096F7D4 /* DataType.m in Sources */,
+				1BAE808A1A58FDD2008A8117 /* WidgetDoubleProperty.m in Sources */,
+				1BAE807E1A58FDD2008A8117 /* ButtonWidgetDescription.m in Sources */,
+				1BAE80811A58FDD2008A8117 /* EditFieldWidgetDescription.m in Sources */,
 				1BAC18391A2AD94E00A45FAF /* NoBanksLoginForm.m in Sources */,
 				1BC52B061A4171210058ECCB /* MetadataManager.m in Sources */,
+				1BC227991A5A526B005AF813 /* BankCard.m in Sources */,
 				1BB22A7F1A3EBB8800F758D3 /* PingRequest.m in Sources */,
+				1BAE809B1A58FDD2008A8117 /* SimpleFieldWidgetVerticalView.m in Sources */,
+				1BAE80B71A593DBD008A8117 /* ExpressionEvaluator.m in Sources */,
 				1BB70BFE1A36C291007711D3 /* HierarchicalXMLParser.m in Sources */,
 				1BB70C041A36E0DE007711D3 /* XMLAnswer.m in Sources */,
+				1BAE80BC1A593DBD008A8117 /* Token.m in Sources */,
+				1BAE80961A58FDD2008A8117 /* EditableTextWidgetView.m in Sources */,
 				1BAF77511A348A39009CEEF9 /* BSConnection.m in Sources */,
+				1BAE80B91A593DBD008A8117 /* ExpressionParserError.m in Sources */,
+				1BAE80741A58FDD2008A8117 /* DynamicGroupView.m in Sources */,
 				1BAC183D1A2B460000A45FAF /* GradientBackground.m in Sources */,
+				1BBD4A6A1A638999005D12CE /* RootChameleonViewController.m in Sources */,
+				1BAE808C1A58FDD2008A8117 /* WidgetLongProperty.m in Sources */,
+				1BACDEE81A5CF5CD00EDE6F2 /* FullRecordAnswer.m in Sources */,
+				1BC2279A1A5A526B005AF813 /* BankCardViewController.m in Sources */,
+				1BAE80851A58FDD2008A8117 /* SimpleFieldWidgetDescription.m in Sources */,
+				1BAE807C1A58FDD2008A8117 /* BaseSelectWidgetDescription.m in Sources */,
+				1BAD7F6C1A60E50500D42865 /* MainLoginForm.m in Sources */,
 				1BB6109C1A25C5980096F7D4 /* Field.m in Sources */,
+				1BAE80991A58FDD2008A8117 /* LabelWidgetView.m in Sources */,
 				1BC543941A2EF09F002AE8A3 /* SelectAddBankForm.m in Sources */,
 				1BF6DADF1A38370700482F7A /* BankImageFromCatalogRequest.m in Sources */,
+				1BAE80831A58FDD2008A8117 /* LabelWidgetDescription.m in Sources */,
 				1BAF77711A34B2F9009CEEF9 /* BankListFromCatalogRequest.m in Sources */,
+				1BAE809A1A58FDD2008A8117 /* ListSelectWidgetView.m in Sources */,
+				1BAE80921A58FDD2008A8117 /* BaseWidgetView.m in Sources */,
+				1BAE571F1A5BDDB10009A2F5 /* SimpleRequest.m in Sources */,
+				1BAE80B51A593DBD008A8117 /* CommonFunctions.m in Sources */,
+				1BAE80771A58FDD2008A8117 /* ViewStructure.m in Sources */,
 				1BB6109D1A25C5980096F7D4 /* Value.m in Sources */,
 				1B64A82D1A208D8D00541A01 /* AppDelegate.m in Sources */,
+				1BAE808D1A58FDD2008A8117 /* WidgetProperty.m in Sources */,
 				1BB6103C1A25AAE30096F7D4 /* ExtendedHitAreaViewContainer.m in Sources */,
 				1BB6109A1A25C5980096F7D4 /* CustomRecord.m in Sources */,
 				1BADCAED1A2746E1007148B0 /* Bank.m in Sources */,
 				1BB80C061A41A42A00578C33 /* NSURLSessionTask+ITaskHandler.m in Sources */,
+				1BAE807F1A58FDD2008A8117 /* DateSelectWidgetDescription.m in Sources */,
 				1BB22A821A3EBC8000F758D3 /* PingAnswer.m in Sources */,
+				1BAE80A11A590136008A8117 /* RunTimeUtil.m in Sources */,
 				1BC52B031A4169600058ECCB /* MetadataAnswer.m in Sources */,
+				1BC2279E1A5A52A9005AF813 /* BankSelectCellDescription.m in Sources */,
+				1BAE806F1A58FDD2008A8117 /* DateWidgetTextFormatter.m in Sources */,
 				1BB8BF111A2843C00063E1AB /* BankConnection.m in Sources */,
+				1BAE80901A58FDD2008A8117 /* BaseGroupWidgetView.m in Sources */,
 				1BB70BFB1A36A875007711D3 /* CatalogBankInfo.m in Sources */,
 				1BBF6D371A3AD69C00CE6797 /* AddBankByURLForm.m in Sources */,
 				1BAD2BD41A357B7700AF7294 /* XMLWriter.m in Sources */,
+				1BAE80881A58FDD2008A8117 /* WidgetBooleanProperty.m in Sources */,
+				1BAE806D1A58FDD2008A8117 /* AmountWidgetTextFormatter.m in Sources */,
+				1BAE80701A58FDD2008A8117 /* DefaultWidgetTextFormatter.m in Sources */,
 				1BAD2BD71A357BBC00AF7294 /* XSWINodeWriter.m in Sources */,
+				1BAE807A1A58FDD2008A8117 /* BaseFieldWidgetDescription.m in Sources */,
+				1BAE806C1A58FDD2008A8117 /* AccountWidgetTextFormatter.m in Sources */,
+				1BAE57191A5BBBFE0009A2F5 /* ResourceAnswer.m in Sources */,
+				1BAE809D1A58FDD2008A8117 /* VGroupWidgetView.m in Sources */,
 				1BB8BF171A2843F80063E1AB /* Answer.m in Sources */,
+				1BAE80981A58FDD2008A8117 /* GroupWidgetView.m in Sources */,
+				1BAE808B1A58FDD2008A8117 /* WidgetIntProperty.m in Sources */,
+				1BAE80751A58FDD2008A8117 /* RecordListTableViewDataSource.m in Sources */,
+				1BAE80791A58FDD2008A8117 /* WidgetDescriptionList.m in Sources */,
+				1BAE80781A58FDD2008A8117 /* WidgetController.m in Sources */,
+				1BAE80721A58FDD2008A8117 /* StatusWidgetTextFormatter.m in Sources */,
+				1BAE80B61A593DBD008A8117 /* Expression.m in Sources */,
+				1BAE80951A58FDD2008A8117 /* DictionarySelectWidgetView.m in Sources */,
+				1BAE80911A58FDD2008A8117 /* BaseSelectWidgetView.m in Sources */,
 				1BB70BF81A36A45E007711D3 /* BankListFromCatalogAnswer.m in Sources */,
+				1BAE80841A58FDD2008A8117 /* ListSelectWidgetDescription.m in Sources */,
 				1BC52AFD1A4162700058ECCB /* MetaStructure.m in Sources */,
 				1BF6DADC1A3836E100482F7A /* BankImageFromCatalogAnswer.m in Sources */,
+				1BAE80BB1A593DBD008A8117 /* LongRunningFunction.m in Sources */,
+				1BAE57161A5BBA7F0009A2F5 /* ResourceRequest.m in Sources */,
 				1B64A82A1A208D8D00541A01 /* main.m in Sources */,
 				1BB610981A25C5980096F7D4 /* CustomField.m in Sources */,
-				1BB610501A25C3DE0096F7D4 /* BankCardViewController.m in Sources */,
 				1BB610A01A25C6070096F7D4 /* FieldDescription.m in Sources */,
+				1BAE80941A58FDD2008A8117 /* DateSelectWidgetView.m in Sources */,
+				1BAE808F1A58FDD2008A8117 /* BaseFieldWidgetView.m in Sources */,
 				1BB8BF0D1A283A710063E1AB /* Application.m in Sources */,
+				1BAE80BA1A593DBD008A8117 /* FunctionPool.m in Sources */,
 				1BADCAF01A274A11007148B0 /* BankList.m in Sources */,
+				1BAE807D1A58FDD2008A8117 /* BaseWidgetDescription.m in Sources */,
+				1BAE80731A58FDD2008A8117 /* WidgetTextFormatterFactory.m in Sources */,
+				1BB4A8891A624D330075841E /* ResizeAwareView.m in Sources */,
+				1BAE80931A58FDD2008A8117 /* ButtonWidgetView.m in Sources */,
 				1BAD2BCD1A3569E500AF7294 /* XMLRequest.m in Sources */,
+				1BAE80971A58FDD2008A8117 /* EditTextWidgetView.m in Sources */,
 				1BB610991A25C5980096F7D4 /* CustomizableEntity.m in Sources */,
-				1BB610541A25C49D0096F7D4 /* BankCard.m in Sources */,
+				1BAE80871A58FDD2008A8117 /* WidgetDescriptionFactory.m in Sources */,
 				1BB8BF141A2843E80063E1AB /* Request.m in Sources */,
+				1BAE80891A58FDD2008A8117 /* WidgetDateProperty.m in Sources */,
+				1BAE806E1A58FDD2008A8117 /* CurrCodeISOWidgetTextFormatter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -691,6 +1168,15 @@
 			name = SelectBankFromURLForm.xib;
 			sourceTree = "<group>";
 		};
+		1BB406B51A64EC04005EB4B6 /* MainLoginFormStrings.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1BB406B41A64EC04005EB4B6 /* Base */,
+				1BB406B61A64EC1B005EB4B6 /* en */,
+			);
+			name = MainLoginFormStrings.strings;
+			sourceTree = "<group>";
+		};
 		1BB69AAA1A3C58F800629729 /* AddBankByURLForm.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -713,7 +1199,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				1BBA5EBA1A3943B10072672B /* Base */,
-				1BBA5EBD1A3943BE0072672B /* en */,
 			);
 			name = SelectAddBankForm.xib;
 			sourceTree = "<group>";
@@ -734,15 +1219,6 @@
 				1BBA5ED21A3968FB0072672B /* en */,
 			);
 			name = SelectAddBankFormStrings.strings;
-			sourceTree = "<group>";
-		};
-		1BC52AEA1A41411E0058ECCB /* SelectBankFromURLFormStrings.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				1BC52AE91A41411E0058ECCB /* Base */,
-				1BC52AEB1A4141340058ECCB /* en */,
-			);
-			name = SelectBankFromURLFormStrings.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

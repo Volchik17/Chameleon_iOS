@@ -7,6 +7,8 @@
 //
 
 #import "BankConnection.h"
+#import "BSConnection.h"
+#import "Bank.h"
 
 @implementation BankConnection
 
@@ -15,7 +17,7 @@
     self=[super init];
     if (self)
     {
-        
+        _bank=bank;
     }
     return self;
 }
@@ -24,6 +26,11 @@
 {
     return nil;
     
+}
+
+-(BSConnection*) getInfoConnection
+{
+    return [BSConnection plainConnectionToURL:[_bank url]];
 }
 
 @end

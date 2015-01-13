@@ -10,13 +10,11 @@
 #import "GradientBackground.h"
 
 @interface BanksDataSource : NSObject<UITableViewDataSource>
-{
-    NSMutableArray* filteredBanks;
-}
 -(instancetype) initForTableView:(UITableView*) tableView;
 @property (nonatomic,weak) UITableView* tableView;
 @property (nonatomic,strong) NSMutableArray* banks;
 @property (nonatomic, strong) NSString* filterString;
+@property (nonatomic, readonly) NSMutableArray* filteredBanks;
 @end
 
 @interface SelectAddBankForm : UIViewController<UITableViewDelegate,UISearchBarDelegate>

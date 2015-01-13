@@ -24,6 +24,8 @@
         _bankCatalogURL=[config objectForKey:@"BankCatalogURL"];
         self.banks = [[BankList alloc] init];
         connections=[[NSMutableDictionary alloc] initWithCapacity:self.banks.count];
+        _rootController=[[RootChameleonViewController alloc] init];
+        
         for (Bank* bank in self.banks)
         {
             BankConnection* connection=[[BankConnection alloc] initWithBank:bank];
@@ -78,6 +80,17 @@
 -(void)runRequest:request onComplete:(void(*)(Answer*,NSError*))onComplete
 {
     [self runRequest:request forBank:self.currentBankId onComplete:onComplete];
+}
+
+-(id<ITaskHandler>) runRequest:(Request*) request forBank:(NSString*)bankId completionHandler:(void (^)(Answer* answer, NSError *error))completionHandler
+{
+    BSConnection* connection=[[self getConnectionForBankId:bankId] getInfoConnection];
+    return [connection runRequest:request completionHandler:completionHandler];
+}
+
+-(NSString*) currentLocaleId
+{
+    return [[NSLocale currentLocale] localeIdentifier];
 }
 
 +(instancetype) getApplication

@@ -18,12 +18,8 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <searchBar contentMode="redraw" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="o2k-e0-qft">
-                    <rect key="frame" x="0.0" y="44" width="600" height="44"/>
-                    <textInputTraits key="textInputTraits"/>
-                </searchBar>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" allowsSelection="NO" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="o3u-26-0SF">
-                    <rect key="frame" x="0.0" y="88" width="600" height="512"/>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="o3u-26-0SF">
+                    <rect key="frame" x="0.0" y="44" width="600" height="556"/>
                     <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                     <color key="sectionIndexBackgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                 </tableView>
@@ -37,9 +33,12 @@
                     <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <searchBar contentMode="redraw" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="o2k-e0-qft">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                    <textInputTraits key="textInputTraits"/>
+                </searchBar>
             </subviews>
             <constraints>
-                <constraint firstItem="o2k-e0-qft" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="29F-NM-nto"/>
                 <constraint firstAttribute="centerY" secondItem="OT7-68-ypk" secondAttribute="centerY" id="9ts-T1-Ec0"/>
                 <constraint firstItem="o3u-26-0SF" firstAttribute="top" secondItem="o2k-e0-qft" secondAttribute="bottom" id="CZ9-kf-vuP"/>
                 <constraint firstAttribute="bottom" secondItem="o3u-26-0SF" secondAttribute="bottom" id="UMX-eI-QFL"/>

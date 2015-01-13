@@ -16,10 +16,9 @@
 @property (nonatomic,strong) NSString* structureName;
 @property (nonatomic,strong) NSString* savedHash;
 @property (nonatomic,strong) NSString* localeName;
-@property (nonatomic,strong) Class structureClass;
 
--(instancetype) initWithBankId:(NSString*) bankId structureClass: (Class) structureClass moduleType:(NSString*) moduleType moduleName:(NSString*) moduleName structureName:(NSString*) structureName savedHash:(NSString*) savedHash localeName:(NSString*) localeName;
+-(instancetype) initWithBankId:(NSString*) bankId moduleType:(NSString*) moduleType moduleName:(NSString*) moduleName structureName:(NSString*) structureName savedHash:(NSString*) savedHash localeName:(NSString*) localeName;
 
--(instancetype) initWithBankId:(NSString*) bankId structureClass: (Class) structureClass moduleType:(NSString*) moduleType moduleName:(NSString*) moduleName structureName:(NSString*) structureName savedHash:(NSString*) savedHash;
+-(instancetype) initWithBankId:(NSString*) bankId moduleType:(NSString*) moduleType moduleName:(NSString*) moduleName structureName:(NSString*) structureName savedHash:(NSString*) savedHash;
 
 @end

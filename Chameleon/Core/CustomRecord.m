@@ -113,3 +113,66 @@
 }
 
 @end
+
+@implementation RecordXMLParser
+
+-(instancetype) initWithRecord:(id<IRecord>) record
+{
+    self=[super init];
+    if (self)
+    {
+        _record=record;
+    }
+    return self;
+}
+
+- (id<HierarchicalXMLParserDelegate>) didStartSubElement:(NSString*)elementName namespaceURI:(NSString*)namespaceURI qualifiedName:(NSString*)qualifiedName attributes:(NSDictionary*)attributeDict
+{
+    if ([elementName isEqualToString:@"field"])
+    {
+        NSString* name=[attributeDict objectForKey:@"name"];
+        Field* field=[_record getFieldWithName:name];
+        if (field!=nil)
+        {
+            NSString* value=[attributeDict objectForKey:@"value"];
+            if (value==nil)
+                value=@"";
+            [field setXMLValue:value];
+        }
+    }
+    return nil;
+}
+
+@end
+
+@implementation CustomRecordFullXMLParser
+
+-(instancetype) initWithRecord:(CustomRecord*) record
+{
+    self=[super init];
+    if (self)
+    {
+        _record=record;
+    }
+    return self;
+}
+
+- (id<HierarchicalXMLParserDelegate>) didStartSubElement:(NSString*)elementName namespaceURI:(NSString*)namespaceURI qualifiedName:(NSString*)qualifiedName attributes:(NSDictionary*)attributeDict
+{
+    if ([elementName isEqualToString:@"field"])
+    {
+        NSString* name=[attributeDict objectForKey:@"name"];
+        NSString* typeStr=[attributeDict objectForKey:@"dataType"];
+        if (typeStr==nil)
+            typeStr=@"string";
+        DataType type=getTypeWithName(typeStr);
+        CustomField* field=[_record addFieldWithName:name dataType:type];
+        NSString* value=[attributeDict objectForKey:@"value"];
+        if (value==nil)
+            value=@"";
+        [field setXMLValue:value];
+    }
+    return nil;
+}
+
+@end

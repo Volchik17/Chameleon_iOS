@@ -7,6 +7,7 @@
 //
 
 #import "BankList.h"
+#import "Bank.h"
 
 @implementation BankList
 
@@ -50,6 +51,32 @@
         else
             banks = [[NSMutableArray alloc] init];
     }
+}
+
+-(Bank*) addBankWithUrl:(NSString*)url bankId:(NSString*) bankId
+{
+    NSUInteger index=[self indexOf:url bankId:bankId];
+    if (index!=NSNotFound)
+        return [banks objectAtIndex:index];
+    Bank* bank=[[Bank alloc] init];
+    bank.bankId=bankId;
+    bank.url=url;
+    [banks addObject:bank];
+    [self save];
+    return bank;
+}
+
+-(NSUInteger) indexOf:(NSString*)url bankId:(NSString*) bankId {
+    for (Bank* bank in banks)
+        if ([[bank.url uppercaseString] isEqualToString:[url uppercaseString]] && [bank.bankId isEqualToString:bankId])
+            return [banks indexOfObject:bank];
+    return NSNotFound;
+}
+
+-(void) deleteBank:(NSUInteger) index
+{
+    [banks removeObjectAtIndex:index];
+    [self save];
 }
 
 @end

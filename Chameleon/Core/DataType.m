@@ -10,35 +10,35 @@
 
 DataType getTypeWithName(NSString* name)
 {
-    if ([name isEqualToString:@"STRING"])
+    if ([[name uppercaseString] isEqualToString:@"STRING"])
     {
         return STRING;
     }
-    else if ([name isEqualToString:@"INTEGER"])
+    else if ([[name uppercaseString] isEqualToString:@"INTEGER"])
     {
         return INTEGER;
     }
-    else if ([name isEqualToString:@"LONG"])
+    else if ([[name uppercaseString] isEqualToString:@"LONG"])
     {
         return LONG;
     }
-    else if ([name isEqualToString:@"DOUBLE"])
+    else if ([[name uppercaseString] isEqualToString:@"DOUBLE"])
     {
         return DOUBLE;
     }
-    else if ([name isEqualToString:@"MONEY"])
+    else if ([[name uppercaseString] isEqualToString:@"MONEY"])
     {
         return MONEY;
     }
-    else if ([name isEqualToString:@"DATE"])
+    else if ([[name uppercaseString] isEqualToString:@"DATE"])
     {
         return DATE;
     }
-    else if ([name isEqualToString:@"DATETIME"])
+    else if ([[name uppercaseString] isEqualToString:@"DATETIME"])
     {
         return DATETIME;
     }
-    else if ([name isEqualToString:@"BOOLEAN"])
+    else if ([[name uppercaseString] isEqualToString:@"BOOLEAN"])
     {
         return BOOLEAN;
     }

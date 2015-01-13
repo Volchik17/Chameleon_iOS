@@ -11,13 +11,12 @@
 
 @implementation MetadataRequest
 
--(instancetype) initWithBankId:(NSString*) bankId structureClass: (Class) structureClass moduleType:(NSString*) moduleType moduleName:(NSString*) moduleName structureName:(NSString*) structureName savedHash:(NSString*) savedHash localeName:(NSString*) localeName
+-(instancetype) initWithBankId:(NSString*) bankId moduleType:(NSString*) moduleType moduleName:(NSString*) moduleName structureName:(NSString*) structureName savedHash:(NSString*) savedHash localeName:(NSString*) localeName
 {
     self=[super init];
     if (self)
     {
         _bankId=bankId;
-        structureClass=_structureClass;
         _moduleType=moduleType;
         _moduleName=moduleName;
         _structureName=structureName;
@@ -27,14 +26,14 @@
     return self;
 }
 
--(instancetype) initWithBankId:(NSString*) bankId structureClass: (Class) structureClass moduleType:(NSString*) moduleType moduleName:(NSString*) moduleName structureName:(NSString*) structureName savedHash:(NSString*) savedHash
+-(instancetype) initWithBankId:(NSString*) bankId moduleType:(NSString*) moduleType moduleName:(NSString*) moduleName structureName:(NSString*) structureName savedHash:(NSString*) savedHash
 {
-    return [self initWithBankId:bankId structureClass:structureClass moduleType:moduleType moduleName:moduleName structureName:structureName savedHash:savedHash localeName:@""];
+    return [self initWithBankId:bankId moduleType:moduleType moduleName:moduleName structureName:structureName savedHash:savedHash localeName:@""];
 }
 
 -(NSString*) makeURLForRequest:(BSConnection*) connection
 {
-    NSString* requestString=[NSString stringWithFormat:@"metadata?bankId=%@:moduleType=%@:moduleName=%@:structureName=%@:langId=%@:savedHash=%@",_bankId,_moduleType,_moduleName,_structureName,_localeName,_savedHash];
+    NSString* requestString=[NSString stringWithFormat:@"metadata?bankId=%@&moduleType=%@&moduleName=%@&structureName=%@&langId=%@&savedHash=%@",_bankId,_moduleType,_moduleName,_structureName,_localeName,_savedHash];
     NSString* url=[self concatURL:connection.url withTail:requestString];
     NSLog(@"%@",url);
     return url;

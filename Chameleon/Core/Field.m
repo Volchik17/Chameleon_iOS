@@ -19,7 +19,7 @@
 
 -(void) internalSetValue:(Value*) oValue
 {
-    //abstract method
+    NSAssert(false,@"Abstract error");
 }
 
 -(void) setValue:(Value*) oValue
@@ -31,6 +31,7 @@
 
 -(Value*) getValue
 {
+    NSAssert(false,@"Abstract error");
     return nil;
 }
 

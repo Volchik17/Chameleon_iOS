@@ -83,6 +83,7 @@
         myTextField.borderStyle = UITextBorderStyleRoundedRect;
         myTextField.placeholder = [NSString stringWithFormat:@"Enter data in field %i", i];
         myTextField.tag = i+1;
+        myTextField.enabled=YES;
         [myView addSubview:myTextField];
         
         //set the scroll view delegate to self so that we can listen for changes

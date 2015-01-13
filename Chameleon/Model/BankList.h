@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Bank.h"
 
 @interface BankList : NSObject<NSFastEnumeration>
 {
@@ -16,6 +17,10 @@
 
 -(void) save;
 -(void) load;
+-(Bank*) addBankWithUrl:(NSString*)url bankId:(NSString*) bankId;
+-(NSUInteger) indexOf:(NSString*)url bankId:(NSString*) bankId;
+-(void) deleteBank:(NSUInteger) index;
+
 @property (readonly,nonatomic,getter=getCount) int count;
 
 @end

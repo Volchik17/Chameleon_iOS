@@ -47,6 +47,13 @@
         }
         else
         {
+            if (((NSHTTPURLResponse*)response).statusCode>=400)
+            {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    completionHandler(nil,[[NSError alloc] initWithDomain:@"HTTPRequest" code:((NSHTTPURLResponse*)response).statusCode userInfo:nil]);
+                });
+                return;
+            }
             Class answerClass=[request getAnswerClass];
             Answer* answer=[[answerClass alloc] init];
             error=[answer parseResponse:response withData:data];

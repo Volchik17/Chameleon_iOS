@@ -10,10 +10,12 @@
 @class Request;
 @class Answer;
 @class Bank;
+@class BSConnection;
 
 @interface BankConnection : NSObject
 
 -(instancetype) initWithBank:(Bank*) bank;
+-(BSConnection*) getInfoConnection;
 -(Answer*) runRequest:(Request*) request error:(NSError**) error;
-
+@property (nonatomic,readonly) Bank* bank;
 @end

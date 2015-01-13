@@ -6,7 +6,9 @@
 	<string>demo</string>
 	<key>DemoVersionURL</key>
 	<string>http://192.168.1.3:8080/mbkserver/</string>
-	<key>BankCatalogURL</key>
+	<key>BankCatalogURL2</key>
 	<string>http://192.168.1.3:8080/bankcatalog/bankcatalog/</string>
+	<key>BankCatalogURL</key>
+	<string>http://10.1.9.3:8080/bankcatalog/bankcatalog/</string>
 </dict>
 </plist>

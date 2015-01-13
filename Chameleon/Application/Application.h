@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "ITaskHandler.h"
+#import "RootChameleonViewController.h"
 
 #define APP [Application getApplication]
 
@@ -29,11 +30,13 @@
 @property (nonatomic,strong) BankList* banks;
 @property (atomic,strong) NSString* currentBankId;
 @property (nonatomic,readonly) NSString* bankCatalogURL;
+@property (nonatomic,readonly) RootChameleonViewController* rootController;
 
 -(BSConnection*) bankCatalogConnection;
 -(BankConnection*) getConnectionForBankId:(NSString*) bankId;
 
 -(id<ITaskHandler>) runRequest:(Request*) request forBank:(NSString*)bankId completionHandler:(void (^)(Answer* answer, NSError *error))completionHandler;
+-(NSString*) currentLocaleId;
 
 +(instancetype) new __attribute__((unavailable("new not available, call getApplication instead")));
 +(instancetype) alloc __attribute__((unavailable("alloc not available, call getApplication instead")));

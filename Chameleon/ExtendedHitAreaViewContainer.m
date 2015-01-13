@@ -14,7 +14,9 @@
     if ([self pointInside:point withEvent:event]) {
         if ([[self subviews] count] > 0) {
             //force return of first child, if exists
-            return [[self subviews] objectAtIndex:0];
+            UIView* child=[[self subviews] objectAtIndex:0];
+            UIView* res=[child hitTest:[child convertPoint:point fromView:self] withEvent:event];
+            return res==nil?child:res;
         } else {
             return self;
         }

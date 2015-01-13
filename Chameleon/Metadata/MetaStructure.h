@@ -7,9 +7,20 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "HierarchicalXMLParser.h"
 
-@interface MetaStructure : NSObject
+@interface MetaStructure : NSObject<HierarchicalXMLParserDelegate,HierarchicalXMLParserErrorHandler>
+{
+    NSError* lastError;
+}
+@property (nonatomic,strong) NSString* moduleType;
+@property (nonatomic,strong) NSString* structureDescription;
+@property (nonatomic,assign) int structureVersion;
+
 
 -(NSError*) parseFromData:(NSData*) data;
++(NSString*) getStructureType;
 
+- (void) didStartElement:(NSString*)elementName namespaceURI:(NSString*)namespaceURI
+           qualifiedName:(NSString*)qualifiedName attributes:(NSDictionary*)attributeDict NS_REQUIRES_SUPER;
 @end
