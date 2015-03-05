@@ -8,7 +8,6 @@
 
 #import "AppDelegate.h"
 #import "Application.h"
-#import "BankList.h"
 #import "NoBanksLoginForm.h"
 #import "MainLoginForm.h"
 

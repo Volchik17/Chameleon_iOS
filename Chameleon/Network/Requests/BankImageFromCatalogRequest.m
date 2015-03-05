@@ -8,6 +8,7 @@
 
 #import "BankImageFromCatalogRequest.h"
 #import "BankImageFromCatalogAnswer.h"
+#import "BSConnection.h"
 
 @implementation BankImageFromCatalogRequest
 

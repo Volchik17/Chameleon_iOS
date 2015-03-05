@@ -6,6 +6,7 @@
 //  Copyright (c) 2014 BSS. All rights reserved.
 //
 
+#import <Foundation/Foundation.h>
 #import "Value.h"
 #import "DataType.h"
 
@@ -1604,6 +1605,77 @@
 {
     return [NSString stringWithFormat:@"<%@: %p, \"%@, %s\" >",
             [self class], self, getNameWithType(type), [value objCType]];
+}
+
+- (void)encodeWithCoder:(NSCoder *)coder;
+{
+    [coder encodeInteger:type forKey:@"type"];
+    switch (type)
+    {
+        case STRING:
+            [coder encodeObject:[value nonretainedObjectValue] forKey:@"value"];
+            break;
+        case INTEGER:
+            [coder encodeInteger:self.convertToInt forKey:@"value"];
+            break;
+        case BOOLEAN:
+            [coder encodeInteger:self.convertToBool forKey:@"value"];
+            break;
+        case DATE:
+        case DATETIME:
+            [coder encodeObject:[value nonretainedObjectValue] forKey:@"value"];
+            break;
+        case DOUBLE:
+            [coder encodeDouble:self.convertToDouble forKey:@"value"];
+            break;
+        case LONG:
+            [coder encodeInt64:self.convertToLong forKey:@"value"];
+            break;
+        case MONEY:
+            [coder encodeDouble:self.convertToDouble forKey:@"value"];
+            break;
+        case UNKNOWN:
+        default:
+            break;
+    }
+}
+
+- (id)initWithCoder:(NSCoder *)coder;
+{
+    DataType newType = [coder decodeIntegerForKey:@"type"];
+    double d;
+    switch (newType)
+    {
+        case STRING:
+            self=[self initWithString:[coder decodeObjectForKey:@"value"]];
+            break;
+        case INTEGER:
+            self=[self initWithInt:[coder decodeIntForKey:@"value"]];
+            break;
+        case BOOLEAN:
+            self=[self initWithBOOL:[coder decodeIntForKey:@"value"]];
+            break;
+        case DATE:
+            self=[self initWithDate:[coder decodeObjectForKey:@"value"]];
+            break;
+        case DATETIME:
+            self=[self initWithDateTime:[coder decodeObjectForKey:@"value"]];
+            break;
+        case DOUBLE:
+            self=[self initWithDouble:[coder decodeDoubleForKey:@"value"]];
+            break;
+        case LONG:
+            self=[self initWithLong:[coder decodeInt64ForKey:@"value"]];
+            break;
+        case MONEY:
+            d=[coder decodeDoubleForKey:@"value"];
+            self=[self initWithDataType:MONEY value:[NSValue value:&d withObjCType:@encode(double)]];
+            break;
+        case UNKNOWN:
+        default:
+            break;
+    }
+    return self;
 }
 
 @end

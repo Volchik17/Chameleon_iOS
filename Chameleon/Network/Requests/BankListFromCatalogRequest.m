@@ -9,6 +9,7 @@
 #import "BankListFromCatalogRequest.h"
 #import "XMLNodeWriter.h"
 #import "BankListFromCatalogAnswer.h"
+#import "BSConnection.h"
 
 @implementation BankListFromCatalogRequest
 

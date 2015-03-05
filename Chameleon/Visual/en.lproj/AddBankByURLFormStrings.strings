@@ -14,3 +14,9 @@
 "NoBanksOnServer" = "No banks were found at this URL.";
 "UrlRequestError" = "There are no servers at this URL.";
 "BackButtonTitle" = "Back";
+"DuplicateBankAlert_Caption" = "Warning";
+"DuplicateBankAlert_Message" = "Specified bank in already in list of connected banks.";
+"DuplicateBankAlert_CancelButton" = "OK";
+"NoServerResponseAlert_Caption" = "Error";
+"NoServerResponseAlert_Message" = "Error connecting specified bank server. Adding bank is impossible. Please contact your bank for actual server address.";
+"NoServerResponseAlert_CancelButton" = "OK";

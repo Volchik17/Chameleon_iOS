@@ -19,6 +19,8 @@
 
 @interface SelectAddBankForm : UIViewController<UITableViewDelegate,UISearchBarDelegate>
 
+@property (nonatomic,readonly) BOOL visible;
+
 @property (nonatomic,strong) BanksDataSource* banksDataSource;
 
 @property (weak, nonatomic) IBOutlet UITableView *banksTableView;

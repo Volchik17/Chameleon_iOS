@@ -9,6 +9,7 @@
 #import "XMLRequest.h"
 #import "XMLWriter.h"
 #import "XSWINodeWriter.h"
+#import "BSConnection.h"
 
 @implementation XMLRequest
 

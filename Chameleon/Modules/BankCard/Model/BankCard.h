@@ -11,4 +11,6 @@
 
 @interface BankCard : CustomizableEntity
 
+@property (nonatomic,strong) NSString* bankName;
+
 @end

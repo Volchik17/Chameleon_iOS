@@ -33,7 +33,7 @@
     return connection;
 }
 
--(id<ITaskHandler>) runRequest:(Request*) request completionHandler:(void (^)(Answer* answer, NSError *error))completionHandler
+-(id<ITaskHandler>) runRequest:(id<IRequest>) request completionHandler:(void (^)(Answer* answer, NSError *error))completionHandler
 {
     NSURLRequest* urlRequest=[request urlRequestForConnection:self];
     NSURLSessionDataTask *dataTask = [self.urlSession dataTaskWithRequest:urlRequest completionHandler:^(NSData *data, NSURLResponse *response, NSError *error)
@@ -66,6 +66,11 @@
     } ];
     [dataTask resume];
     return dataTask;
+}
+
+-(Answer*) runImmediateRequest:(id<IRequest>) request timeout:(NSUInteger) timeout error:(NSError **) error
+{
+    return nil;
 }
 
 @end

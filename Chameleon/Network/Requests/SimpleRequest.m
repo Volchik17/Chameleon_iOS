@@ -7,6 +7,7 @@
 //
 
 #import "SimpleRequest.h"
+#import "BSConnection.h"
 
 @implementation SimpleRequest
 
@@ -20,6 +21,22 @@
         _moduleType=moduleType;
         _moduleName=moduleName;
         _requestName=requestName;
+        _localeId=@"";
+    }
+    return self;
+}
+
+-(instancetype) initWithWithBankId:(NSString*) bankId answerClass:(Class) answerClass moduleType:(NSString*) moduleType moduleName:(NSString*) moduleName requestName:(NSString*) requestName localeId:(NSString*) localeId
+{
+    self=[super init];
+    if (self)
+    {
+        _answerClass=answerClass;
+        _bankId=bankId;
+        _moduleType=moduleType;
+        _moduleName=moduleName;
+        _requestName=requestName;
+        _localeId=localeId;
     }
     return self;
 }

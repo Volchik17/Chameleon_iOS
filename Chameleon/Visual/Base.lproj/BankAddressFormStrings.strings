@@ -1,0 +1,18 @@
+/* 
+  BankAddressFormStrings.strings
+  Chameleon
+
+  Created by Volchik on 24.01.15.
+  Copyright (c) 2015 Volchik. All rights reserved.
+*/
+
+"SaveButtonTitle" = "Сохранить";
+"CancelButtonTitle" = "Отмена";
+"NavigationBarTitle" = "Адрес банка";
+"NavigationBarTitle_iPhone" = "Адрес";
+"DuplicateBankAlert_Caption" = "Предупреждение";
+"DuplicateBankAlert_Message" = "Банк с указанными параметрами уже находится в списке подключенных банков.";
+"DuplicateBankAlert_CancelButton" = "OK";
+"NoServerResponseAlert_Caption" = "Ошибка";
+"NoServerResponseAlert_Message" = "Ошибка связи с указанным сервером банка. Обратитесь в банк за актуальным адресом сервера банка.";
+"NoServerResponseAlert_CancelButton" = "OK";

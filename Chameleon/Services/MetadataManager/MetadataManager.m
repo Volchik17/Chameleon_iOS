@@ -27,6 +27,20 @@
 
 @implementation MetadataManager
 
+-(instancetype) init
+{
+    self=[super init];
+    if (self)
+    {
+        NSString *storeURL = [[[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"metadata"] path];
+        NSError* error;
+        [[NSFileManager defaultManager] createDirectoryAtPath:storeURL withIntermediateDirectories:YES attributes:nil error:&error];
+        if (error)
+            NSLog(@"Error creating metadata cache directory \"%@\" with error: %@",storeURL,error);
+    }
+    return self;
+}
+
 #pragma mark - Application's Documents directory
 // Returns the URL to the application's Documents directory.
 - (NSURL *)applicationDocumentsDirectory
@@ -48,7 +62,7 @@
     return [storeURL path];
 }
 
--(MetadataItem*) updateStructure:(MetaStructure*) structure data:(NSData*) data resourceId:(NSString*) resourceId
+-(MetadataItem*)  updateCacheWithStructure:(MetaStructure*) structure data:(NSData*) data resourceId:(NSString*) resourceId
 {
     NSString* hash=[self calcHash:data];
     MetadataItem* item=[[MetadataItem alloc] init];
@@ -58,14 +72,23 @@
     @synchronized(self) {
         [cache setObject:item forKey:resourceId];
     }
-    NSFileManager *fileManager = [[NSFileManager alloc] init];
-    [fileManager createFileAtPath:[self getMetadataFilePath:resourceId] contents:data attributes:nil];
     return item;
 }
 
--(id<ITaskHandler>) runMetadataRequestForClass:(Class) structureClass bankId:bankId moduleType:(NSString*) moduleType moduleName:(NSString*) moduleName structureName:(NSString*) structureName langId:(NSString*) localeName completionHandler:(void (^)(MetaStructure* structure, NSError *error))completionHandler
+-(MetadataItem*) updateStructure:(MetaStructure*) structure data:(NSData*) data resourceId:(NSString*) resourceId
 {
-    NSString* resourceId = [[NSString stringWithFormat:@"%@.%@.%@.%@.%@", bankId, moduleType, moduleName, structureName, localeName] uppercaseString];
+    MetadataItem* item=[self updateCacheWithStructure:structure data:data resourceId:resourceId];
+    NSString* fileName=[self getMetadataFilePath:resourceId];
+    NSError* error;
+    [data writeToFile:fileName options:0 error:&error];
+    if (error)
+        NSLog(@"Error creating metadata cache file \"%@\" with error : %@",fileName,error);
+    return item;
+}
+
+-(id<ITaskHandler>) runMetadataRequestForClass:(Class) structureClass bankIndex:(NSInteger)bankIndex moduleType:(NSString*) moduleType moduleName:(NSString*) moduleName structureName:(NSString*) structureName langId:(NSString*) langId completionHandler:(void (^)(MetaStructure* structure, NSError *error))completionHandler
+{
+    NSString* resourceId = [[NSString stringWithFormat:@"%d.%@.%@.%@.%@", bankIndex, moduleType, moduleName, structureName, langId] uppercaseString];
     
     MetadataItem* structure=nil;
     @synchronized(self) {
@@ -88,12 +111,13 @@
         }
     }
     MetadataRequest* request;
+    LocalBankInfo* bank=[APP getLocalBankByIndex:bankIndex];
     if (structure)
-        request=[[MetadataRequest alloc] initWithBankId:bankId moduleType:moduleType moduleName:moduleName structureName:structureName savedHash:structure.savedHash];
+        request=[[MetadataRequest alloc] initWithBankId:bank.bankId moduleType:moduleType moduleName:moduleName structureName:structureName savedHash:structure.savedHash localeId:langId];
     else
-        request=[[MetadataRequest alloc] initWithBankId:bankId moduleType:moduleType moduleName:moduleName structureName:structureName savedHash:@""];
+        request=[[MetadataRequest alloc] initWithBankId:bank.bankId moduleType:moduleType moduleName:moduleName structureName:structureName savedHash:@"" localeId:langId];
     __weak MetadataManager* weakSelf=self;
-    return [APP runRequest:request forBank:bankId completionHandler:^(Answer* answer, NSError *error)
+    return [APP runInfoRequest:request forBank:bankIndex completionHandler:^(Answer* answer, NSError *error)
         {
             if (answer)
             {
@@ -118,10 +142,40 @@
     ];
 }
 
--(id<ITaskHandler>) runMetadataRequestForClass:(Class) structureClass bankId:bankId moduleType:(NSString*) moduleType moduleName:(NSString*) moduleName structureName:(NSString*) structureName completionHandler:(void (^)(MetaStructure* structure, NSError *error))completionHandler
+-(id<ITaskHandler>) runMetadataRequestForClass:(Class) structureClass bankIndex:(NSInteger)bankIndex moduleType:(NSString*) moduleType moduleName:(NSString*) moduleName structureName:(NSString*) structureName completionHandler:(void (^)(MetaStructure* structure, NSError *error))completionHandler
 {
-    return [self runMetadataRequestForClass:structureClass bankId:bankId moduleType:moduleType moduleName:moduleName structureName:structureName langId:@"" completionHandler:completionHandler];
+    return [self runMetadataRequestForClass:structureClass bankIndex:bankIndex moduleType:moduleType moduleName:moduleName structureName:structureName langId:@"" completionHandler:completionHandler];
 }
 
+-(MetaStructure*) getLocalMetadataForClass:(Class) structureClass bankIndex:(NSInteger)bankIndex moduleType:(NSString*) moduleType moduleName:(NSString*) moduleName structureName:(NSString*) structureName langId:(NSString*) langId
+{
+    NSString* resourceId = [[NSString stringWithFormat:@"%d.%@.%@.%@.%@", bankIndex, moduleType, moduleName, structureName, langId] uppercaseString];
+    
+    MetadataItem* structure=nil;
+    @synchronized(self) {
+        structure=[cache objectForKey:resourceId];
+    }
+    if (structure)
+        return structure.structure;
+    NSFileManager *fileManager = [[NSFileManager alloc] init];
+    NSString* fileName=[self getMetadataFilePath:resourceId];
+    if ([fileManager fileExistsAtPath:fileName])
+    {
+        NSData* data=[NSData dataWithContentsOfFile:fileName];
+        MetaStructure* newStructure=[[structureClass alloc] init];
+        NSError* error=[newStructure parseFromData:data];
+        if (!error)
+        {
+            [self updateCacheWithStructure:newStructure data:data resourceId:resourceId];
+            return newStructure;
+        }
+    }
+    return nil;
+}
+
+-(MetaStructure*) getLocalMetadataForClass:(Class) structureClass bankIndex:(NSInteger)bankIndex moduleType:(NSString*) moduleType moduleName:(NSString*) moduleName structureName:(NSString*) structureName
+{
+    return [self getLocalMetadataForClass:structureClass bankIndex:bankIndex moduleType:moduleType moduleName:moduleName structureName:structureName langId:@""];
+}
 
 @end

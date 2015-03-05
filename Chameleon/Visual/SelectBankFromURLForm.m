@@ -19,7 +19,10 @@
 #import "CustomRecord.h"
 #import "SimpleRequest.h"
 #import "FullRecordAnswer.h"
-#import "BankList.h"
+#import "LocalBankInfoList.h"
+#import "BSConnection.h"
+#import "BankCardAnswer.h"
+#import "BSConnection.h"
 
 @interface SubBankItem:NSObject
 @property (nonatomic,strong) NSString* bankId;
@@ -101,7 +104,7 @@
 {
     // Запрашиваем метаданные напрямую, а не через MetadataManager, так как банк еще не находится в списке банков
     bank.isStructureLoading=true;
-    MetadataRequest* request=[[MetadataRequest alloc] initWithBankId:bank.bankId moduleType:@"BankCard" moduleName:@"" structureName:@"selectCell" savedHash:@"" localeName:APP.currentLocaleId];
+    MetadataRequest* request=[[MetadataRequest alloc] initWithBankId:bank.bankId moduleType:@"BankCard" moduleName:@"" structureName:@"selectCell" savedHash:@"" localeId:APP.currentLanguageId];
     __weak SubBanksDataSource* weakSelf=self;
     __weak NSString* bankId=bank.bankId;
     BSConnection* connection=[BSConnection plainConnectionToURL:_url];
@@ -207,21 +210,15 @@
 
 SubBanksDataSource* _banksDataSource;
 
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    _visible=NO;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Прячем индикацию запроса
-    //currentTask=nil;
-    //self.activityIndicator.hidesWhenStopped=YES;
-    //[self.activityIndicator stopAnimating];
-    /*// Настраиваем кнопки в панели навигации
-    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
-    {
-        self.navigationItem.title=NSLocalizedStringFromTable(@"NavigationBarTitle_iPhone", @"SelectBankFromURLFormStrings", @"");
-    }
-    else
-    {
-        self.navigationItem.title=NSLocalizedStringFromTable(@"NavigationBarTitle", @"SelectBankFromURLFormStrings", @"");
-    }*/
+    _visible=YES;
     // Это чтобы компоненты не прятались под NavigationBar
     if ([self respondsToSelector:@selector(edgesForExtendedLayout)])
         self.edgesForExtendedLayout = UIRectEdgeNone;
@@ -255,12 +252,59 @@ SubBanksDataSource* _banksDataSource;
     return 50;
 }
 
+-(void) disableForm
+{
+    [_banksTableView setUserInteractionEnabled:NO];
+}
+
+-(void) enableForm
+{
+    [_banksTableView setUserInteractionEnabled:YES];
+}
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     SubBankItem* bank=[_banksDataSource.banks objectAtIndex:indexPath.row];
-    Bank* newBank=[APP.banks addBankWithUrl:_url bankId:bank.bankId];
-    [self dismissViewControllerAnimated:YES completion:nil];
-    [APP.rootController showLoginFormForBank:newBank];
+    if ([APP.getLocalBanks indexOfUrl:_url bankId:bank.bankId]!=NSNotFound)
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedStringFromTable(@"DuplicateBankAlert_Caption", @"SelectBankFromURLFormStrings", @"")
+                                                        message:NSLocalizedStringFromTable(@"DuplicateBankAlert_Message", @"SelectBankFromURLFormStrings", @"")
+                                                       delegate:nil
+                                              cancelButtonTitle:NSLocalizedStringFromTable(@"DuplicateBankAlert_CancelButton", @"SelectBankFromURLFormStrings", @"")
+                                              otherButtonTitles: nil];
+        [alert show];
+        return;
+    }
+    id<IRequest> request=[[SimpleRequest alloc] initWithWithBankId:bank.bankId answerClass:BankCardAnswer.class moduleType:@"BankCard" moduleName:@"" requestName:@"BankCard"];
+    BSConnection* connection=[BSConnection plainConnectionToURL:_url];
+    __weak SelectBankFromURLForm* weakself=self;
+    [_activityIndicator startAnimating];
+    [self disableForm];
+    [connection runRequest:request completionHandler:^(Answer* answer, NSError *error)
+     {
+         if (!weakself || !weakself.visible)
+             return;
+         if (answer)
+         {
+             BankCardAnswer* ans=(BankCardAnswer*)answer;
+             [weakself.activityIndicator stopAnimating];
+             NSUInteger bankIndex=[APP addLocalBankWithUrl:_url bankId:bank.bankId bankCard:(BankCard*)ans.entity];
+             [self dismissViewControllerAnimated:YES completion:nil];
+             [APP.rootController showLoginFormForBank:bankIndex];
+         }
+         else
+         {
+             [weakself.activityIndicator stopAnimating];
+             [self enableForm];
+             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedStringFromTable(@"NoServerResponseAlert_Caption", @"SelectBankFromURLFormStrings", @"")
+                                                             message:NSLocalizedStringFromTable(@"NoServerResponseAlert_Message", @"SelectBankFromURLFormStrings", @"")
+                                                            delegate:nil
+                                                   cancelButtonTitle:NSLocalizedStringFromTable(@"NoServerResponseAlert_CancelButton", @"SelectBankFromURLFormStrings", @"")
+                                                   otherButtonTitles: nil];
+             [alert show];
+             return;
+         }
+     }];
 }
 
 @end

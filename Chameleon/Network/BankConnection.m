@@ -33,4 +33,9 @@
     return [BSConnection plainConnectionToURL:[_bank url]];
 }
 
+-(BSConnection*) getConnection
+{
+    return [BSConnection plainConnectionToURL:[_bank url]];
+}
+
 @end

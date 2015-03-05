@@ -8,16 +8,16 @@
 
 #import "Request.h"
 
-@interface MetadataRequest : Request
+@interface MetadataRequest : Request<IRequest>
 
 @property (nonatomic,strong) NSString* bankId;
 @property (nonatomic,strong) NSString* moduleType;
 @property (nonatomic,strong) NSString* moduleName;
 @property (nonatomic,strong) NSString* structureName;
 @property (nonatomic,strong) NSString* savedHash;
-@property (nonatomic,strong) NSString* localeName;
+@property (nonatomic,strong) NSString* localeId;
 
--(instancetype) initWithBankId:(NSString*) bankId moduleType:(NSString*) moduleType moduleName:(NSString*) moduleName structureName:(NSString*) structureName savedHash:(NSString*) savedHash localeName:(NSString*) localeName;
+-(instancetype) initWithBankId:(NSString*) bankId moduleType:(NSString*) moduleType moduleName:(NSString*) moduleName structureName:(NSString*) structureName savedHash:(NSString*) savedHash localeId:(NSString*) localeId;
 
 -(instancetype) initWithBankId:(NSString*) bankId moduleType:(NSString*) moduleType moduleName:(NSString*) moduleName structureName:(NSString*) structureName savedHash:(NSString*) savedHash;
 

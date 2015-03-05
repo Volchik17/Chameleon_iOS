@@ -8,7 +8,7 @@
 
 #import "Request.h"
 
-@interface BankImageFromCatalogRequest : Request
+@interface BankImageFromCatalogRequest : Request<IRequest>
 
 @property (nonatomic,strong) NSString* catalogBankId;
 

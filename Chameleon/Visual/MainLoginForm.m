@@ -8,20 +8,22 @@
 
 #import "MainLoginForm.h"
 #import "Application.h"
-#import "BankList.h"
+#import "LocalBankInfoList.h"
 #import "ExtendedHitAreaViewContainer.h"
 #import "ResizeAwareView.h"
 #import "SelectAddBankForm.h"
+#import "BankCardViewController.h"
+#import "BankAddressForm.h"
 
 #define PAGE_CONTROL_HEIGHT 24.0
-#define MAX_BANK_CARD_WIDTH 400.0
-#define MAX_BANK_CARD_HEIGHT 600.0
+#define MAX_BANK_CARD_WIDTH 550.0
+#define MAX_BANK_CARD_HEIGHT 800.0
 #define PAGE_DISTANCE 50.0
 #define PAGE_OVERLAP 50.0
 
 @interface BankLoginPageItem:NSObject
-@property (nonatomic,strong) Bank* bank;
-@property (nonatomic,strong) UIView* view;
+@property (nonatomic,assign) NSInteger bankIndex;
+@property (nonatomic,strong) BankCardViewController* controller;
 @end
 
 @implementation BankLoginPageItem
@@ -91,14 +93,15 @@
 
 -(void) refreshPages
 {
-    BankList* banks=APP.banks;
+    NSArray* banks=APP.getLocalBanks;
     // Удаляем лишние страницы
     for (int i=pages.count-1;i>=0;i--)
     {
         BankLoginPageItem* page=[pages objectAtIndex:i];
-        if ([banks indexOf:page.bank.url bankId:page.bank.bankId]==NSNotFound)
+        if ([banks getByIndex:page.bankIndex]==nil)
         {
-            [page.view removeFromSuperview];
+            [page.controller.view removeFromSuperview];
+            [page.controller removeFromParentViewController];
             [pages removeObjectAtIndex:i];
         }
     }
@@ -109,7 +112,7 @@
         for (NSUInteger i=0;i<pages.count;i++)
         {
             BankLoginPageItem* page=[pages objectAtIndex:i];
-            if ([page.bank.bankId isEqualToString:bank.bankId] && [[page.bank.url uppercaseString] isEqualToString:[bank.url uppercaseString]])
+            if (page.bankIndex==bank.bankIndex)
             {
                 index=i;
                 break;
@@ -118,55 +121,36 @@
         if (index==NSNotFound)
         {
             BankLoginPageItem* page=[[BankLoginPageItem alloc] init];
-            page.view=nil;
-            page.bank=bank;
+            page.controller=[[BankCardViewController alloc] initWithBankIndex:bank.bankIndex];
+            [self addChildViewController:page.controller];
+            page.bankIndex=bank.bankIndex;
             [pages addObject:page];
         }
     }
     self.pageControl.numberOfPages=pages.count;
     for (int i = 0; i < pages.count; i++)
     {
-        //create the sub view and allocate memory
         BankLoginPageItem* page=[pages objectAtIndex:i];
-        if (page.view==nil)
-        {
-            UIView *myView = [[UIView alloc] init];
-            page.view=myView;
-            [myView setAutoresizesSubviews:NO];
-            //set the background to white color
-            myView.backgroundColor = [UIColor lightGrayColor];
-        
-            //create a label and add to the sub view
-            CGRect myFrame = CGRectMake(10.0f, 10.0f, 300.0f, 25.0f);
-            UILabel *myLabel = [[UILabel alloc] initWithFrame:myFrame];
-            myLabel.text = [NSString stringWithFormat:@"This is page number %d: %@", i,page.bank.bankId];
-            myLabel.font = [UIFont boldSystemFontOfSize:16.0f];
-            myLabel.textAlignment =  NSTextAlignmentLeft;
-            [myView addSubview:myLabel];
-        
-            //create a text field and add to the sub view
-            myFrame.origin.y += myFrame.size.height + 10.0f;
-            UITextField *myTextField = [[UITextField alloc] initWithFrame:myFrame];
-            myTextField.borderStyle = UITextBorderStyleRoundedRect;
-            myTextField.placeholder = [NSString stringWithFormat:@"Enter data in field %i", i];
-            myTextField.tag = i+1;
-            [myView addSubview:myTextField];
-            [self.bankScrollView addSubview:myView];
-        }
+        [self.bankScrollView addSubview:page.controller.view];
     }
-    //self.bankScrollView.contentSize = CGSizeMake(pageWidth+(pageWidth+pageDistance) * (pages.count-1)+pageDistance,pageHeight);
     [self onMainViewResize:_mainView];
 }
 
--(void) showPageForBank:(Bank*) bank
+-(void) showPageForBank:(NSInteger)bankIndex
 {
     for(BankLoginPageItem* page in pages)
-        if ([page.bank.bankId isEqualToString:bank.bankId] && [[page.bank.url uppercaseString] isEqualToString:[bank.url uppercaseString]])
+        if (page.bankIndex==bankIndex)
         {
             self.pageControl.currentPage=[pages indexOfObject:page];
             CGFloat x = self.pageControl.currentPage * self.bankScrollView.frame.size.width;
             [self.bankScrollView setContentOffset:CGPointMake(x, 0) animated:YES];
         }
+}
+
+-(void) didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation
+{
+    [super didRotateFromInterfaceOrientation:fromInterfaceOrientation];
+    [self onMainViewResize:_mainView];
 }
 
 -(void) onMainViewResize:(ResizeAwareView*) sender
@@ -203,8 +187,7 @@
     self.bankScrollView.contentSize = CGSizeMake(pageWidth+(pageWidth+pageDistance) * (self.pageControl.numberOfPages-1)+pageDistance,pageHeight);
     for (BankLoginPageItem* page in pages)
     {
-        page.view.frame=CGRectMake([pages indexOfObject:page]*(pageWidth+pageDistance), 0, pageWidth, pageHeight);
-        NSLog(@"%f:%f",page.view.frame.origin.x,page.view.frame.origin.y);
+        page.controller.view.frame=CGRectMake([pages indexOfObject:page]*(pageWidth+pageDistance), 0, pageWidth, pageHeight);
     }
 }
 
@@ -223,10 +206,6 @@
     // Pass the selected object to the new view controller.
 }
 */
-- (void)updateViewConstraints {
-    [super updateViewConstraints];
-    NSLog(@"updateViewConstraints: %f",_mainView.frame.size.height);
-}
 
 - (IBAction)onAddUrlClick:(id)sender {
     SelectAddBankForm* form=[[SelectAddBankForm alloc] initWithNibName:@"SelectAddBankForm" bundle:nil];
@@ -234,6 +213,20 @@
     navigationController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
     navigationController.modalPresentationStyle=UIModalPresentationFormSheet;
     [self presentViewController:navigationController animated:YES completion:nil];
+}
+
+- (IBAction)onChangeUrlClick:(id)sender
+{
+    NSInteger pageNumber = roundf(self.bankScrollView.contentOffset.x / (self.bankScrollView.frame.size.width));
+    if (pageNumber>=0 && pageNumber<pages.count)
+    {
+        BankAddressForm* form=[[BankAddressForm alloc] initWithNibName:@"BankAddressForm" bundle:nil];
+        UINavigationController* navigationController=[[UINavigationController alloc] initWithRootViewController:form];
+        form.bankIndex=[[pages objectAtIndex:pageNumber] bankIndex];
+        navigationController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+        navigationController.modalPresentationStyle=UIModalPresentationFormSheet;
+        [self presentViewController:navigationController animated:YES completion:nil];
+    }
 }
 
 - (IBAction)onDeleteUrlClick:(id)sender {
@@ -258,7 +251,8 @@
         case 1:
             if (pageNumber>=0 && pageNumber<pages.count)
             {
-                [APP.banks deleteBank:pageNumber];
+                BankLoginPageItem* page=[pages objectAtIndex:pageNumber];
+                [APP deleteLocalBank:page.bankIndex];
                 [APP.rootController showDefaultLoginForm];
             }
             break;

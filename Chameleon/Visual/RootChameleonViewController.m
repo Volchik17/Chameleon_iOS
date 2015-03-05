@@ -8,7 +8,7 @@
 
 #import "RootChameleonViewController.h"
 #import "Application.h"
-#import "BankList.h"
+#import "LocalBankInfoList.h"
 
 @interface RootChameleonViewController ()
 
@@ -37,7 +37,7 @@
 
 -(void) showDefaultLoginForm
 {
-    if (APP.banks.count<=0)
+    if (APP.getLocalBanks.count<=0)
         [self showViewController:[self getNoBanksLoginForm]];
     else
     {
@@ -110,16 +110,16 @@
     currentController=newViewController;
 }
 
--(void) showLoginFormForBank:(Bank*) bank
+-(void) showLoginFormForBank:(NSInteger)bankIndex
 {
     MainLoginForm* form=[self getMainLoginForm];
     if (currentController!=form)
        [self showViewController:form];
     [form refreshPages];
-    [form showPageForBank:bank];
+    [form showPageForBank:bankIndex];
 }
 
--(void) showBankContentForm:(Bank*) bank
+-(void) showBankContentForm:(NSInteger)bankIndex
 {
     
 }

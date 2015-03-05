@@ -8,6 +8,7 @@
 
 #import "PingRequest.h"
 #import "PingAnswer.h"
+#import "BSConnection.h"
 
 @implementation PingRequest
 

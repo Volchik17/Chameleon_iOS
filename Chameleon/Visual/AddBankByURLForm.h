@@ -13,6 +13,7 @@
 {
     id<ITaskHandler> currentTask;
 }
+@property (nonatomic,readonly) BOOL visible;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 @property (weak, nonatomic) IBOutlet UITextField *urlEdit;
 @property (weak, nonatomic) IBOutlet UITextField *bankIdEdit;

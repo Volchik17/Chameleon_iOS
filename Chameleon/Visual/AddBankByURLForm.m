@@ -12,8 +12,10 @@
 #import "PingRequest.h"
 #import "SelectBankFromURLForm.h"
 #import "Application.h"
-#import "BankList.h"
+#import "LocalBankInfoList.h"
 #import "Bank.h"
+#import "SimpleRequest.h"
+#import "BankCardAnswer.h"
 
 @implementation AddBankByURLForm
 
@@ -83,8 +85,15 @@
      }];
 }
 
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    _visible=NO;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    _visible=YES;
     // Прячем индикацию запроса
     currentTask=nil;
     self.activityIndicator.hidesWhenStopped=YES;
@@ -115,11 +124,62 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void) disableForm
+{
+    _urlEdit.userInteractionEnabled=NO;
+    _bankIdEdit.userInteractionEnabled=NO;
+    self.navigationItem.rightBarButtonItem.enabled=NO;
+}
+
+-(void) enableForm
+{
+    _urlEdit.userInteractionEnabled=YES;
+    _bankIdEdit.userInteractionEnabled=YES;
+    self.navigationItem.rightBarButtonItem.enabled=YES;
+}
+
 -(void) addBank:(NSString*) bankId url:(NSString*) url
 {
-    Bank* bank=[APP.banks addBankWithUrl:url bankId:bankId];
-    [self dismissViewControllerAnimated:YES completion:nil];
-    [APP.rootController showLoginFormForBank:bank];
+    if ([APP.getLocalBanks indexOfUrl:url bankId:bankId]!=NSNotFound)
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedStringFromTable(@"DuplicateBankAlert_Caption", @"AddBankByURLFormStrings", @"")
+                                                        message:NSLocalizedStringFromTable(@"DuplicateBankAlert_Message", @"AddBankByURLFormStrings", @"")
+                                                       delegate:nil
+                                              cancelButtonTitle:NSLocalizedStringFromTable(@"DuplicateBankAlert_CancelButton", @"AddBankByURLFormStrings", @"")
+                                              otherButtonTitles: nil];
+        [alert show];
+        return;
+    }
+    id<IRequest> request=[[SimpleRequest alloc] initWithWithBankId:bankId answerClass:BankCardAnswer.class moduleType:@"BankCard" moduleName:@"" requestName:@"BankCard"];
+    BSConnection* connection=[BSConnection plainConnectionToURL:url];
+    __weak AddBankByURLForm* weakself=self;
+    [_activityIndicator startAnimating];
+    [self disableForm];
+    [connection runRequest:request completionHandler:^(Answer* answer, NSError *error)
+     {
+         if (!weakself || !weakself.visible)
+             return;
+         if (answer)
+         {
+             BankCardAnswer* ans=(BankCardAnswer*)answer;
+             [weakself.activityIndicator stopAnimating];
+             NSUInteger bankIndex=[APP addLocalBankWithUrl:url bankId:bankId bankCard:(BankCard*)ans.entity];
+             [self dismissViewControllerAnimated:YES completion:nil];
+             [APP.rootController showLoginFormForBank:bankIndex];
+         }
+         else
+         {
+             [weakself.activityIndicator stopAnimating];
+             [self enableForm];
+             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedStringFromTable(@"NoServerResponseAlert_Caption", @"AddBankByURLFormStrings", @"")
+                                                             message:NSLocalizedStringFromTable(@"NoServerResponseAlert_Message", @"AddBankByURLFormStrings", @"")
+                                                            delegate:nil
+                                                   cancelButtonTitle:NSLocalizedStringFromTable(@"NoServerResponseAlert_CancelButton", @"AddBankByURLFormStrings", @"")
+                                                   otherButtonTitles: nil];
+             [alert show];
+             return;
+         }
+     }];
 }
 
 /*

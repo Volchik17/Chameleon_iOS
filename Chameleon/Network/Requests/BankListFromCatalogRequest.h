@@ -6,8 +6,8 @@
 //  Copyright (c) 2014 Volchik. All rights reserved.
 //
 
-#import "XMLRequest.h"
+#import "Request.h"
 
-@interface BankListFromCatalogRequest : Request
+@interface BankListFromCatalogRequest : Request<IRequest>
 
 @end

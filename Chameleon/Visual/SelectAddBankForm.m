@@ -16,8 +16,10 @@
 #import "BankImageFromCatalogAnswer.h"
 #import "Application.h"
 #import "AddBankByURLForm.h"
-#import "BankList.h"
+#import "LocalBankInfoList.h"
 #import "MainLoginForm.h"
+#import "SimpleRequest.h"
+#import "BankCardAnswer.h"
 
 @interface SelectBankInfo:NSObject
 
@@ -155,8 +157,15 @@
     [self.navigationController pushViewController:form animated:YES];
 }
 
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    _visible=NO;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    _visible=YES;
     // Задаем кнопочки на панели навигации
     NSString* connectByURLButtonTitle;
     NSString* backButtonTitle;
@@ -190,7 +199,7 @@
     // Запускаем запрос списка банков
     _errorLabel.hidden=true;
     [_activityIndicator startAnimating];
-    Request* request=[[BankListFromCatalogRequest alloc] init];
+    BankListFromCatalogRequest* request=[[BankListFromCatalogRequest alloc] init];
     __weak SelectAddBankForm* weakself=self;
     [APP.bankCatalogConnection runRequest:request completionHandler:^(Answer* answer, NSError *error)
      {
@@ -233,11 +242,61 @@
     [_banksTableView reloadData];
 }
 
+-(void) disableForm
+{
+    _banksTableView.userInteractionEnabled=NO;
+    self.navigationItem.rightBarButtonItem.enabled=NO;
+}
+
+-(void) enableForm
+{
+    _banksTableView.userInteractionEnabled=YES;
+    self.navigationItem.rightBarButtonItem.enabled=YES;
+}
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     SelectBankInfo* bank=[_banksDataSource.filteredBanks objectAtIndex:indexPath.row];
-    Bank* newBank=[APP.banks addBankWithUrl:bank.bank.url bankId:bank.bank.bankId];
-    [self dismissViewControllerAnimated:YES completion:nil];
-    [APP.rootController showLoginFormForBank:newBank];
+    if ([APP.getLocalBanks indexOfUrl:bank.bank.url bankId:bank.bank.bankId]!=NSNotFound)
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedStringFromTable(@"DuplicateBankAlert_Caption", @"SelectAddBankFormStrings", @"")
+                                                        message:NSLocalizedStringFromTable(@"DuplicateBankAlert_Message", @"SelectAddBankFormStrings", @"")
+                                                       delegate:nil
+                                              cancelButtonTitle:NSLocalizedStringFromTable(@"DuplicateBankAlert_CancelButton", @"SelectAddBankFormStrings", @"")
+                                              otherButtonTitles: nil];
+        [alert show];
+        return;
+    }
+    id<IRequest> request=[[SimpleRequest alloc] initWithWithBankId:bank.bank.bankId answerClass:BankCardAnswer.class moduleType:@"BankCard" moduleName:@"" requestName:@"BankCard"];
+    BSConnection* connection=[BSConnection plainConnectionToURL:bank.bank.url];
+    __weak SelectAddBankForm* weakself=self;
+    [_activityIndicator startAnimating];
+    [self disableForm];
+    [connection runRequest:request completionHandler:^(Answer* answer, NSError *error)
+     {
+         if (!weakself || !weakself.visible)
+             return;
+         if (answer)
+         {
+             BankCardAnswer* ans=(BankCardAnswer*)answer;
+             [weakself.activityIndicator stopAnimating];
+             NSUInteger bankIndex=[APP addLocalBankWithUrl:bank.bank.url bankId:bank.bank.bankId bankCard:(BankCard*)ans.entity];
+             [self dismissViewControllerAnimated:YES completion:nil];
+             [APP.rootController showLoginFormForBank:bankIndex];
+         }
+         else
+         {
+             [weakself.activityIndicator stopAnimating];
+             [self enableForm];
+             [weakself.banksTableView deselectRowAtIndexPath:indexPath animated:NO];
+             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedStringFromTable(@"NoServerResponseAlert_Caption", @"SelectAddBankFormStrings", @"")
+                                                             message:NSLocalizedStringFromTable(@"NoServerResponseAlert_Message", @"SelectAddBankFormStrings", @"")
+                                                            delegate:nil
+                                                   cancelButtonTitle:NSLocalizedStringFromTable(@"NoServerResponseAlert_CancelButton", @"SelectAddBankFormStrings", @"")
+                                                   otherButtonTitles: nil];
+             [alert show];
+             return;
+         }
+     }];
 }
 
 

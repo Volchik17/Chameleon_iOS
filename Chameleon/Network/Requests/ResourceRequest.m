@@ -8,6 +8,7 @@
 
 #import "ResourceRequest.h"
 #import "ResourceAnswer.h"
+#import "BSConnection.h"
 
 @implementation ResourceRequest
 

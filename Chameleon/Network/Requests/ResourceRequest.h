@@ -8,7 +8,7 @@
 
 #import "Request.h"
 
-@interface ResourceRequest : Request
+@interface ResourceRequest : Request<IRequest>
 
 @property (nonatomic,strong) NSString* bankId;
 @property (nonatomic,strong) NSString* moduleType;

@@ -14,3 +14,9 @@
 "NoBanksOnServer" = "По данному URL не найдено ни одного банка.";
 "UrlRequestError" = "По данному URL сервер системы не обнаружен.";
 "BackButtonTitle" = "Назад";
+"DuplicateBankAlert_Caption" = "Предупреждение";
+"DuplicateBankAlert_Message" = "Банк с указанными параметрами уже находится в списке подключенных банков.";
+"DuplicateBankAlert_CancelButton" = "OK";
+"NoServerResponseAlert_Caption" = "Ошибка";
+"NoServerResponseAlert_Message" = "Ошибка связи с указанным сервером банка. Добавление банка невозможно. Обратитесь в банк за актуальным адресом сервера банка.";
+"NoServerResponseAlert_CancelButton" = "OK";

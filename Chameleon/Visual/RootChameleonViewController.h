@@ -19,7 +19,7 @@
 }
 
 -(void) showDefaultLoginForm;
--(void) showLoginFormForBank:(Bank*) bank;
--(void) showBankContentForm:(Bank*) bank;
+-(void) showLoginFormForBank:(NSInteger)bankIndex;
+-(void) showBankContentForm:(NSInteger)bankIndex;
 
 @end

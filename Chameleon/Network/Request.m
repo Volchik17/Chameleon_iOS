@@ -10,16 +10,6 @@
 
 @implementation Request
 
--(NSURLRequest*) urlRequestForConnection:(BSConnection*) connection
-{
-    return nil;
-}
-
--(Class) getAnswerClass
-{
-    return nil;
-}
-
 -(NSString*) concatURL:(NSString*)baseURL withTail:(NSString*)tailURL
 {
     if ([baseURL hasSuffix:@"/"] || [baseURL hasSuffix:@"\\"])

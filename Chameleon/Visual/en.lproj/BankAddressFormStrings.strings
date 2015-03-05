@@ -1,0 +1,18 @@
+/* 
+  BankAddressFormStrings.strings
+  Chameleon
+
+  Created by Volchik on 24.01.15.
+  Copyright (c) 2015 Volchik. All rights reserved.
+*/
+
+"SaveButtonTitle" = "Save";
+"CancelButtonTitle" = "Cancel";
+"NavigationBarTitle" = "Bank address";
+"NavigationBarTitle_iPhone" = "Bank address";
+"DuplicateBankAlert_Caption" = "Warning";
+"DuplicateBankAlert_Message" = "Specified bank in already in list of connected banks.";
+"DuplicateBankAlert_CancelButton" = "OK";
+"NoServerResponseAlert_Caption" = "Error";
+"NoServerResponseAlert_Message" = "Error connecting specified bank server. Please contact your bank for actual server address.";
+"NoServerResponseAlert_CancelButton" = "OK";

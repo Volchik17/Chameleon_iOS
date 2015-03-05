@@ -10,4 +10,10 @@
 
 @implementation BankCard
 
+- (void) registerFields
+{
+    [super registerFields];
+    [self registerSystemField:@"bankName"];
+}
+
 @end

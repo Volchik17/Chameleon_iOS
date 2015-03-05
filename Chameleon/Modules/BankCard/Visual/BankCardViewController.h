@@ -7,7 +7,23 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BankCard.h"
+#import "LocalBankInfo.h"
 
 @interface BankCardViewController : UIViewController
+{
+    NSUInteger _bankIndex;
+    LocalBankInfo* _bankInfo;
+    NSData* _titleImageData;
+}
+
+-(instancetype) initWithBankIndex:(NSUInteger) bankIndex;
+
+@property (nonatomic,strong) id currentAuthViewController;
+@property (weak, nonatomic) IBOutlet UIView *titleView;
+@property (weak, nonatomic) IBOutlet UIView *authView;
+@property (weak, nonatomic) IBOutlet UIScrollView *infoPanelsScrollView;
+@property (weak, nonatomic) IBOutlet UIImageView *titleImageView;
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 
 @end

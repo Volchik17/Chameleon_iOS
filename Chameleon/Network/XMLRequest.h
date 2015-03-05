@@ -10,4 +10,6 @@
 
 @interface XMLRequest : Request
 
+-(NSURLRequest*) urlRequestForConnection:(BSConnection*) connection;
+
 @end

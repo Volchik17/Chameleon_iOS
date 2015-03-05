@@ -10,8 +10,11 @@
 
 @interface SelectBankFromURLForm : UIViewController<UITableViewDelegate>
 
+@property (nonatomic,readonly) BOOL visible;
+
 @property (nonatomic,strong) NSString* url;
 @property (nonatomic,strong) NSMutableArray* bankIds;
 @property (weak, nonatomic) IBOutlet UITableView *banksTableView;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 
 @end

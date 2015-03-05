@@ -7,12 +7,40 @@
 //
 
 #import "Application.h"
-#import "BankList.h"
 #import "Bank.h"
 #import "BankConnection.h"
 #import "BSConnection.h"
+#import "Request.h"
+#import "LocalBankInfoList.h"
+#import "MetadataManager.h"
+#import "ResourceManager.h"
+
 
 @implementation Application
+
+-(NSMutableArray*) loadLocalBanks
+{
+    @try {
+        NSUserDefaults *currentDefaults = [NSUserDefaults standardUserDefaults];
+        NSData *dataRepresentingSavedArray = [currentDefaults objectForKey:@"banks"];
+        if (dataRepresentingSavedArray != nil)
+        {
+            NSArray *oldSavedArray = [NSKeyedUnarchiver unarchiveObjectWithData:dataRepresentingSavedArray];
+            if (oldSavedArray != nil)
+                return [[NSMutableArray alloc] initWithArray:oldSavedArray];
+        }
+    } @catch (NSException* exception) {
+        NSLog(@"Error loading local bank list : %@",exception);
+    }
+    return [[NSMutableArray alloc] init];
+}
+
+-(void) saveLocalBanks
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:[NSKeyedArchiver archivedDataWithRootObject:[self getLocalBanks] ] forKey:@"banks"];
+    [defaults synchronize];
+}
 
 -(instancetype) initUniqueInstance {
     self=[super init];
@@ -21,18 +49,16 @@
         NSString *path = [[NSBundle mainBundle] bundlePath];
         NSString *configPlistPath = [path stringByAppendingPathComponent:@"config.plist"];
         NSDictionary *config = [NSDictionary dictionaryWithContentsOfFile:configPlistPath];
-        _bankCatalogURL=[config objectForKey:@"BankCatalogURL"];
-        self.banks = [[BankList alloc] init];
-        connections=[[NSMutableDictionary alloc] initWithCapacity:self.banks.count];
+        _metadataManager=[[MetadataManager alloc] init];
+        _resourceManager=[[ResourceManager alloc] init];
         _rootController=[[RootChameleonViewController alloc] init];
-        
-        for (Bank* bank in self.banks)
+        _bankCatalogURL=[config objectForKey:@"BankCatalogURL"];
+        NSMutableArray* bankList=[self loadLocalBanks];
+        _banks = [[NSMutableDictionary alloc] initWithCapacity:bankList.count];
+        for (LocalBankInfo* localBank in bankList)
         {
-            BankConnection* connection=[[BankConnection alloc] initWithBank:bank];
-            @synchronized(self)
-            {
-                [connections setObject:connection forKey:bank.bankId];
-            }
+            Bank* bank=[[Bank alloc] initWithLocalBankInfo:localBank];
+            [_banks setObject:bank forKey:@(localBank.bankIndex)];
         }
     }
     return self;
@@ -47,50 +73,123 @@
     return _bankCatalogConnection;
 }
 
--(BankConnection*)getConnectionForBankId:(NSString*) bankId
+-(Bank*) getBankByIndex:(NSUInteger) bankIndex
 {
     @synchronized(self) {
-        return [connections objectForKey:bankId];
+        return [_banks objectForKey:@(bankIndex)];
     }
 }
 
--(Answer*) runImmediateRequest:(Request*)request error:(NSError**) error
+-(NSArray*) getLocalBanks
 {
-    return [self runImmediateRequest:request forBank:self.currentBankId error:error];
+    NSMutableArray* list=[[NSMutableArray alloc] init];
+    @synchronized(self)
+    {
+        for (Bank* bank in _banks.allValues)
+        {
+            LocalBankInfo* localBank=[[LocalBankInfo alloc] init];
+            [bank fillLocalBankInfo:localBank];
+            [list addObject:localBank];
+        }
+    }
+    return list;
 }
 
--(Answer*) runImmediateRequest:(Request*)request forBank:(NSString*)bankId error:(NSError**) error
+-(LocalBankInfo*) getLocalBankByIndex:(NSUInteger) bankIndex
 {
-    BankConnection* connection=[self getConnectionForBankId:bankId];
-    return [connection runRequest:request error:error];
+    Bank* bank=[self getBankByIndex:bankIndex];
+    if (!bank)
+        return nil;
+    LocalBankInfo* localBankInfo=[[LocalBankInfo alloc]init];
+    [bank fillLocalBankInfo:localBankInfo];
+    return localBankInfo;
 }
 
--(void)runRequest:request forBank:(NSString*)bankId onComplete:(void(*)(Answer*,NSError*))onComplete
+-(NSInteger) generateLocalBankIndex
 {
-    Application *weakSelf = self;
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        NSError* error;
-        Answer* answer=[weakSelf runImmediateRequest:request forBank:bankId error:&error];
-        dispatch_async(dispatch_get_main_queue(), ^(){
-            onComplete(answer,error);
-        });
-    });
+    NSInteger i=1;
+    @synchronized(self)
+    {
+        for (Bank* bank in _banks.allValues)
+            if (bank.bankIndex>=i)
+                i=bank.bankIndex+1;
+    }
+    return i;
 }
 
--(void)runRequest:request onComplete:(void(*)(Answer*,NSError*))onComplete
+-(void) deleteLocalBank:(NSUInteger) bankIndex
 {
-    [self runRequest:request forBank:self.currentBankId onComplete:onComplete];
+    @synchronized(self)
+    {
+        [_banks removeObjectForKey:@(bankIndex)];
+        [self saveLocalBanks];
+    }
 }
 
--(id<ITaskHandler>) runRequest:(Request*) request forBank:(NSString*)bankId completionHandler:(void (^)(Answer* answer, NSError *error))completionHandler
+-(NSUInteger) addLocalBankWithUrl:(NSString*)url bankId:(NSString*) bankId bankCard:(BankCard*) bankCard
 {
-    BSConnection* connection=[[self getConnectionForBankId:bankId] getInfoConnection];
+    NSUInteger bankIndex;
+    @synchronized(self)
+    {
+        for (Bank* bank in _banks.allValues)
+        {
+            if ([bank.bankId isEqualToString:bankId] && [[bank.url uppercaseString] isEqualToString:[url uppercaseString]])
+                return bank.bankIndex;
+        }
+        bankIndex=self.generateLocalBankIndex;
+        Bank* bank=[[Bank alloc] initWithBankIndex:bankIndex bankId:bankId url:url bankCard:bankCard];
+        [_banks setObject:bank forKey:@(bankIndex)];
+    }
+    [self saveLocalBanks];
+    return bankIndex;
+}
+
+-(void) updateLocalBankUrl:(NSUInteger) bankIndex url:(NSString*) url
+{
+    @synchronized(self)
+    {
+        Bank* bank=[self getBankByIndex:bankIndex];
+        if (!bank)
+            return;
+        bank.url=url;
+    }
+    [self saveLocalBanks];
+}
+
+-(BSConnection*) getConnectionForBank:(NSInteger) bankIndex
+{
+    Bank* bank=[self getBankByIndex:bankIndex];
+    return [bank getConnection];
+}
+
+-(BSConnection*) getInfoConnectionForBank:(NSInteger) bankIndex
+{
+    Bank* bank=[self getBankByIndex:bankIndex];
+    return [bank getInfoConnection];
+}
+
+-(id<ITaskHandler>) runRequest:(id<IRequest>) request forBank:(NSInteger)bankIndex completionHandler:(void (^)(Answer* answer, NSError *error))completionHandler
+{
+    Bank* bank=[self getBankByIndex:bankIndex];
+    if ([request respondsToSelector:@selector(setBankId:)])
+        [request setBankId:bank.bankId];
+    BSConnection* connection=[bank getConnection];
     return [connection runRequest:request completionHandler:completionHandler];
 }
 
--(NSString*) currentLocaleId
+-(id<ITaskHandler>) runInfoRequest:(id<IRequest>) request forBank:(NSInteger)bankIndex completionHandler:(void (^)(Answer* answer, NSError *error))completionHandler
 {
-    return [[NSLocale currentLocale] localeIdentifier];
+    Bank* bank=[self getBankByIndex:bankIndex];
+    if ([request respondsToSelector:@selector(setBankId:)])
+        [request setBankId:bank.bankId];
+    BSConnection* connection=[bank getInfoConnection];
+    return [connection runRequest:request completionHandler:completionHandler];
+}
+
+-(NSString*) currentLanguageId
+{
+    NSString* locale=[[NSLocale currentLocale] localeIdentifier];
+    return [[NSLocale componentsFromLocaleIdentifier:locale] objectForKey:NSLocaleLanguageCode];
 }
 
 +(instancetype) getApplication

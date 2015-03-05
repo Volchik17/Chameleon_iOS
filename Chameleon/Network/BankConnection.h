@@ -16,6 +16,7 @@
 
 -(instancetype) initWithBank:(Bank*) bank;
 -(BSConnection*) getInfoConnection;
+-(BSConnection*) getConnection;
 -(Answer*) runRequest:(Request*) request error:(NSError**) error;
 @property (nonatomic,readonly) Bank* bank;
 @end

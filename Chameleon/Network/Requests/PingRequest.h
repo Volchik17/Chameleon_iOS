@@ -8,6 +8,6 @@
 
 #import "Request.h"
 
-@interface PingRequest : Request
+@interface PingRequest : Request<IRequest>
 
 @end

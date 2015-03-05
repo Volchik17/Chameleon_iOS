@@ -119,3 +119,31 @@
 }
 
 @end
+
+BOOL boolAttribute(NSDictionary* attributes, NSString* attributeName, BOOL defaultValue)
+{
+    NSString* value=[attributes objectForKey:attributeName];
+    if (!value)
+        return defaultValue;
+    return [[value uppercaseString] isEqualToString:@"TRUE"] || [value isEqualToString:@"1"];
+}
+
+UIColor* colorAttribute(NSDictionary* attributes, NSString* attributeName, UIColor* defaultValue)
+{
+    NSString* value=[attributes objectForKey:attributeName];
+    if (!value)
+        return defaultValue;
+    NSScanner* scanner = [NSScanner scannerWithString:value];
+    unsigned outVal;
+    if (![scanner scanHexInt:&outVal])
+        return defaultValue;
+    Byte alpha=outVal>>24;
+    Byte red=(outVal & 0xFF0000)>>16;
+    Byte green=(outVal & 0x00FF00)>>8;
+    Byte blue=(outVal & 0x0000FF);
+    CGFloat a=1-(CGFloat)alpha / 255.;
+    CGFloat r=(CGFloat)red / 255.;
+    CGFloat g=(CGFloat)green / 255.;
+    CGFloat b=(CGFloat)blue / 255.;
+    return [UIColor colorWithRed:r green:g blue:b alpha:a];
+}

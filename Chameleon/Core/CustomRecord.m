@@ -86,6 +86,21 @@
     return newRecord;
 }
 
+- (void)encodeWithCoder:(NSCoder *)coder;
+{
+    [coder encodeObject:fields forKey:@"fields"];
+}
+
+- (id)initWithCoder:(NSCoder *)coder;
+{
+    self = [super init];
+    if (self != nil)
+    {
+        fields=[coder decodeObjectForKey:@"fields"];
+    }
+    return self;
+}
+
 @end
 
 @implementation CustomRecordEnumerator

@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @class HierarchicalXMLParser;
 
@@ -39,3 +40,6 @@
 - (BOOL) parseWithData:(NSData*)data rootParser:(id<HierarchicalXMLParserDelegate>)rootParser;
 - (void) abortParser;
 @end
+
+BOOL boolAttribute(NSDictionary* attributes, NSString* attributeName, BOOL defaultValue);
+UIColor* colorAttribute(NSDictionary* attributes, NSString* attributeName, UIColor* defaultValue);

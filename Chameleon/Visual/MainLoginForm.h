@@ -24,6 +24,6 @@
 - (IBAction)onDeleteUrlClick:(id)sender;
 
 -(void) refreshPages;
--(void) showPageForBank:(Bank*) bank;
+-(void) showPageForBank:(NSInteger) bankIndex;
 
 @end

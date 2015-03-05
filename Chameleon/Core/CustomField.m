@@ -64,4 +64,21 @@
     value = [[Value alloc] initWithDataType:dataType value:[oValue getValue]];
 }
 
+- (void)encodeWithCoder:(NSCoder *)coder;
+{
+    [coder encodeObject:fieldName forKey:@"name"];
+    [coder encodeObject:value forKey:@"value"];
+}
+
+- (id)initWithCoder:(NSCoder *)coder;
+{
+    self = [super init];
+    if (self != nil)
+    {
+        fieldName=[coder decodeObjectForKey:@"name"];
+        value=[coder decodeObjectForKey:@"value"];
+    }
+    return self;
+}
+
 @end

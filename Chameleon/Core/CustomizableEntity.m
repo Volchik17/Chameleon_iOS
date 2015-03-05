@@ -10,6 +10,8 @@
 #import "Value.h"
 #import "CustomRecord.h"
 #import <objc/message.h>
+#import "Field.h"
+#import "CustomField.h"
 
 @interface SystemField : Field
 {
@@ -314,5 +316,66 @@
 - (void) registerFields
 {}
 
+- (void)encodeWithCoder:(NSCoder *)coder;
+{
+    for (NSString* fieldName in [systemFields allKeys])
+        [coder encodeObject:[[self getFieldWithName:fieldName] getValue] forKey:[NSString stringWithFormat: @"systemFields.%@",fieldName]];
+    [coder encodeObject:customFields forKey:@"customFields"];
+}
+
+- (id)initWithCoder:(NSCoder *)coder;
+{
+    self = [super init];
+    if (self != nil)
+    {
+        systemFields = [[NSMutableDictionary alloc] init];
+        customFields = [coder decodeObjectForKey:@"customFields"];
+        [self registerFields];
+        for (NSString* fieldName in [systemFields allKeys])
+            [[self getFieldWithName:fieldName] setValue:[coder decodeObjectForKey:[NSString stringWithFormat: @"systemFields.%@",fieldName]]];
+        
+    }
+    return self;
+}
+
 @end
 
+@implementation CustomizableEntityFullXMLParser
+
+-(instancetype) initWithEntity:(CustomizableEntity*) entity
+{
+    self=[super init];
+    if (self)
+    {
+        _entity=entity;
+    }
+    return self;
+}
+
+- (id<HierarchicalXMLParserDelegate>) didStartSubElement:(NSString*)elementName namespaceURI:(NSString*)namespaceURI qualifiedName:(NSString*)qualifiedName attributes:(NSDictionary*)attributeDict
+{
+    if ([elementName isEqualToString:@"field"])
+    {
+        NSString* name=[attributeDict objectForKey:@"name"];
+        NSString* value=[attributeDict objectForKey:@"value"];
+        if (value==nil)
+            value=@"";
+        Field* field=[_entity getFieldWithName:name];
+        if (field)
+        {
+            [field setXMLValue:value];
+            
+        } else
+        {
+            NSString* typeStr=[attributeDict objectForKey:@"dataType"];
+            if (typeStr==nil)
+                typeStr=@"string";
+            DataType type=getTypeWithName(typeStr);
+            field=[_entity.getCustomFields addFieldWithName:name dataType:type];
+            [field setXMLValue:value];
+        }
+    }
+    return nil;
+}
+
+@end

@@ -8,8 +8,10 @@
 
 #import <Foundation/Foundation.h>
 #import "ITaskHandler.h"
-@class Request;
-@class Answer;
+#import "Request.h"
+#import "Answer.h"
+
+@protocol IRequest;
 
 @interface BSConnection : NSObject
 
@@ -19,6 +21,6 @@
 
 +(instancetype) plainConnectionToURL:(NSString*) url;
 
--(id<ITaskHandler>) runRequest:(Request*) request completionHandler:(void (^)(Answer* answer, NSError *error))completionHandler;
+-(id<ITaskHandler>) runRequest:(id<IRequest>) request completionHandler:(void (^)(Answer* answer, NSError *error))completionHandler;
 
 @end

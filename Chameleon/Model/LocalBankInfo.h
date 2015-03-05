@@ -7,10 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "BankCard.h"
 
-@interface Bank : NSObject
+@interface LocalBankInfo : NSObject
 
 @property (nonatomic,strong) NSString* url;
 @property (nonatomic, strong) NSString* bankId;
+@property (nonatomic,assign) NSUInteger bankIndex;
+@property (nonatomic,strong) BankCard* bankCard;
 
 @end
